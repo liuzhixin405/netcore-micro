@@ -1,33 +1,52 @@
-﻿using chatgptwriteproject.BaseRepository;
-using chatgptwriteproject.Context;
-using chatgptwriteproject.DbFactories;
-using chatgptwriteproject.Models;
+﻿using EfCoreProject.BaseRepository;
+using EfCoreProject.Context;
+using EfCoreProject.DbFactories;
+using EfCoreProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 
-namespace chatgptwriteproject.Repositories
+namespace EfCoreProject.Repositories
 {
-    public class ProductRepository : RepositoryBase<ReadProductDbContext, WriteProductDbContext, Product>, IProductRepository
+    public class ProductReadRepository : RepositoryBase<ReadProductDbContext, Product>, IReadProductRepository
     {
         private readonly ReadProductDbContext _readContext;
-        private readonly WriteProductDbContext _writeContext;
 
-        public ProductRepository(DbFactory<ReadProductDbContext, WriteProductDbContext> dbfactory) : base(dbfactory)
+
+        public ProductReadRepository(DbFactory<ReadProductDbContext> readContextFactory) : base(readContextFactory)
         {
-            _readContext = dbfactory.Context.Item1;
-            _writeContext = dbfactory.Context.Item2;
+            _readContext = readContextFactory?.Context;
         }
 
         public async ValueTask<Product> GetById(int id)
         {
-            var result =await _readContext.Products.Where(x => x.Id == id).FirstOrDefaultAsync();
+            var result =await _readContext.Set<Product>().Where(x => x.Id == id).FirstOrDefaultAsync();
             return result;
         }
 
         public override IUnitOfWork GetUnitOfWork()
         {
-            return _writeContext;
+            //不需要事先
+            throw new NotImplementedException();
         }
     }
 
+    public class ProductWriteRepository : RepositoryBase<WriteProductDbContext, Product>, IWriteProductRepository
+    {
+        private readonly WriteProductDbContext _readContext;
+
+
+        public ProductWriteRepository(DbFactory<WriteProductDbContext> readContextFactory) : base(readContextFactory)
+        {
+            _readContext = readContextFactory?.Context;
+        }
+
+
+        public override IUnitOfWork GetUnitOfWork()
+        {
+            if (_readContext is WriteProductDbContext)
+                return (WriteProductDbContext)_readContext;
+            else
+                throw new ArgumentNullException(nameof(_readContext));
+        }
+    }
 }

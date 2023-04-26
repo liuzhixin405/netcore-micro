@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+6jBWLvOaqXu0qSCO84nAilg0f6BulQjwYU59QLvBVtWDxB78OhbflwpVIINH2ji9HW8U3yPq5xA0HOZh6lznQ==",
+  "dgSpecHash": "qJk0Y4xluinjgWGTpC1koFcadKGnD1ZE6ebtkxOjWpG6QpGzpjnRaxd1LuAlK2yRojeYwWGMms4W6Q7zCe6CFQ==",
   "success": true,
-  "projectFilePath": "D:\\GitHub\\efcore开发模板\\chatgptwriteproject\\project\\project.csproj",
+  "projectFilePath": "D:\\GitHub\\efcore开发模板\\project\\project.csproj",
   "expectedPackageFiles": [
     "D:\\Program Files\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "D:\\Program Files\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

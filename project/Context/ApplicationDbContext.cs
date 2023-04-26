@@ -1,7 +1,7 @@
-﻿using chatgptwriteproject.Models;
+﻿using EfCoreProject.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace chatgptwriteproject.Context
+namespace EfCoreProject.Context
 {
     public abstract class ApplicationDbContext:DbContext
     {

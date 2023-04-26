@@ -1,29 +1,32 @@
-﻿using chatgptwriteproject.Context;
+﻿using EfCoreProject.Context;
 using Microsoft.EntityFrameworkCore;
+using project.Models;
+using System.Data;
 
-namespace chatgptwriteproject.DbFactories
+namespace EfCoreProject.DbFactories
 {
-    public class DbFactory<RC,WC>:IDisposable where RC: DbContext where WC: DbContext
+    public class DbFactory<Ctx>:IDisposable where Ctx : DbContext
     {
         private bool _disposed;
-        private Func<Tuple<RC,WC>> _instanceFunc;
-        private Tuple<RC, WC> _context;
-        public Tuple<RC, WC> Context => _context ?? (_context = _instanceFunc());
-        public DbFactory(Func<Tuple<RC, WC>> instance)
+        private Func<Ctx> _instanceFunc;
+        //private DbContextType _dbType;
+        private Ctx _context;
+        public Ctx Context => _context ?? (_context = _instanceFunc());
+        public DbFactory(Func<Ctx> instance
+            //, DbContextType dbType
+            )
         {
-            _instanceFunc= instance??throw new ArgumentNullException("dbcontext is null");
+            //_dbType = dbType;
+            _instanceFunc = instance??throw new ArgumentNullException("dbcontext is null");
         }
 
         public void Dispose()
         {
             _disposed = true;   
-            if(_context.Item1!= null)
+           
+            if (_context != null)
             {
-                _context.Item1.Dispose();
-            }
-            if (_context.Item2 != null)
-            {
-                _context.Item2.Dispose();
+                _context.Dispose();
             }
         }
     }

@@ -1,7 +1,7 @@
-﻿using chatgptwriteproject.Models;
-using chatgptwriteproject.Repositories;
+﻿using EfCoreProject.Models;
+using EfCoreProject.Repositories;
 
-namespace chatgptwriteproject.Context
+namespace EfCoreProject.Context
 {
     public interface IUnitOfWork : IDisposable
     {

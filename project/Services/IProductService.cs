@@ -1,6 +1,6 @@
-﻿using chatgptwriteproject.Models;
+﻿using EfCoreProject.Models;
 
-namespace chatgptwriteproject.Services
+namespace EfCoreProject.Services
 {
     public interface IProductService
     {

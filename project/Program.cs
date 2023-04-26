@@ -1,13 +1,13 @@
 
-using chatgptwriteproject.Context;
-using chatgptwriteproject.DbFactories;
-using chatgptwriteproject.Models;
-using chatgptwriteproject.Repositories;
-using chatgptwriteproject.Services;
+using EfCoreProject.Context;
+using EfCoreProject.DbFactories;
+using EfCoreProject.Models;
+using EfCoreProject.Repositories;
+using EfCoreProject.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace chatgptwriteproject
+namespace EfCoreProject
 {
     public class Program       //chatgpt只能写基础的逻辑代码
     {
@@ -22,10 +22,14 @@ namespace chatgptwriteproject
             builder.Services.AddDbContextFactory<ReadProductDbContext>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:ReadConnection"]),ServiceLifetime.Scoped);
             builder.Services.AddDbContextFactory<WriteProductDbContext>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:WriteConnection"]), ServiceLifetime.Scoped);
             
-            builder.Services.AddScoped<Func<Tuple<ReadProductDbContext, WriteProductDbContext>>>(provider => () =>Tuple.Create(provider.GetService<ReadProductDbContext>()??throw new ArgumentNullException("ReadProductDbContext is not inject to program"),provider.GetService<WriteProductDbContext>() ?? throw new ArgumentNullException("WriteProductDbContext is not inject to program")));
-          
-            builder.Services.AddScoped<DbFactory<ReadProductDbContext,WriteProductDbContext>>();
-            builder.Services.AddScoped(typeof(IProductRepository), typeof(ProductRepository));
+            builder.Services.AddScoped<Func<ReadProductDbContext>>(provider => () =>provider.GetService<ReadProductDbContext>()??throw new ArgumentNullException("ReadProductDbContext is not inject to program"));
+            builder.Services.AddScoped<Func<WriteProductDbContext>>(provider => () => provider.GetService<WriteProductDbContext>() ?? throw new ArgumentNullException("WriteProductDbContext is not inject to program"));
+
+            builder.Services.AddScoped<DbFactory<WriteProductDbContext>>();
+            builder.Services.AddScoped<DbFactory<ReadProductDbContext>>();
+
+            builder.Services.AddTransient<IReadProductRepository,ProductReadRepository>();
+            builder.Services.AddTransient<IWriteProductRepository, ProductWriteRepository>();
             builder.Services.AddTransient<IProductService, ProductService>();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();

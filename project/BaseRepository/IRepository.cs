@@ -1,17 +1,22 @@
-﻿using chatgptwriteproject.Context;
+﻿using EfCoreProject.Context;
 
-namespace chatgptwriteproject.BaseRepository
+namespace EfCoreProject.BaseRepository
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IWriteRepository<TEntity> where TEntity : class
     {
-        Task<IEnumerable<TEntity>> GetList();
         void Add(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
         void Add(List<TEntity> entity);
         void Update(List<TEntity> entity);
         void Delete(List<TEntity> entity);
-        IQueryable<TEntity> GetQuerable();
+      
         IUnitOfWork GetUnitOfWork();
+    }
+
+    public interface IReadRepository<TEntity> where TEntity : class
+    {
+        IQueryable<TEntity> GetQuerable();
+        Task<IEnumerable<TEntity>> GetList();
     }
 }

@@ -1,11 +1,11 @@
-﻿using chatgptwriteproject.Context;
-using chatgptwriteproject.Models;
-using chatgptwriteproject.Services;
+﻿using EfCoreProject.Context;
+using EfCoreProject.Models;
+using EfCoreProject.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace chatgptwriteproject.Controllers
+namespace EfCoreProject.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

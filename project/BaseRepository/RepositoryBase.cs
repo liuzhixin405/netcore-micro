@@ -1,64 +1,62 @@
-﻿using chatgptwriteproject.Context;
-using chatgptwriteproject.DbFactories;
-using chatgptwriteproject.Models;
+﻿using EfCoreProject.Context;
+using EfCoreProject.DbFactories;
+using EfCoreProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 
-namespace chatgptwriteproject.BaseRepository
+namespace EfCoreProject.BaseRepository
 {
-    public abstract class RepositoryBase<RCtx,WCtx,TEntity> : IRepository<TEntity> where TEntity : class where RCtx : DbContext where WCtx: DbContext
+    public abstract class RepositoryBase<Ctx,TEntity> : IReadRepository<TEntity> ,IWriteRepository<TEntity> where TEntity : class where Ctx : DbContext
     {
-        private readonly RCtx _readContext;
-        private readonly WCtx _writeContext;
+        private readonly Ctx _context;
 
-        public RepositoryBase(DbFactory<RCtx, WCtx> dbContext)
+        public RepositoryBase(DbFactory<Ctx> dbContext)
         {
-            _readContext = dbContext.Context.Item1;
-            _writeContext= dbContext.Context.Item2;
+            _context = dbContext.Context;
         }
 
         public void Add(TEntity entity)
         {
-            _writeContext.Set<TEntity>().Add(entity);
+            _context.Set<TEntity>().Add(entity);
         }
 
         public void Add(List<TEntity> entity)
         {
-            _writeContext.Set<List<TEntity>>().Add(entity);
+            _context.Set<List<TEntity>>().Add(entity);
         }
 
         public void Delete(TEntity entity)
         {
-            _writeContext.Set<TEntity>().Remove(entity);
+            _context.Set<TEntity>().Remove(entity);
         }
 
         public void Delete(List<TEntity> entity)
         {
-            _writeContext.Set<List<TEntity>>().Remove(entity);
+            _context.Set<List<TEntity>>().Remove(entity);
         }
 
         public async Task<IEnumerable<TEntity>> GetList()
         {
-            var result = await _readContext.Set<TEntity>().AsNoTracking().ToListAsync();
+            var result = await _context.Set<TEntity>().AsNoTracking().ToListAsync();
             return result;
         }
         public IQueryable<TEntity> GetQuerable()
         {
-            return _writeContext.Set<TEntity>().AsQueryable();
+            return _context.Set<TEntity>().AsQueryable();
         }
 
         public void Update(TEntity entity)
         {
-            _writeContext.Entry(entity).State = EntityState.Modified;
-            _writeContext.Set<TEntity>().Update(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+            _context.Set<TEntity>().Update(entity);
         }
 
         public void Update(List<TEntity> entity)
         {
             foreach (var item in entity)
             {
-                _writeContext.Entry(item).State = EntityState.Modified;
-                _writeContext.Set<TEntity>().Update(item);
+                _context.Entry(item).State = EntityState.Modified;
+                _context.Set<TEntity>().Update(item);
             }
         }
 

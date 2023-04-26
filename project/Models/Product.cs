@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace chatgptwriteproject.Models
+namespace EfCoreProject.Models
 {
     [Table("Product")]
     public class Product

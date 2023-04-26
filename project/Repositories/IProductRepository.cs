@@ -1,12 +1,16 @@
-﻿using chatgptwriteproject.BaseRepository;
-using chatgptwriteproject.Context;
-using chatgptwriteproject.Models;
+﻿using EfCoreProject.BaseRepository;
+using EfCoreProject.Context;
+using EfCoreProject.Models;
 
-namespace chatgptwriteproject.Repositories
+namespace EfCoreProject.Repositories
 {
-    public interface IProductRepository:IRepository<Product>
+    public interface IReadProductRepository:IReadRepository<Product>
     {
         ValueTask<Product> GetById(int id);
-       
     }
+
+    public interface IWriteProductRepository:IWriteRepository<Product>
+    { 
+
+    }  
 }

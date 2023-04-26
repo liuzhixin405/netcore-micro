@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\efcore开发模板\\chatgptwriteproject\\project\\project.csproj": {}
+    "D:\\GitHub\\efcore开发模板\\project\\project.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\efcore开发模板\\chatgptwriteproject\\project\\project.csproj": {
+    "D:\\GitHub\\efcore开发模板\\project\\project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\efcore开发模板\\chatgptwriteproject\\project\\project.csproj",
+        "projectUniqueName": "D:\\GitHub\\efcore开发模板\\project\\project.csproj",
         "projectName": "project",
-        "projectPath": "D:\\GitHub\\efcore开发模板\\chatgptwriteproject\\project\\project.csproj",
+        "projectPath": "D:\\GitHub\\efcore开发模板\\project\\project.csproj",
         "packagesPath": "D:\\Program Files\\.nuget\\packages",
-        "outputPath": "D:\\GitHub\\efcore开发模板\\chatgptwriteproject\\project\\obj\\",
+        "outputPath": "D:\\GitHub\\efcore开发模板\\project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
