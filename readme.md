@@ -1,0 +1,1 @@
+该efcore使用sqlserver数据库,仓储和分库
