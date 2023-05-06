@@ -286,3 +286,17 @@ D:\GitHub\efcore-template\project\obj\Debug\net7.0\scopedcss\bundle\project.styl
 D:\GitHub\efcore-template\project\obj\Debug\net7.0\project.csproj.CopyComplete
 D:\GitHub\efcore-template\project\obj\Debug\net7.0\project.genruntimeconfig.cache
 D:\GitHub\efcore-template\project\obj\Debug\net7.0\ref\project.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\Dapper.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\Dapper.Contrib.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\Google.Protobuf.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\K4os.Compression.LZ4.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\K4os.Compression.LZ4.Streams.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\K4os.Hash.xxHash.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\MySql.Data.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\MySql.EntityFrameworkCore.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\BouncyCastle.Crypto.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\runtimes\win-x64\native\comerr64.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\runtimes\win-x64\native\gssapi64.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\runtimes\win-x64\native\k5sprt64.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\runtimes\win-x64\native\krb5_64.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\runtimes\win-x64\native\krbcc64.dll

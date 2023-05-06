@@ -1,6 +1,6 @@
 ﻿using EfCoreProject.Context;
 
-namespace EfCoreProject.BaseRepository
+namespace EfCoreProject.BaseRepo
 {
     public interface IWriteRepository<TEntity> where TEntity : class
     {
@@ -14,9 +14,5 @@ namespace EfCoreProject.BaseRepository
         IUnitOfWork GetUnitOfWork();
     }
 
-    public interface IReadRepository<TEntity> where TEntity : class
-    {
-        IQueryable<TEntity> GetQuerable();
-        Task<IEnumerable<TEntity>> GetList();
-    }
+   
 }

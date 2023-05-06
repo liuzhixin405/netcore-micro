@@ -4,7 +4,7 @@ using EfCoreProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 
-namespace EfCoreProject.BaseRepository
+namespace EfCoreProject.BaseRepo
 {
     public abstract class RepositoryBase<Ctx,TEntity> : IReadRepository<TEntity> ,IWriteRepository<TEntity> where TEntity : class where Ctx : DbContext
     {
