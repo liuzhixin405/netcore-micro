@@ -1,6 +1,6 @@
 ﻿using EfCoreProject.Context;
 using Microsoft.EntityFrameworkCore;
-using project.Models;
+using EfCoreProject.Models;
 using System.Data;
 
 namespace EfCoreProject.DbFactories

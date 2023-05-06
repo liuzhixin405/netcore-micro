@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qJk0Y4xluinjgWGTpC1koFcadKGnD1ZE6ebtkxOjWpG6QpGzpjnRaxd1LuAlK2yRojeYwWGMms4W6Q7zCe6CFQ==",
+  "dgSpecHash": "rPMrBhXqYoQ3oleTdzH6XyGMoPiO/suElTdzLObX2D975olcArqsTm/4Uij2uijf32tMZNmvomkC7M5GsIa9/w==",
   "success": true,
-  "projectFilePath": "D:\\GitHub\\efcore开发模板\\project\\project.csproj",
+  "projectFilePath": "D:\\GitHub\\efcore-template\\project\\project.csproj",
   "expectedPackageFiles": [
     "D:\\Program Files\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "D:\\Program Files\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
