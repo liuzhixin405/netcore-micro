@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <Folder Include="Dapper\" />
+    <Folder Include="Utility\" />
   </ItemGroup>
 
 </Project>

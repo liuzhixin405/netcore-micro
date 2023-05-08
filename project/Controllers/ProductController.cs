@@ -4,6 +4,7 @@ using EfCoreProject.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using project.Dtos.Product;
 
 namespace EfCoreProject.Controllers
 {
@@ -37,7 +38,7 @@ namespace EfCoreProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Product product)
+        public async Task<IActionResult> Post(CreateProductDto product)
         {
            await _productService.Add(product);
             return Ok();

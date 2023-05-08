@@ -1,21 +1,33 @@
 ﻿using EfCoreProject.Models;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EfCoreProject.Context
 {
-    public abstract class ApplicationDbContext:DbContext
+    public abstract class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions contextOptions) :base(contextOptions)
+        private readonly IConfiguration _configuration;
+        public ApplicationDbContext(DbContextOptions contextOptions, IConfiguration configuration) : base(contextOptions)
         {
-
+            _configuration = configuration;
         }
         public DbSet<Product> Products { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            if (_configuration["DbType"]?.ToLower() == "sqlserver")
+                modelBuilder.Entity<Product>()
+       .Property<byte[]>("Version")
+       .IsRowVersion();
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 
-    public class WriteProductDbContext: ApplicationDbContext,IUnitOfWork
+    public class WriteProductDbContext : ApplicationDbContext, IUnitOfWork
     {
-      
-        public WriteProductDbContext(DbContextOptions<WriteProductDbContext> options) : base(options)
+
+        public WriteProductDbContext(DbContextOptions<WriteProductDbContext> options, IConfiguration configuration) : base(options, configuration)
         {
         }
 
@@ -27,8 +39,8 @@ namespace EfCoreProject.Context
 
     public class ReadProductDbContext : ApplicationDbContext
     {
-       
-        public ReadProductDbContext(DbContextOptions<ReadProductDbContext> options) : base(options)
+
+        public ReadProductDbContext(DbContextOptions<ReadProductDbContext> options, IConfiguration configuration) : base(options, configuration)
         {
         }
     }

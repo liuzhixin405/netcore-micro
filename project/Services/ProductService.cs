@@ -3,6 +3,7 @@ using EfCoreProject.DbFactories;
 using EfCoreProject.Models;
 using EfCoreProject.Repositories;
 using Microsoft.EntityFrameworkCore;
+using project.Dtos.Product;
 
 namespace EfCoreProject.Services
 {
@@ -10,15 +11,25 @@ namespace EfCoreProject.Services
     {
         private readonly IWriteProductRepository _writeProductRepository;
         private readonly IReadProductRepository _readProductRepository;
+        private readonly IConfiguration _configuration;
 
-        public ProductService(IWriteProductRepository writeProductRepository, IReadProductRepository readProductRepository)
+        public ProductService(IWriteProductRepository writeProductRepository
+            , IReadProductRepository readProductRepository
+            ,IConfiguration configuration)
         {
             _writeProductRepository = writeProductRepository;
             _readProductRepository = readProductRepository;
+            _configuration = configuration;
         }
-        public async Task Add(Product product)
+        public async Task Add(CreateProductDto product)
         {
-            _writeProductRepository.Add(product);
+            var newProduct = new Product
+            {
+                Name = product.Name,
+                Price = product.Price,
+            };
+           
+            _writeProductRepository.Add(newProduct);
             await _writeProductRepository.GetUnitOfWork().SaveChangeAsync();
         }
 
