@@ -1,10 +1,9 @@
-﻿using EfCoreProject.BaseRepo;
-using EfCoreProject.Context;
-using EfCoreProject.DbFactories;
+﻿using EfCoreProject.Context;
 using EfCoreProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
-using project.BaseRepo;
+using RepositoryComponent.BaseRepo;
+using RepositoryComponent.DbFactories;
 
 namespace EfCoreProject.Repositories
 {

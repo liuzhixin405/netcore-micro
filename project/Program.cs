@@ -1,5 +1,4 @@
 using EfCoreProject.Context;
-using EfCoreProject.DbFactories;
 using EfCoreProject.Models;
 using EfCoreProject.Repositories;
 using EfCoreProject.Services;
@@ -7,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using project.Repositories;
 using project.SeedWork;
+using RepositoryComponent.DbFactories;
 
 namespace EfCoreProject
 {

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using project.Dtos.Product;
-using project.Page;
+using RepositoryComponent.Page;
 
 namespace EfCoreProject.Controllers
 {

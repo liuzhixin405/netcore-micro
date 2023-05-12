@@ -1,9 +1,7 @@
-﻿using EfCoreProject.Context;
-using Microsoft.EntityFrameworkCore;
-using EfCoreProject.Models;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Data;
 
-namespace EfCoreProject.DbFactories
+namespace RepositoryComponent.DbFactories
 {
     public class DbFactory<Ctx>:IDisposable where Ctx : DbContext
     {

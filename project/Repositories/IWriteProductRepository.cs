@@ -1,5 +1,5 @@
-﻿using EfCoreProject.BaseRepo;
-using EfCoreProject.Models;
+﻿using EfCoreProject.Models;
+using RepositoryComponent.BaseRepo;
 
 namespace project.Repositories
 {

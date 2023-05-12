@@ -1,4 +1,4 @@
-﻿namespace project.Page
+﻿namespace RepositoryComponent.Page
 {
     public class PaginatedListBase<TEntity> where TEntity : class
     {

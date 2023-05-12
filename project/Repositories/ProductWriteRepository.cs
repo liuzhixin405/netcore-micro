@@ -1,9 +1,9 @@
-﻿using EfCoreProject.BaseRepo;
-using EfCoreProject.Context;
-using EfCoreProject.DbFactories;
+﻿using EfCoreProject.Context;
 using EfCoreProject.Models;
 using EfCoreProject.Repositories;
 using project.Repositories;
+using RepositoryComponent.BaseRepo;
+using RepositoryComponent.DbFactories;
 
 namespace EfCoreProject.Repositories
 {

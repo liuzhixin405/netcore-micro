@@ -1,8 +1,6 @@
-﻿using EfCoreProject.BaseRepo;
-using EfCoreProject.Context;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 
-namespace project.BaseRepo
+namespace RepositoryComponent.BaseRepo
 {
     public abstract class WriteRepositoryBase<TEntity>:IWriteRepository<TEntity> where TEntity : class
     {

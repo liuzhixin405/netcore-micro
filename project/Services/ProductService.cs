@@ -1,15 +1,13 @@
-﻿using EfCoreProject.Context;
-using EfCoreProject.DbFactories;
-using EfCoreProject.Models;
+﻿using EfCoreProject.Models;
 using EfCoreProject.Repositories;
 using Microsoft.EntityFrameworkCore;
 using project.Dtos.Product;
-using project.Page;
 using project.Repositories;
 using static Dapper.SqlMapper;
 using System.Linq.Expressions;
 using LinqKit;
 using project.Utility.Helper;
+using RepositoryComponent.Page;
 
 namespace EfCoreProject.Services
 {

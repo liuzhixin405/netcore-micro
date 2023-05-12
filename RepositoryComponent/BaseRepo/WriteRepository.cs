@@ -1,12 +1,12 @@
-﻿using EfCoreProject.Context;
-using EfCoreProject.DbFactories;
-using EfCoreProject.Models;
+﻿
+using RepositoryComponent.DbFactories;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
-using project.BaseRepo;
+using RepositoryComponent.BaseRepo;
 using System.Linq.Expressions;
 
-namespace EfCoreProject.BaseRepo
+namespace RepositoryComponent.BaseRepo
 {
     public class WriteRepository<Ctx,TEntity> : WriteRepositoryBase<TEntity> where TEntity : class where Ctx : DbContext
     {

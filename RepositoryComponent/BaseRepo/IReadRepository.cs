@@ -1,7 +1,7 @@
-﻿using project.Page;
+﻿using RepositoryComponent.Page;
 using System.Linq.Expressions;
 
-namespace EfCoreProject.BaseRepo
+namespace RepositoryComponent.BaseRepo
 {
     public interface IReadRepository<TEntity> where TEntity : class
     {

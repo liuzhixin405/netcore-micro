@@ -1,14 +1,11 @@
-﻿using EfCoreProject.BaseRepo;
-using EfCoreProject.Context;
-using EfCoreProject.DbFactories;
-using Google.Protobuf.WellKnownTypes;
+﻿using RepositoryComponent.DbFactories;
 using Microsoft.EntityFrameworkCore;
-using project.Extensions;
+using RepositoryComponent.Extensions;
 using System;
 using System.Linq.Expressions;
 using System.Threading;
 
-namespace project.BaseRepo
+namespace RepositoryComponent.BaseRepo
 {
     public class ReadRepository<Ctx, TEntity> : ReadRepositoryBase<TEntity> where TEntity : class where Ctx : DbContext
     {

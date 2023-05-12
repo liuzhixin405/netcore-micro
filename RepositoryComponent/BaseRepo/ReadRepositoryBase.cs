@@ -1,9 +1,8 @@
-﻿using EfCoreProject.BaseRepo;
-using project.Page;
+﻿using RepositoryComponent.BaseRepo;
+using RepositoryComponent.Page;
 using System.Linq.Expressions;
-using static Dapper.SqlMapper;
 
-namespace project.BaseRepo
+namespace RepositoryComponent.BaseRepo
 {
     public abstract class ReadRepositoryBase<TEntity> : IReadRepository<TEntity> where TEntity : class
     {

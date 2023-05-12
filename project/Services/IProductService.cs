@@ -1,6 +1,6 @@
 ﻿using EfCoreProject.Models;
 using project.Dtos.Product;
-using project.Page;
+using RepositoryComponent.Page;
 
 namespace EfCoreProject.Services
 {
