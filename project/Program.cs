@@ -66,7 +66,7 @@ namespace EfCoreProject
 
             app.MapControllers();
 
-            app.Run();
+            app.Run();   //Æô¶¯
         }
     }
 }
