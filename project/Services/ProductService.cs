@@ -3,7 +3,6 @@ using EfCoreProject.Repositories;
 using Microsoft.EntityFrameworkCore;
 using project.Dtos.Product;
 using project.Repositories;
-using static Dapper.SqlMapper;
 using System.Linq.Expressions;
 using LinqKit;
 using project.Utility.Helper;
