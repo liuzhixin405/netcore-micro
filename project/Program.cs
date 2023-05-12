@@ -1,4 +1,3 @@
-
 using EfCoreProject.Context;
 using EfCoreProject.DbFactories;
 using EfCoreProject.Models;
@@ -11,7 +10,7 @@ using project.SeedWork;
 
 namespace EfCoreProject
 {
-    public class Program       //chatgpt只能写基础的逻辑代码
+    public class Program
     {
         public static void Main(string[] args)
         {

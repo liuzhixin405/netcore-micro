@@ -9,6 +9,7 @@ using project.Repositories;
 using static Dapper.SqlMapper;
 using System.Linq.Expressions;
 using LinqKit;
+using project.Utility.Helper;
 
 namespace EfCoreProject.Services
 {
@@ -32,6 +33,7 @@ namespace EfCoreProject.Services
             {
                 Name = product.Name,
                 Price = product.Price,
+                CreateTime = TimestampHelper.ToUnixTimeMilliseconds(DateTime.UtcNow)
             };
 
             await _writeProductRepository.AddAsync(newProduct);

@@ -28,7 +28,7 @@ namespace EfCoreProject.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> Get()
+        public async Task<ActionResult<IEnumerable<Product>>> GetList()
         {
             var products = await _productService.GetList(); 
             return Ok(products);

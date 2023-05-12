@@ -10,6 +10,7 @@ namespace EfCoreProject.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
+        public long CreateTime { get; set; }
         [NotMapped] //mysql不支持
         public byte[] Version { get; set; }
     }
