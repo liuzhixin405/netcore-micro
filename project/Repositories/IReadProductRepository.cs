@@ -9,8 +9,5 @@ namespace EfCoreProject.Repositories
         ValueTask<Product> GetById(int id);
     }
 
-    public interface IWriteProductRepository:IWriteRepository<Product>
-    { 
-
-    }  
+   
 }

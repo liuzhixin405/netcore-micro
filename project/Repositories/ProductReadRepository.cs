@@ -4,10 +4,11 @@ using EfCoreProject.DbFactories;
 using EfCoreProject.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
+using project.BaseRepo;
 
 namespace EfCoreProject.Repositories
 {
-    public class ProductReadRepository : RepositoryBase<ReadProductDbContext, Product>, IReadProductRepository
+    public class ProductReadRepository : ReadRepository<ReadProductDbContext, Product>, IReadProductRepository
     {
         private readonly ReadProductDbContext _readContext;
 
@@ -21,12 +22,6 @@ namespace EfCoreProject.Repositories
         {
             var result =await _readContext.Set<Product>().Where(x => x.Id == id).FirstOrDefaultAsync();
             return result;
-        }
-
-        public override IUnitOfWork GetUnitOfWork()
-        {
-            //不需要事先
-            throw new NotImplementedException();
         }
     }
 }

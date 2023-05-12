@@ -1,5 +1,6 @@
 ﻿using EfCoreProject.Models;
 using project.Dtos.Product;
+using project.Page;
 
 namespace EfCoreProject.Services
 {
@@ -10,5 +11,6 @@ namespace EfCoreProject.Services
         ValueTask<Product> GetById(int id);
         Task Update(Product entity);
         Task Delete(Product entity);
+        Task<PaginatedList<Product>> PageList(PaginatedOptions<PageProductDto> query);
     }
 }

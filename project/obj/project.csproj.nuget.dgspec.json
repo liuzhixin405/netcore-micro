@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[2.0.78, )"
             },
+            "LinqKit.Core": {
+              "target": "Package",
+              "version": "[1.2.4, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.1, )"

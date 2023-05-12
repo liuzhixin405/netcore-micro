@@ -3,10 +3,11 @@ using EfCoreProject.Context;
 using EfCoreProject.DbFactories;
 using EfCoreProject.Models;
 using EfCoreProject.Repositories;
+using project.Repositories;
 
 namespace EfCoreProject.Repositories
 {
-    public class ProductWriteRepository : RepositoryBase<WriteProductDbContext, Product>, IWriteProductRepository
+    public class ProductWriteRepository : WriteRepository<WriteProductDbContext, Product>, IWriteProductRepository
     {
         private readonly WriteProductDbContext _readContext;
 
@@ -14,15 +15,6 @@ namespace EfCoreProject.Repositories
         public ProductWriteRepository(DbFactory<WriteProductDbContext> readContextFactory) : base(readContextFactory)
         {
             _readContext = readContextFactory?.Context;
-        }
-
-
-        public override IUnitOfWork GetUnitOfWork()
-        {
-            if (_readContext is WriteProductDbContext)
-                return (WriteProductDbContext)_readContext;
-            else
-                throw new ArgumentNullException(nameof(_readContext));
         }
     }
 }

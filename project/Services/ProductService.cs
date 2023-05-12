@@ -4,6 +4,11 @@ using EfCoreProject.Models;
 using EfCoreProject.Repositories;
 using Microsoft.EntityFrameworkCore;
 using project.Dtos.Product;
+using project.Page;
+using project.Repositories;
+using static Dapper.SqlMapper;
+using System.Linq.Expressions;
+using LinqKit;
 
 namespace EfCoreProject.Services
 {
@@ -29,19 +34,19 @@ namespace EfCoreProject.Services
                 Price = product.Price,
             };
            
-            _writeProductRepository.Add(newProduct);
-            await _writeProductRepository.GetUnitOfWork().SaveChangeAsync();
+           await _writeProductRepository.AddAsync(newProduct);
+            await _writeProductRepository.SaveChangeAsync();
         }
 
         public async Task Delete(Product entity)
         {
-            _writeProductRepository.Delete(entity);
-            await _writeProductRepository.GetUnitOfWork().SaveChangeAsync();
+           await _writeProductRepository.RemoveAsync(entity);
+            await _writeProductRepository.SaveChangeAsync();
         }
 
         public Task<IEnumerable<Product>> GetList()
         {
-            return _readProductRepository.GetList();
+            return _readProductRepository.GetListAsync();
         }
 
         public ValueTask<Product> GetById(int id)
@@ -51,8 +56,36 @@ namespace EfCoreProject.Services
 
         public async Task Update(Product entity)
         {
-            _writeProductRepository.Update(entity);
-            await _writeProductRepository.GetUnitOfWork().SaveChangeAsync();
+           await _writeProductRepository.UpdateAsync(entity);
+            await _writeProductRepository.SaveChangeAsync();
+        }
+        /*
+           {
+              "search": {
+                "name": "cdx"
+              }
+            }
+         */
+        public async Task<PaginatedList<Product>> PageList(PaginatedOptions<PageProductDto> query)
+        {
+           Expression<Func<Product, bool>> predicate = x => true;
+            var hasSearch = false;
+            if (query.Search != null)
+            {
+                if (!string.IsNullOrEmpty(query.Search.Name))
+                {
+                    predicate = predicate.And(x => x.Name.Contains(query.Search.Name));
+                    hasSearch = true;
+                }
+                if (query.Search.Price.HasValue)
+                {
+                    predicate = predicate.And(x => x.Price == query.Search.Price);
+                    hasSearch = true;
+                }
+            }
+            
+           return hasSearch==true?await _readProductRepository.GetPaginatedListAsync(predicate, query):
+                await _readProductRepository.GetPaginatedListAsync(query);
         }
     }
 }

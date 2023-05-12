@@ -300,3 +300,4 @@ D:\GitHub\efcore-template\project\bin\Debug\net7.0\runtimes\win-x64\native\gssap
 D:\GitHub\efcore-template\project\bin\Debug\net7.0\runtimes\win-x64\native\k5sprt64.dll
 D:\GitHub\efcore-template\project\bin\Debug\net7.0\runtimes\win-x64\native\krb5_64.dll
 D:\GitHub\efcore-template\project\bin\Debug\net7.0\runtimes\win-x64\native\krbcc64.dll
+D:\GitHub\efcore-template\project\bin\Debug\net7.0\LinqKit.Core.dll

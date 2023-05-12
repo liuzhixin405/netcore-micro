@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "nCWc9Ivm5LeEGNkPKJQsAZDq8NEazCD1hddTF1Nt4jWJF7niMSmeNubDYTkzl7vIQXaJnpd0gsyCjZ4xDo8ULw==",
+  "dgSpecHash": "CB5ulyole5mbJs4eWVQduC8TkBNYEexNAKILKlm6H8CH18yHmLBMLo5mMrvCT2X4tpubSPIq+iYIH8RQtCeGHg==",
   "success": true,
   "projectFilePath": "D:\\GitHub\\efcore-template\\project\\project.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,7 @@
     "D:\\Program Files\\.nuget\\packages\\k4os.compression.lz4\\1.3.5\\k4os.compression.lz4.1.3.5.nupkg.sha512",
     "D:\\Program Files\\.nuget\\packages\\k4os.compression.lz4.streams\\1.3.5\\k4os.compression.lz4.streams.1.3.5.nupkg.sha512",
     "D:\\Program Files\\.nuget\\packages\\k4os.hash.xxhash\\1.0.8\\k4os.hash.xxhash.1.0.8.nupkg.sha512",
+    "D:\\Program Files\\.nuget\\packages\\linqkit.core\\1.2.4\\linqkit.core.1.2.4.nupkg.sha512",
     "D:\\Program Files\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.1\\microsoft.aspnetcore.openapi.7.0.1.nupkg.sha512",
     "D:\\Program Files\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "D:\\Program Files\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

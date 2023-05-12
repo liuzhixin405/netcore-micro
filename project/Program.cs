@@ -6,6 +6,7 @@ using EfCoreProject.Repositories;
 using EfCoreProject.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using project.Repositories;
 using project.SeedWork;
 
 namespace EfCoreProject

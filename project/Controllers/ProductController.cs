@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using project.Dtos.Product;
+using project.Page;
 
 namespace EfCoreProject.Controllers
 {
@@ -18,6 +19,13 @@ namespace EfCoreProject.Controllers
         {
             _productService = productService;
         }
+
+        [HttpPost("PageList")]
+        public async Task<PaginatedList<Product>> PageList(PaginatedOptions<PageProductDto> query)
+        {
+            return await _productService.PageList(query);
+        }
+
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> Get()
