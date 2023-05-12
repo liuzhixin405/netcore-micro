@@ -15,6 +15,7 @@
 *.vs
 *.git
 *.suo
+*.csproj.user
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
