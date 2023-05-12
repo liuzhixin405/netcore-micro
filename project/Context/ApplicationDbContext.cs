@@ -24,7 +24,7 @@ namespace EfCoreProject.Context
         }
     }
 
-    public class WriteProductDbContext : ApplicationDbContext, IUnitOfWork
+    public class WriteProductDbContext : ApplicationDbContext
     {
 
         public WriteProductDbContext(DbContextOptions<WriteProductDbContext> options, IConfiguration configuration) : base(options, configuration)
