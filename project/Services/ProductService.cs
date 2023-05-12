@@ -20,7 +20,7 @@ namespace EfCoreProject.Services
 
         public ProductService(IWriteProductRepository writeProductRepository
             , IReadProductRepository readProductRepository
-            ,IConfiguration configuration)
+            , IConfiguration configuration)
         {
             _writeProductRepository = writeProductRepository;
             _readProductRepository = readProductRepository;
@@ -33,14 +33,14 @@ namespace EfCoreProject.Services
                 Name = product.Name,
                 Price = product.Price,
             };
-           
-           await _writeProductRepository.AddAsync(newProduct);
+
+            await _writeProductRepository.AddAsync(newProduct);
             await _writeProductRepository.SaveChangeAsync();
         }
 
         public async Task Delete(Product entity)
         {
-           await _writeProductRepository.RemoveAsync(entity);
+            await _writeProductRepository.RemoveAsync(entity);
             await _writeProductRepository.SaveChangeAsync();
         }
 
@@ -56,7 +56,7 @@ namespace EfCoreProject.Services
 
         public async Task Update(Product entity)
         {
-           await _writeProductRepository.UpdateAsync(entity);
+            await _writeProductRepository.UpdateAsync(entity);
             await _writeProductRepository.SaveChangeAsync();
         }
         /*
@@ -68,24 +68,20 @@ namespace EfCoreProject.Services
          */
         public async Task<PaginatedList<Product>> PageList(PaginatedOptions<PageProductDto> query)
         {
-           Expression<Func<Product, bool>> predicate = x => true;
+            Expression<Func<Product, bool>> predicate = x => true;
             var hasSearch = false;
-            if (query.Search != null)
+            if (!string.IsNullOrEmpty(query.Search.Name))
             {
-                if (!string.IsNullOrEmpty(query.Search.Name))
-                {
-                    predicate = predicate.And(x => x.Name.Contains(query.Search.Name));
-                    hasSearch = true;
-                }
-                if (query.Search.Price.HasValue)
-                {
-                    predicate = predicate.And(x => x.Price == query.Search.Price);
-                    hasSearch = true;
-                }
+                predicate = predicate.And(x => x.Name.Contains(query.Search.Name));
+                hasSearch = true;
             }
-            
-           return hasSearch==true?await _readProductRepository.GetPaginatedListAsync(predicate, query):
-                await _readProductRepository.GetPaginatedListAsync(query);
+            if (query.Search.Price.HasValue)
+            {
+                predicate = predicate.And(x => x.Price == query.Search.Price);
+                hasSearch = true;
+            }
+            return hasSearch == true ? await _readProductRepository.GetPaginatedListAsync(predicate, query) :
+                 await _readProductRepository.GetPaginatedListAsync(query);
         }
     }
 }
