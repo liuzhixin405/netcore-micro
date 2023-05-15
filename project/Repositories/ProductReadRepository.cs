@@ -1,11 +1,11 @@
-﻿using EfCoreProject.Context;
-using EfCoreProject.Models;
+﻿using project.Context;
+using project.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using RepositoryComponent.BaseRepo;
 using RepositoryComponent.DbFactories;
 
-namespace EfCoreProject.Repositories
+namespace project.Repositories
 {
     public class ProductReadRepository : ReadRepository<ReadProductDbContext, Product>, IReadProductRepository
     {

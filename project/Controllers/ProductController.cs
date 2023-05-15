@@ -1,23 +1,26 @@
-﻿using EfCoreProject.Context;
-using EfCoreProject.Models;
-using EfCoreProject.Services;
+﻿using project.Context;
+using project.Models;
+using project.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using project.Dtos.Product;
+using project.Dtos;
+using project.Utility.Helper;
 using RepositoryComponent.Page;
 
-namespace EfCoreProject.Controllers
+namespace project.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
+        private readonly IConfiguration _configuration;
 
-        public ProductsController(IProductService productService)
+        public ProductsController(IProductService productService,IConfiguration configuration)
         {
             _productService = productService;
+            _configuration = configuration;
         }
 
         [HttpPost("PageList")]
@@ -30,7 +33,7 @@ namespace EfCoreProject.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetList()
         {
-            var products = await _productService.GetList(); 
+            var products = await _productService.GetList();
             return Ok(products);
         }
 
@@ -48,10 +51,12 @@ namespace EfCoreProject.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(CreateProductDto product)
         {
-           await _productService.Add(product);
+            await _productService.Add(product);
+            
             return Ok();
         }
 
+       
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, Product product)
         {
@@ -73,7 +78,7 @@ namespace EfCoreProject.Controllers
                 return NotFound();
             }
 
-            await _productService.Delete(product);           
+            await _productService.Delete(product);
             return NoContent();
         }
 

@@ -1,28 +1,25 @@
-﻿using EfCoreProject.Models;
-using EfCoreProject.Repositories;
+﻿using project.Models;
+using project.Repositories;
 using Microsoft.EntityFrameworkCore;
-using project.Dtos.Product;
+using project.Dtos;
 using project.Repositories;
 using System.Linq.Expressions;
 using LinqKit;
 using project.Utility.Helper;
 using RepositoryComponent.Page;
 
-namespace EfCoreProject.Services
+namespace project.Services
 {
     public class ProductService : IProductService
     {
         private readonly IWriteProductRepository _writeProductRepository;
         private readonly IReadProductRepository _readProductRepository;
-        private readonly IConfiguration _configuration;
-
+       
         public ProductService(IWriteProductRepository writeProductRepository
-            , IReadProductRepository readProductRepository
-            , IConfiguration configuration)
+            , IReadProductRepository readProductRepository)
         {
             _writeProductRepository = writeProductRepository;
             _readProductRepository = readProductRepository;
-            _configuration = configuration;
         }
         public async Task Add(CreateProductDto product)
         {

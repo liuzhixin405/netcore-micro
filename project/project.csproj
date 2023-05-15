@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DapperDal\DapperDal.csproj" />
     <ProjectReference Include="..\RepositoryComponent\RepositoryComponent.csproj" />
   </ItemGroup>
 

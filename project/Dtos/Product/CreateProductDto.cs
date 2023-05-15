@@ -1,4 +1,4 @@
-﻿namespace project.Dtos.Product
+﻿namespace project.Dtos
 {
     public class CreateProductDto
     {
