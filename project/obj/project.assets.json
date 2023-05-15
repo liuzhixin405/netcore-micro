@@ -3665,11 +3665,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\efcore开发模板\\chatgptwriteproject\\project\\project.csproj",
+      "projectUniqueName": "D:\\GitHub\\efcore-template\\project\\project.csproj",
       "projectName": "project",
-      "projectPath": "D:\\GitHub\\efcore开发模板\\chatgptwriteproject\\project\\project.csproj",
+      "projectPath": "D:\\GitHub\\efcore-template\\project\\project.csproj",
       "packagesPath": "D:\\Program Files\\.nuget\\packages",
-      "outputPath": "D:\\GitHub\\efcore开发模板\\chatgptwriteproject\\project\\obj\\",
+      "outputPath": "D:\\GitHub\\efcore-template\\project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3738,7 +3738,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

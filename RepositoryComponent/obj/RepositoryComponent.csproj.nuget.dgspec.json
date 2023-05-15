@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\efcore-template\\project\\project.csproj": {}
+    "D:\\GitHub\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\efcore-template\\project\\project.csproj": {
+    "D:\\GitHub\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\efcore-template\\project\\project.csproj",
-        "projectName": "project",
-        "projectPath": "D:\\GitHub\\efcore-template\\project\\project.csproj",
+        "projectUniqueName": "D:\\GitHub\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj",
+        "projectName": "RepositoryComponent",
+        "projectPath": "D:\\GitHub\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj",
         "packagesPath": "D:\\Program Files\\.nuget\\packages",
-        "outputPath": "D:\\GitHub\\efcore-template\\project\\obj\\",
+        "outputPath": "D:\\GitHub\\efcore-template\\RepositoryComponent\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,25 +40,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "Microsoft.AspNetCore.OpenApi": {
-              "target": "Package",
-              "version": "[7.0.1, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.InMemory": {
-              "target": "Package",
-              "version": "[7.0.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[7.0.5, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.4.0, )"
             }
           },
           "imports": [
@@ -73,9 +57,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
