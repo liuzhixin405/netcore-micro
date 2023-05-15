@@ -1,11 +1,13 @@
-﻿using chatgptwriteproject.Context;
-using chatgptwriteproject.Models;
-using chatgptwriteproject.Services;
+﻿using EfCoreProject.Context;
+using EfCoreProject.Models;
+using EfCoreProject.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using project.Dtos.Product;
+using RepositoryComponent.Page;
 
-namespace chatgptwriteproject.Controllers
+namespace EfCoreProject.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -18,8 +20,15 @@ namespace chatgptwriteproject.Controllers
             _productService = productService;
         }
 
+        [HttpPost("PageList")]
+        public async Task<PaginatedList<Product>> PageList(PaginatedOptions<PageProductDto> query)
+        {
+            return await _productService.PageList(query);
+        }
+
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> Get()
+        public async Task<ActionResult<IEnumerable<Product>>> GetList()
         {
             var products = await _productService.GetList(); 
             return Ok(products);
@@ -37,7 +46,7 @@ namespace chatgptwriteproject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Product product)
+        public async Task<IActionResult> Post(CreateProductDto product)
         {
            await _productService.Add(product);
             return Ok();

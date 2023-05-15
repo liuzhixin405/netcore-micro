@@ -1,43 +1,86 @@
-﻿using chatgptwriteproject.Context;
-using chatgptwriteproject.Models;
-using chatgptwriteproject.Repositories;
+﻿using EfCoreProject.Models;
+using EfCoreProject.Repositories;
+using Microsoft.EntityFrameworkCore;
+using project.Dtos.Product;
+using project.Repositories;
+using System.Linq.Expressions;
+using LinqKit;
+using project.Utility.Helper;
+using RepositoryComponent.Page;
 
-namespace chatgptwriteproject.Services
+namespace EfCoreProject.Services
 {
     public class ProductService : IProductService
     {
-        private readonly IProductRepository _repository;
-        
-        public ProductService(IProductRepository repository)
+        private readonly IWriteProductRepository _writeProductRepository;
+        private readonly IReadProductRepository _readProductRepository;
+        private readonly IConfiguration _configuration;
+
+        public ProductService(IWriteProductRepository writeProductRepository
+            , IReadProductRepository readProductRepository
+            , IConfiguration configuration)
         {
-            _repository = repository;
+            _writeProductRepository = writeProductRepository;
+            _readProductRepository = readProductRepository;
+            _configuration = configuration;
         }
-        public async Task Add(Product product)
+        public async Task Add(CreateProductDto product)
         {
-            _repository.Add(product);
-            await _repository.GetUnitOfWork().SaveChangeAsync();
+            var newProduct = new Product
+            {
+                Name = product.Name,
+                Price = product.Price,
+                CreateTime = TimestampHelper.ToUnixTimeMilliseconds(DateTime.UtcNow)
+            };
+
+            await _writeProductRepository.AddAsync(newProduct);
+            await _writeProductRepository.SaveChangeAsync();
         }
 
         public async Task Delete(Product entity)
         {
-            _repository.Delete(entity);
-            await _repository.GetUnitOfWork().SaveChangeAsync();
+            await _writeProductRepository.RemoveAsync(entity);
+            await _writeProductRepository.SaveChangeAsync();
         }
 
         public Task<IEnumerable<Product>> GetList()
         {
-            return _repository.GetList();
+            return _readProductRepository.GetListAsync();
         }
 
         public ValueTask<Product> GetById(int id)
         {
-            return _repository.GetById(id);
+            return _readProductRepository.GetById(id);
         }
 
         public async Task Update(Product entity)
         {
-            _repository.Update(entity);
-            await _repository.GetUnitOfWork().SaveChangeAsync();
+            await _writeProductRepository.UpdateAsync(entity);
+            await _writeProductRepository.SaveChangeAsync();
+        }
+        /*
+           {
+              "search": {
+                "name": "cdx"
+              }
+            }
+         */
+        public async Task<PaginatedList<Product>> PageList(PaginatedOptions<PageProductDto> query)
+        {
+            Expression<Func<Product, bool>> predicate = x => true;
+            var hasSearch = false;
+            if (!string.IsNullOrEmpty(query.Search.Name))
+            {
+                predicate = predicate.And(x => x.Name.Contains(query.Search.Name));
+                hasSearch = true;
+            }
+            if (query.Search.Price.HasValue)
+            {
+                predicate = predicate.And(x => x.Price == query.Search.Price);
+                hasSearch = true;
+            }
+            return hasSearch == true ? await _readProductRepository.GetPaginatedListAsync(predicate, query) :
+                 await _readProductRepository.GetPaginatedListAsync(query);
         }
     }
 }

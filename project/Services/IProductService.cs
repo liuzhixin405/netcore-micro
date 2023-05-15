@@ -1,13 +1,16 @@
-﻿using chatgptwriteproject.Models;
+﻿using EfCoreProject.Models;
+using project.Dtos.Product;
+using RepositoryComponent.Page;
 
-namespace chatgptwriteproject.Services
+namespace EfCoreProject.Services
 {
     public interface IProductService
     {
-        Task Add(Product product);
+        Task Add(CreateProductDto product);
         Task<IEnumerable<Product>> GetList();
         ValueTask<Product> GetById(int id);
         Task Update(Product entity);
         Task Delete(Product entity);
+        Task<PaginatedList<Product>> PageList(PaginatedOptions<PageProductDto> query);
     }
 }
