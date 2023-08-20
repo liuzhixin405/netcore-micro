@@ -1,8 +1,8 @@
-﻿using EfCoreProject.Models;
-using project.Dtos.Product;
+﻿using project.Models;
+using project.Dtos;
 using RepositoryComponent.Page;
 
-namespace EfCoreProject.Services
+namespace project.Services
 {
     public interface IProductService
     {

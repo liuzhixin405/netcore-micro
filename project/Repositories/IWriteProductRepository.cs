@@ -1,4 +1,4 @@
-﻿using EfCoreProject.Models;
+﻿using project.Models;
 using RepositoryComponent.BaseRepo;
 
 namespace project.Repositories

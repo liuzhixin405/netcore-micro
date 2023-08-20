@@ -1,7 +1,7 @@
-﻿using EfCoreProject.Models;
+﻿using project.Models;
 using RepositoryComponent.BaseRepo;
 
-namespace EfCoreProject.Repositories
+namespace project.Repositories
 {
     public interface IReadProductRepository:IReadRepository<Product>
     {

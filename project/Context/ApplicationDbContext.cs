@@ -1,8 +1,8 @@
-﻿using EfCoreProject.Models;
+﻿using project.Models;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EfCoreProject.Context
+namespace project.Context
 {
     public abstract class ApplicationDbContext : DbContext
     {

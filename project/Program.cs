@@ -1,14 +1,14 @@
-using EfCoreProject.Context;
-using EfCoreProject.Models;
-using EfCoreProject.Repositories;
-using EfCoreProject.Services;
+using project.Context;
+using project.Models;
+using project.Repositories;
+using project.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using project.Repositories;
 using project.SeedWork;
 using RepositoryComponent.DbFactories;
 
-namespace EfCoreProject
+namespace project
 {
     public class Program
     {
@@ -47,6 +47,8 @@ namespace EfCoreProject
             builder.Services.AddTransient<IReadProductRepository,ProductReadRepository>();
             builder.Services.AddTransient<IWriteProductRepository, ProductWriteRepository>();
             builder.Services.AddTransient<IProductService, ProductService>();
+
+            builder.Services.AddTransient<ICustomerService,CustomerService>();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             

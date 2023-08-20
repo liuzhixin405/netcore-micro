@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj": {}
+    "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj": {
+    "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj",
+        "projectUniqueName": "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj",
         "projectName": "RepositoryComponent",
-        "projectPath": "D:\\GitHub\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj",
-        "packagesPath": "D:\\Program Files\\.nuget\\packages",
-        "outputPath": "D:\\GitHub\\efcore-template\\RepositoryComponent\\obj\\",
+        "projectPath": "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj",
+        "packagesPath": "/Users/victor/.nuget/packages/",
+        "outputPath": "/Users/victor/Documents/github/efcore-template/RepositoryComponent/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/victor/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -61,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }
