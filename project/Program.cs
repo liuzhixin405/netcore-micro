@@ -35,7 +35,10 @@ namespace project
             }
             else
             {
-                throw new ArgumentNullException("Î´ÄÜÕýÈ·µÄ×¢²áÊý¾Ý¿â");
+                //throw new ArgumentNullException("Î´ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½");
+                builder.Services.AddDbContext<ReadProductDbContext>(options => options.UseInMemoryDatabase("test_inmemory_db"), ServiceLifetime.Scoped);
+                builder.Services.AddDbContext<WriteProductDbContext>(options => options.UseInMemoryDatabase("test_inmemory_db"), ServiceLifetime.Scoped);
+
             }
 
             builder.Services.AddScoped<Func<ReadProductDbContext>>(provider => () =>provider.GetService<ReadProductDbContext>()??throw new ArgumentNullException("ReadProductDbContext is not inject to program"));

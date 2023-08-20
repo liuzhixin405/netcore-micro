@@ -15,6 +15,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,4 +29,12 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Utility\BaseController\" />
+    <None Remove="Models\Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utility\BaseController\" />
+    <Folder Include="Models\Common\" />
+  </ItemGroup>
 </Project>

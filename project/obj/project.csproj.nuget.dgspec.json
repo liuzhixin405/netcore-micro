@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/victor/Documents/github/efcore-template/project/project.csproj": {}
+    "/Users/victor/Documents/github/ef-main/efcore-template/project/project.csproj": {}
   },
   "projects": {
-    "/Users/victor/Documents/github/efcore-template/DapperDal/DapperDal.csproj": {
+    "/Users/victor/Documents/github/ef-main/efcore-template/DapperDal/DapperDal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/victor/Documents/github/efcore-template/DapperDal/DapperDal.csproj",
+        "projectUniqueName": "/Users/victor/Documents/github/ef-main/efcore-template/DapperDal/DapperDal.csproj",
         "projectName": "DapperDal",
-        "projectPath": "/Users/victor/Documents/github/efcore-template/DapperDal/DapperDal.csproj",
+        "projectPath": "/Users/victor/Documents/github/ef-main/efcore-template/DapperDal/DapperDal.csproj",
         "packagesPath": "/Users/victor/.nuget/packages/",
-        "outputPath": "/Users/victor/Documents/github/efcore-template/DapperDal/obj/",
+        "outputPath": "/Users/victor/Documents/github/ef-main/efcore-template/DapperDal/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/victor/.nuget/NuGet/NuGet.Config"
@@ -71,14 +71,14 @@
         }
       }
     },
-    "/Users/victor/Documents/github/efcore-template/project/project.csproj": {
+    "/Users/victor/Documents/github/ef-main/efcore-template/project/project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/victor/Documents/github/efcore-template/project/project.csproj",
+        "projectUniqueName": "/Users/victor/Documents/github/ef-main/efcore-template/project/project.csproj",
         "projectName": "project",
-        "projectPath": "/Users/victor/Documents/github/efcore-template/project/project.csproj",
+        "projectPath": "/Users/victor/Documents/github/ef-main/efcore-template/project/project.csproj",
         "packagesPath": "/Users/victor/.nuget/packages/",
-        "outputPath": "/Users/victor/Documents/github/efcore-template/project/obj/",
+        "outputPath": "/Users/victor/Documents/github/ef-main/efcore-template/project/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/victor/.nuget/NuGet/NuGet.Config"
@@ -93,11 +93,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/victor/Documents/github/efcore-template/DapperDal/DapperDal.csproj": {
-                "projectPath": "/Users/victor/Documents/github/efcore-template/DapperDal/DapperDal.csproj"
+              "/Users/victor/Documents/github/ef-main/efcore-template/DapperDal/DapperDal.csproj": {
+                "projectPath": "/Users/victor/Documents/github/ef-main/efcore-template/DapperDal/DapperDal.csproj"
               },
-              "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj": {
-                "projectPath": "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj"
+              "/Users/victor/Documents/github/ef-main/efcore-template/RepositoryComponent/RepositoryComponent.csproj": {
+                "projectPath": "/Users/victor/Documents/github/ef-main/efcore-template/RepositoryComponent/RepositoryComponent.csproj"
               }
             }
           }
@@ -127,6 +127,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.5, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.9, )"
             },
             "MySql.EntityFrameworkCore": {
               "target": "Package",
@@ -160,14 +164,14 @@
         }
       }
     },
-    "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj": {
+    "/Users/victor/Documents/github/ef-main/efcore-template/RepositoryComponent/RepositoryComponent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj",
+        "projectUniqueName": "/Users/victor/Documents/github/ef-main/efcore-template/RepositoryComponent/RepositoryComponent.csproj",
         "projectName": "RepositoryComponent",
-        "projectPath": "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj",
+        "projectPath": "/Users/victor/Documents/github/ef-main/efcore-template/RepositoryComponent/RepositoryComponent.csproj",
         "packagesPath": "/Users/victor/.nuget/packages/",
-        "outputPath": "/Users/victor/Documents/github/efcore-template/RepositoryComponent/obj/",
+        "outputPath": "/Users/victor/Documents/github/ef-main/efcore-template/RepositoryComponent/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/victor/.nuget/NuGet/NuGet.Config"

@@ -19,5 +19,7 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">/Users/victor/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5</PkgMicrosoft_Extensions_ApiDescription_Server>
+    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">/Users/victor/.nuget/packages/microsoft.codeanalysis.analyzers/3.3.3</PkgMicrosoft_CodeAnalysis_Analyzers>
+    <PkgMicrosoft_CodeAnalysis_AnalyzerUtilities Condition=" '$(PkgMicrosoft_CodeAnalysis_AnalyzerUtilities)' == '' ">/Users/victor/.nuget/packages/microsoft.codeanalysis.analyzerutilities/3.3.0</PkgMicrosoft_CodeAnalysis_AnalyzerUtilities>
   </PropertyGroup>
 </Project>
