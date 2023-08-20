@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project", "project\project.csproj", "{9A921536-FA3D-4DC6-AC88-A5123CC58AD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryComponent", "RepositoryComponent\RepositoryComponent.csproj", "{099E5763-C581-4FE5-AE00-E0CFF3287FB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepositoryComponent", "RepositoryComponent\RepositoryComponent.csproj", "{099E5763-C581-4FE5-AE00-E0CFF3287FB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperDal", "DapperDal\DapperDal.csproj", "{8592AD7B-E15C-4FC2-81EB-7D2C21F6EB6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{099E5763-C581-4FE5-AE00-E0CFF3287FB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{099E5763-C581-4FE5-AE00-E0CFF3287FB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{099E5763-C581-4FE5-AE00-E0CFF3287FB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8592AD7B-E15C-4FC2-81EB-7D2C21F6EB6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8592AD7B-E15C-4FC2-81EB-7D2C21F6EB6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8592AD7B-E15C-4FC2-81EB-7D2C21F6EB6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8592AD7B-E15C-4FC2-81EB-7D2C21F6EB6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

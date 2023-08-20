@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\GitHub\\efcore-template\\project\\project.csproj": {}
+    "/Users/victor/Documents/github/efcore-template/project/project.csproj": {}
   },
   "projects": {
-    "D:\\GitHub\\efcore-template\\project\\project.csproj": {
+    "/Users/victor/Documents/github/efcore-template/DapperDal/DapperDal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\GitHub\\efcore-template\\project\\project.csproj",
-        "projectName": "project",
-        "projectPath": "D:\\GitHub\\efcore-template\\project\\project.csproj",
-        "packagesPath": "D:\\Program Files\\.nuget\\packages",
-        "outputPath": "D:\\GitHub\\efcore-template\\project\\obj\\",
+        "projectUniqueName": "/Users/victor/Documents/github/efcore-template/DapperDal/DapperDal.csproj",
+        "projectName": "DapperDal",
+        "projectPath": "/Users/victor/Documents/github/efcore-template/DapperDal/DapperDal.csproj",
+        "packagesPath": "/Users/victor/.nuget/packages/",
+        "outputPath": "/Users/victor/Documents/github/efcore-template/DapperDal/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/victor/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,13 +38,87 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/victor/Documents/github/efcore-template/project/project.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/victor/Documents/github/efcore-template/project/project.csproj",
+        "projectName": "project",
+        "projectPath": "/Users/victor/Documents/github/efcore-template/project/project.csproj",
+        "packagesPath": "/Users/victor/.nuget/packages/",
+        "outputPath": "/Users/victor/Documents/github/efcore-template/project/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/victor/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/victor/Documents/github/efcore-template/DapperDal/DapperDal.csproj": {
+                "projectPath": "/Users/victor/Documents/github/efcore-template/DapperDal/DapperDal.csproj"
+              },
+              "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj": {
+                "projectPath": "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "LinqKit.Core": {
+              "target": "Package",
+              "version": "[1.2.4, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.1, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[7.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
@@ -55,6 +127,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.5, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -80,7 +156,66 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj",
+        "projectName": "RepositoryComponent",
+        "projectPath": "/Users/victor/Documents/github/efcore-template/RepositoryComponent/RepositoryComponent.csproj",
+        "packagesPath": "/Users/victor/.nuget/packages/",
+        "outputPath": "/Users/victor/Documents/github/efcore-template/RepositoryComponent/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/victor/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,4 +1,4 @@
-﻿using EfCoreProject.Context;
+﻿using project.Context;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 

@@ -6,6 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <PackageReference Include="LinqKit.Core" Version="1.2.4" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.1" />
@@ -16,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DapperDal\DapperDal.csproj" />
     <ProjectReference Include="..\RepositoryComponent\RepositoryComponent.csproj" />
   </ItemGroup>
 
