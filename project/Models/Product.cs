@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using project.Models.Common;
 
 namespace project.Models
 {
     [Table("Product")]
-    public class Product
+    public class Product:IEntity
     {
         [Key]
         public int Id { get; set; }
