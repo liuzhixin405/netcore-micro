@@ -1,24 +1,14 @@
-using project.Context;
-using project.Models;
-using project.Repositories;
-using project.Services;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using project.Repositories;
-using project.SeedWork;
-using RepositoryComponent.DbFactories;
-using Microsoft.AspNetCore.Builder;
-using project.Filters;
-using Microsoft.AspNetCore.Mvc;
-using project.Utility.Helper;
-using static Org.BouncyCastle.Math.EC.ECCurve;
-using static System.Net.Mime.MediaTypeNames;
 using MessageMiddleware.Factory;
 using MessageMiddleware.RabbitMQ;
-
-using System.Configuration;
-
-using Confluent.Kafka;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using project.Context;
+using project.Filters;
+using project.Repositories;
+using project.SeedWork;
+using project.Services;
+using project.Utility.Helper;
+using RepositoryComponent.DbFactories;
 
 namespace project
 {
