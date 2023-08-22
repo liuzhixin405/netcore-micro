@@ -21,7 +21,7 @@ namespace project.Services
             _writeProductRepository = writeProductRepository;
             _readProductRepository = readProductRepository;
         }
-        public async Task Add(CreateProductDto product)
+        public async Task<bool> Add(CreateProductDto product)
         {
             var newProduct = new Product
             {
@@ -31,7 +31,8 @@ namespace project.Services
             };
 
             await _writeProductRepository.AddAsync(newProduct);
-            await _writeProductRepository.SaveChangeAsync();
+            var result = await _writeProductRepository.SaveChangeAsync();
+            return result == 1;
         }
 
         public async Task Delete(Product entity)

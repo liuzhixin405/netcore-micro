@@ -1,25 +1,82 @@
 {
   "format": 1,
   "restore": {
-    "/Users/victor/Documents/github/ef-main/efcore-template/project/project.csproj": {}
+    "D:\\github\\efcore-template\\project\\project.csproj": {}
   },
   "projects": {
-    "/Users/victor/Documents/github/ef-main/efcore-template/DapperDal/DapperDal.csproj": {
+    "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/victor/Documents/github/ef-main/efcore-template/DapperDal/DapperDal.csproj",
-        "projectName": "DapperDal",
-        "projectPath": "/Users/victor/Documents/github/ef-main/efcore-template/DapperDal/DapperDal.csproj",
-        "packagesPath": "/Users/victor/.nuget/packages/",
-        "outputPath": "/Users/victor/Documents/github/ef-main/efcore-template/DapperDal/obj/",
+        "projectUniqueName": "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj",
+        "projectName": "Common.Util",
+        "projectPath": "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj",
+        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\efcore-template\\Common.Util\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/victor/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj",
+        "projectName": "DapperDal",
+        "projectPath": "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj",
+        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\efcore-template\\DapperDal\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,37 +124,42 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/victor/Documents/github/ef-main/efcore-template/project/project.csproj": {
+    "D:\\github\\efcore-template\\project\\project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/victor/Documents/github/ef-main/efcore-template/project/project.csproj",
+        "projectUniqueName": "D:\\github\\efcore-template\\project\\project.csproj",
         "projectName": "project",
-        "projectPath": "/Users/victor/Documents/github/ef-main/efcore-template/project/project.csproj",
-        "packagesPath": "/Users/victor/.nuget/packages/",
-        "outputPath": "/Users/victor/Documents/github/ef-main/efcore-template/project/obj/",
+        "projectPath": "D:\\github\\efcore-template\\project\\project.csproj",
+        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\efcore-template\\project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/victor/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/victor/Documents/github/ef-main/efcore-template/DapperDal/DapperDal.csproj": {
-                "projectPath": "/Users/victor/Documents/github/ef-main/efcore-template/DapperDal/DapperDal.csproj"
+              "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj": {
+                "projectPath": "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj"
               },
-              "/Users/victor/Documents/github/ef-main/efcore-template/RepositoryComponent/RepositoryComponent.csproj": {
-                "projectPath": "/Users/victor/Documents/github/ef-main/efcore-template/RepositoryComponent/RepositoryComponent.csproj"
+              "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj": {
+                "projectPath": "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj"
+              },
+              "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj": {
+                "projectPath": "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj"
               }
             }
           }
@@ -136,9 +198,9 @@
               "target": "Package",
               "version": "[7.0.2, )"
             },
-            "Swashbuckle.AspNetCore": {
+            "NSwag.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[13.20.0, )"
             }
           },
           "imports": [
@@ -160,26 +222,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/victor/Documents/github/ef-main/efcore-template/RepositoryComponent/RepositoryComponent.csproj": {
+    "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/victor/Documents/github/ef-main/efcore-template/RepositoryComponent/RepositoryComponent.csproj",
+        "projectUniqueName": "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj",
         "projectName": "RepositoryComponent",
-        "projectPath": "/Users/victor/Documents/github/ef-main/efcore-template/RepositoryComponent/RepositoryComponent.csproj",
-        "packagesPath": "/Users/victor/.nuget/packages/",
-        "outputPath": "/Users/victor/Documents/github/ef-main/efcore-template/RepositoryComponent/obj/",
+        "projectPath": "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj",
+        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\efcore-template\\RepositoryComponent\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/victor/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -219,7 +283,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

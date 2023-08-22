@@ -7,11 +7,13 @@ using Microsoft.EntityFrameworkCore;
 using project.Dtos;
 using project.Utility.Helper;
 using RepositoryComponent.Page;
+using project.Attributes;
 
 namespace project.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [FormatResponse]
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
@@ -51,9 +53,9 @@ namespace project.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(CreateProductDto product)
         {
-            await _productService.Add(product);
+            var res = await _productService.Add(product);
             
-            return Ok();
+            return Ok(res);
         }
 
        

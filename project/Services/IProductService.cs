@@ -6,7 +6,7 @@ namespace project.Services
 {
     public interface IProductService
     {
-        Task Add(CreateProductDto product);
+        Task<bool> Add(CreateProductDto product);
         Task<IEnumerable<Product>> GetList();
         ValueTask<Product> GetById(int id);
         Task Update(Product entity);

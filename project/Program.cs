@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using project.Repositories;
 using project.SeedWork;
 using RepositoryComponent.DbFactories;
+using Microsoft.AspNetCore.Builder;
 
 namespace project
 {
@@ -53,15 +54,15 @@ namespace project
 
             builder.Services.AddTransient<ICustomerService,CustomerService>();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerDocument();
             
             var app = builder.Build();
             DatabaseStartup.CreateTable(app.Services);
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseOpenApi();
+                app.UseSwaggerUi3();
             }
 
             app.UseHttpsRedirection();

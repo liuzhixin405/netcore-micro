@@ -1,11 +1,13 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
+using project.Attributes;
 using project.Models.Common;
 
 namespace project.Utility.BaseController
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [FormatResponse]
     public abstract class AbsEfWorkController<T> : ControllerBase where T : IEntity
     {
         //分页格式待定
