@@ -3,7 +3,7 @@
     public class AjaxResult
     {
         public bool Success { get; set; } = true;
-        public int ErrorCOde { get; set; }
+        public int ErrorCode { get; set; }
         public string Msg { get; set; }
     }
 

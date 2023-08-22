@@ -9,8 +9,6 @@ using project.Utility.Helper;
 using RepositoryComponent.Page;
 using project.Attributes;
 using MessageMiddleware;
-using Redis.Extensions;
-
 namespace project.Controllers
 {
     [ApiController]
@@ -21,14 +19,11 @@ namespace project.Controllers
         private readonly IProductService _productService;
         
         private readonly IMQPublisher _publisher;
-        private readonly IProductRedis _productRedis;
-        private readonly IRedisCache _redisCache;
-        public ProductsController(IProductService productService, IMQPublisher publisher, IProductRedis productRedis, IRedisCache redisCache)
+      
+        public ProductsController(IProductService productService, IMQPublisher publisher)
         {
             _productService = productService;
             _publisher = publisher;
-            _productRedis = productRedis;
-            _redisCache = redisCache;
         }
 
         [HttpPost("PageList")]

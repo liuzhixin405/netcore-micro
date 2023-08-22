@@ -46,19 +46,6 @@
           }
         }
       },
-      "CodeProject.ObjectPool/4.0.1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/CodeProject.ObjectPool.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/CodeProject.ObjectPool.dll": {
-            "related": ".pdb;.xml"
-          }
-        }
-      },
       "Confluent.Kafka/1.8.2": {
         "type": "package",
         "dependencies": {
@@ -72,24 +59,6 @@
         },
         "runtime": {
           "lib/netcoreapp2.1/Confluent.Kafka.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "CSRedisCore/3.3.0": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.3",
-          "SafeObjectPool": "2.2.1",
-          "System.ValueTuple": "4.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/CSRedisCore.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/CSRedisCore.dll": {
             "related": ".xml"
           }
         }
@@ -902,9 +871,6 @@
             "related": ".xml"
           }
         }
-      },
-      "MessagePackAnalyzer/2.2.60": {
-        "type": "package"
       },
       "Microsoft.AspNetCore.OpenApi/7.0.1": {
         "type": "package",
@@ -2492,22 +2458,6 @@
           }
         }
       },
-      "Newtonsoft.Json.Bson/1.0.2": {
-        "type": "package",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.1"
-        },
-        "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.Bson.dll": {
-            "related": ".pdb;.xml"
-          }
-        }
-      },
       "NJsonSchema/10.9.0": {
         "type": "package",
         "dependencies": {
@@ -2791,22 +2741,6 @@
           }
         }
       },
-      "protobuf-net/2.4.4": {
-        "type": "package",
-        "dependencies": {
-          "System.ServiceModel.Primitives": "4.5.3"
-        },
-        "compile": {
-          "lib/netcoreapp2.1/protobuf-net.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp2.1/protobuf-net.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "RabbitMQ.Client/6.5.0": {
         "type": "package",
         "dependencies": {
@@ -3027,32 +2961,6 @@
           "runtimes/win-x86/native/sni.dll": {
             "assetType": "native",
             "rid": "win-x86"
-          }
-        }
-      },
-      "SafeObjectPool/2.2.1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/SafeObjectPool.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/SafeObjectPool.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "Serilog/2.9.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Serilog.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/Serilog.dll": {
-            "related": ".xml"
           }
         }
       },
@@ -3823,27 +3731,6 @@
           "lib/netstandard1.3/System.ObjectModel.dll": {}
         }
       },
-      "System.Private.ServiceModel/4.5.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "2.1.0",
-          "System.Reflection.DispatchProxy": "4.5.0",
-          "System.Security.Principal.Windows": "4.5.0"
-        },
-        "compile": {
-          "ref/netstandard/_._": {}
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netstandard2.0/System.Private.ServiceModel.dll": {
-            "assetType": "runtime",
-            "rid": "unix"
-          },
-          "runtimes/win/lib/netstandard2.0/System.Private.ServiceModel.dll": {
-            "assetType": "runtime",
-            "rid": "win"
-          }
-        }
-      },
       "System.Reflection/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3857,17 +3744,6 @@
           "ref/netstandard1.5/System.Reflection.dll": {
             "related": ".xml"
           }
-        }
-      },
-      "System.Reflection.DispatchProxy/4.5.0": {
-        "type": "package",
-        "compile": {
-          "ref/netstandard2.0/_._": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp2.0/System.Reflection.DispatchProxy.dll": {}
         }
       },
       "System.Reflection.Emit/4.6.0": {
@@ -4475,20 +4351,6 @@
           }
         }
       },
-      "System.ServiceModel.Primitives/4.5.3": {
-        "type": "package",
-        "dependencies": {
-          "System.Private.ServiceModel": "4.5.3"
-        },
-        "compile": {
-          "ref/netstandard2.0/System.ServiceModel.Primitives.dll": {},
-          "ref/netstandard2.0/System.ServiceModel.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/System.ServiceModel.Primitives.dll": {},
-          "lib/netstandard2.0/System.ServiceModel.dll": {}
-        }
-      },
       "System.Text.Encoding/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -4676,15 +4538,6 @@
           }
         }
       },
-      "System.ValueTuple/4.5.0": {
-        "type": "package",
-        "compile": {
-          "ref/netcoreapp2.0/_._": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.0/_._": {}
-        }
-      },
       "System.Windows.Extensions/7.0.0": {
         "type": "package",
         "dependencies": {
@@ -4821,29 +4674,6 @@
           "bin/placeholder/MessageMiddleware.dll": {}
         }
       },
-      "Redis.Extensions/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "CSRedisCore": "3.3.0",
-          "CodeProject.ObjectPool": "4.0.1",
-          "MessagePack": "2.2.60",
-          "MessagePackAnalyzer": "2.2.60",
-          "Microsoft.Extensions.DependencyInjection": "3.0.1",
-          "Microsoft.Extensions.Logging": "2.1.1",
-          "Microsoft.Extensions.Options": "2.1.1",
-          "Newtonsoft.Json.Bson": "1.0.2",
-          "Serilog": "2.9.0",
-          "StackExchange.Redis": "2.2.50",
-          "protobuf-net": "2.4.4"
-        },
-        "compile": {
-          "bin/placeholder/Redis.Extensions.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Redis.Extensions.dll": {}
-        }
-      },
       "RepositoryComponent/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -4898,29 +4728,6 @@
         "lib/netstandard2.0/Azure.Identity.xml"
       ]
     },
-    "CodeProject.ObjectPool/4.0.1": {
-      "sha512": "qFVgPdBw9VS2wG4n+43rMDjhmzZYeAJ3As+2YF0RTu2syozk0SOs5KIk2Z7A6jngpeQP6iw438OxpxpFVNDz5w==",
-      "type": "package",
-      "path": "codeproject.objectpool/4.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "codeproject.objectpool.4.0.1.nupkg.sha512",
-        "codeproject.objectpool.nuspec",
-        "lib/net452/CodeProject.ObjectPool.dll",
-        "lib/net452/CodeProject.ObjectPool.pdb",
-        "lib/net452/CodeProject.ObjectPool.xml",
-        "lib/net461/CodeProject.ObjectPool.dll",
-        "lib/net461/CodeProject.ObjectPool.pdb",
-        "lib/net461/CodeProject.ObjectPool.xml",
-        "lib/net472/CodeProject.ObjectPool.dll",
-        "lib/net472/CodeProject.ObjectPool.pdb",
-        "lib/net472/CodeProject.ObjectPool.xml",
-        "lib/netstandard2.0/CodeProject.ObjectPool.dll",
-        "lib/netstandard2.0/CodeProject.ObjectPool.pdb",
-        "lib/netstandard2.0/CodeProject.ObjectPool.xml"
-      ]
-    },
     "Confluent.Kafka/1.8.2": {
       "sha512": "gUx1YnwMl19Sg/xOF5h9EQQkx31fcxdDW7LLPTEXbKQuXjvyvZONQsVbFFVCqetCB0tGEq/JKCmkdisIsOdV3g==",
       "type": "package",
@@ -4940,23 +4747,6 @@
         "lib/netstandard1.3/Confluent.Kafka.xml",
         "lib/netstandard2.0/Confluent.Kafka.dll",
         "lib/netstandard2.0/Confluent.Kafka.xml"
-      ]
-    },
-    "CSRedisCore/3.3.0": {
-      "sha512": "GkwC6/VKQjloFRrEtHN/AkeSrUe9CbBRARBN/8WC2Ayhk9ETbEgvVeD/RG7A30yx7Y7+/JxmsGqHnMlbrAnm+g==",
-      "type": "package",
-      "path": "csrediscore/3.3.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "csrediscore.3.3.0.nupkg.sha512",
-        "csrediscore.nuspec",
-        "lib/net40/CSRedisCore.dll",
-        "lib/net40/CSRedisCore.xml",
-        "lib/net45/CSRedisCore.dll",
-        "lib/net45/CSRedisCore.xml",
-        "lib/netstandard2.0/CSRedisCore.dll",
-        "lib/netstandard2.0/CSRedisCore.xml"
       ]
     },
     "Dapper/2.0.123": {
@@ -5912,22 +5702,6 @@
         "lib/netstandard2.0/MessagePack.Annotations.xml",
         "messagepack.annotations.2.2.60.nupkg.sha512",
         "messagepack.annotations.nuspec"
-      ]
-    },
-    "MessagePackAnalyzer/2.2.60": {
-      "sha512": "ufEoBJzbiqla4b1YuZOuIAe7UMHBmDMOqjFGGGikSNRfnU2/t2SOeh/2nCyfYuFdsZouD6u7ua2iXLy4W4Fdwg==",
-      "type": "package",
-      "path": "messagepackanalyzer/2.2.60",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "analyzers/dotnet/MessagePackAnalyzer.dll",
-        "messagepackanalyzer.2.2.60.nupkg.sha512",
-        "messagepackanalyzer.nuspec",
-        "tools/install.ps1",
-        "tools/uninstall.ps1"
       ]
     },
     "Microsoft.AspNetCore.OpenApi/7.0.1": {
@@ -8650,27 +8424,6 @@
         "packageIcon.png"
       ]
     },
-    "Newtonsoft.Json.Bson/1.0.2": {
-      "sha512": "QYFyxhaABwmq3p/21VrZNYvCg3DaEoN/wUuw5nmfAf0X3HLjgupwhkEWdgfb9nvGAUIv3osmZoD3kKl4jxEmYQ==",
-      "type": "package",
-      "path": "newtonsoft.json.bson/1.0.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.md",
-        "lib/net45/Newtonsoft.Json.Bson.dll",
-        "lib/net45/Newtonsoft.Json.Bson.pdb",
-        "lib/net45/Newtonsoft.Json.Bson.xml",
-        "lib/netstandard1.3/Newtonsoft.Json.Bson.dll",
-        "lib/netstandard1.3/Newtonsoft.Json.Bson.pdb",
-        "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
-        "lib/netstandard2.0/Newtonsoft.Json.Bson.dll",
-        "lib/netstandard2.0/Newtonsoft.Json.Bson.pdb",
-        "lib/netstandard2.0/Newtonsoft.Json.Bson.xml",
-        "newtonsoft.json.bson.1.0.2.nupkg.sha512",
-        "newtonsoft.json.bson.nuspec"
-      ]
-    },
     "NJsonSchema/10.9.0": {
       "sha512": "IBPo6Srxn2MEcIFM3HdM4QImrJbsIeujENQyzHL2Pv6wLsKSYAyAEilecRqaLOhoy3snEiPLx7hhv7opbhOxKQ==",
       "type": "package",
@@ -9008,34 +8761,6 @@
         "portable.bouncycastle.nuspec"
       ]
     },
-    "protobuf-net/2.4.4": {
-      "sha512": "EYZyqfSlroeRVC2cvyONwjFE6ji50d+0gsGXFha+Ij/ZzIBLFd4HJmlytlabSyeqJFz1RCIDvhIoe9+AEyx3bg==",
-      "type": "package",
-      "path": "protobuf-net/2.4.4",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net20/protobuf-net.dll",
-        "lib/net20/protobuf-net.xml",
-        "lib/net35/protobuf-net.dll",
-        "lib/net35/protobuf-net.xml",
-        "lib/net40/protobuf-net.dll",
-        "lib/net40/protobuf-net.xml",
-        "lib/netcoreapp2.1/protobuf-net.dll",
-        "lib/netcoreapp2.1/protobuf-net.xml",
-        "lib/netstandard1.0/protobuf-net.dll",
-        "lib/netstandard1.0/protobuf-net.xml",
-        "lib/netstandard1.3/protobuf-net.dll",
-        "lib/netstandard1.3/protobuf-net.xml",
-        "lib/netstandard2.0/protobuf-net.dll",
-        "lib/netstandard2.0/protobuf-net.xml",
-        "lib/uap10.0/protobuf-net.dll",
-        "lib/uap10.0/protobuf-net.pri",
-        "lib/uap10.0/protobuf-net.xml",
-        "protobuf-net.2.4.4.nupkg.sha512",
-        "protobuf-net.nuspec"
-      ]
-    },
     "RabbitMQ.Client/6.5.0": {
       "sha512": "9hY5HiWPtCla1/l0WmXmLnqoX7iKE3neBQUWnetIJrRpOvTbO//XQfQDh++xgHCshL40Kv/6bR0HDkmJz46twg==",
       "type": "package",
@@ -9337,44 +9062,6 @@
         "runtimes/win-x86/native/sni.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
-      ]
-    },
-    "SafeObjectPool/2.2.1": {
-      "sha512": "bywzVl3a+1gu6OYDOuvxBSBgyD/TZveWmBBNR0W2qXdpx/PicLmCPf2NDF1fRRQFdVWzhjc1KGHXAKLPoo7oyg==",
-      "type": "package",
-      "path": "safeobjectpool/2.2.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net40/SafeObjectPool.dll",
-        "lib/net40/SafeObjectPool.xml",
-        "lib/net45/SafeObjectPool.dll",
-        "lib/net45/SafeObjectPool.xml",
-        "lib/netstandard2.0/SafeObjectPool.dll",
-        "lib/netstandard2.0/SafeObjectPool.xml",
-        "safeobjectpool.2.2.1.nupkg.sha512",
-        "safeobjectpool.nuspec"
-      ]
-    },
-    "Serilog/2.9.0": {
-      "sha512": "QzcrD33A3+CsVvwi1I5CSei67ikQnkGrw7SscgL+vZTghaC2aNYg8fiUcedXHzKJFNjgje9rBjzwYGQTKEaXaA==",
-      "type": "package",
-      "path": "serilog/2.9.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net45/Serilog.dll",
-        "lib/net45/Serilog.xml",
-        "lib/net46/Serilog.dll",
-        "lib/net46/Serilog.xml",
-        "lib/netstandard1.0/Serilog.dll",
-        "lib/netstandard1.0/Serilog.xml",
-        "lib/netstandard1.3/Serilog.dll",
-        "lib/netstandard1.3/Serilog.xml",
-        "lib/netstandard2.0/Serilog.dll",
-        "lib/netstandard2.0/Serilog.xml",
-        "serilog.2.9.0.nupkg.sha512",
-        "serilog.nuspec"
       ]
     },
     "StackExchange.Redis/2.6.90": {
@@ -11273,27 +10960,6 @@
         "system.objectmodel.nuspec"
       ]
     },
-    "System.Private.ServiceModel/4.5.3": {
-      "sha512": "ancrQgJagx+yC4SZbuE+eShiEAUIF0E1d21TRSoy1C/rTwafAVcBr/fKibkq5TQzyy9uNil2tx2/iaUxsy0S9g==",
-      "type": "package",
-      "path": "system.private.servicemodel/4.5.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "ref/netstandard/_._",
-        "runtimes/unix/lib/netstandard1.3/System.Private.ServiceModel.dll",
-        "runtimes/unix/lib/netstandard2.0/System.Private.ServiceModel.dll",
-        "runtimes/win/lib/netcore50/System.Private.ServiceModel.dll",
-        "runtimes/win/lib/netstandard1.3/System.Private.ServiceModel.dll",
-        "runtimes/win/lib/netstandard2.0/System.Private.ServiceModel.dll",
-        "runtimes/win/lib/uap10.0.16300/System.Private.ServiceModel.dll",
-        "system.private.servicemodel.4.5.3.nupkg.sha512",
-        "system.private.servicemodel.nuspec",
-        "version.txt"
-      ]
-    },
     "System.Reflection/4.3.0": {
       "sha512": "KMiAFoW7MfJGa9nDFNcfu+FpEdiHpWgTcS2HdMpDvt9saK3y/G4GwprPyzqjFH9NTaGPQeWNHU+iDlDILj96aQ==",
       "type": "package",
@@ -11373,57 +11039,6 @@
         "ref/xamarinwatchos10/_._",
         "system.reflection.4.3.0.nupkg.sha512",
         "system.reflection.nuspec"
-      ]
-    },
-    "System.Reflection.DispatchProxy/4.5.0": {
-      "sha512": "+UW1hq11TNSeb+16rIk8hRQ02o339NFyzMc4ma/FqmxBzM30l1c2IherBB4ld1MNcenS48fz8tbt50OW4rVULA==",
-      "type": "package",
-      "path": "system.reflection.dispatchproxy/4.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net461/System.Reflection.DispatchProxy.dll",
-        "lib/netcoreapp2.0/System.Reflection.DispatchProxy.dll",
-        "lib/netstandard1.3/System.Reflection.DispatchProxy.dll",
-        "lib/netstandard2.0/System.Reflection.DispatchProxy.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/netstandard1.3/System.Reflection.DispatchProxy.dll",
-        "ref/netstandard1.3/System.Reflection.DispatchProxy.xml",
-        "ref/netstandard1.3/de/System.Reflection.DispatchProxy.xml",
-        "ref/netstandard1.3/es/System.Reflection.DispatchProxy.xml",
-        "ref/netstandard1.3/fr/System.Reflection.DispatchProxy.xml",
-        "ref/netstandard1.3/it/System.Reflection.DispatchProxy.xml",
-        "ref/netstandard1.3/ja/System.Reflection.DispatchProxy.xml",
-        "ref/netstandard1.3/ko/System.Reflection.DispatchProxy.xml",
-        "ref/netstandard1.3/ru/System.Reflection.DispatchProxy.xml",
-        "ref/netstandard1.3/zh-hans/System.Reflection.DispatchProxy.xml",
-        "ref/netstandard1.3/zh-hant/System.Reflection.DispatchProxy.xml",
-        "ref/netstandard2.0/System.Reflection.DispatchProxy.dll",
-        "ref/netstandard2.0/System.Reflection.DispatchProxy.xml",
-        "ref/uap10.0.16299/System.Reflection.DispatchProxy.dll",
-        "ref/uap10.0.16299/System.Reflection.DispatchProxy.xml",
-        "ref/uap10.0.16300/System.Reflection.DispatchProxy.dll",
-        "ref/uap10.0.16300/System.Reflection.DispatchProxy.xml",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "runtimes/aot/lib/netcore50/System.Reflection.DispatchProxy.dll",
-        "runtimes/win-aot/lib/uap10.0.16299/System.Reflection.DispatchProxy.dll",
-        "runtimes/win/lib/uap10.0.16299/System.Reflection.DispatchProxy.dll",
-        "system.reflection.dispatchproxy.4.5.0.nupkg.sha512",
-        "system.reflection.dispatchproxy.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
       ]
     },
     "System.Reflection.Emit/4.6.0": {
@@ -12850,58 +12465,6 @@
         "version.txt"
       ]
     },
-    "System.ServiceModel.Primitives/4.5.3": {
-      "sha512": "Wc9Hgg4Cmqi416zvEgq2sW1YYCGuhwWzspDclJWlFZqY6EGhFUPZU+kVpl5z9kAgrSOQP7/Uiik+PtSQtmq+5A==",
-      "type": "package",
-      "path": "system.servicemodel.primitives/4.5.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net45/_._",
-        "lib/net46/System.ServiceModel.Primitives.dll",
-        "lib/net461/System.ServiceModel.Primitives.dll",
-        "lib/netcore50/System.ServiceModel.Primitives.dll",
-        "lib/netstandard1.3/System.ServiceModel.Primitives.dll",
-        "lib/netstandard2.0/System.ServiceModel.Primitives.dll",
-        "lib/netstandard2.0/System.ServiceModel.dll",
-        "lib/portable-net45+win8+wp8/_._",
-        "lib/uap10.0.16300/System.ServiceModel.Primitives.dll",
-        "lib/uap10.0.16300/System.ServiceModel.dll",
-        "lib/win8/_._",
-        "lib/wp8/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/_._",
-        "ref/net46/System.ServiceModel.Primitives.dll",
-        "ref/net461/System.ServiceModel.Primitives.dll",
-        "ref/netcore50/System.ServiceModel.Primitives.dll",
-        "ref/netstandard1.0/System.ServiceModel.Primitives.dll",
-        "ref/netstandard1.1/System.ServiceModel.Primitives.dll",
-        "ref/netstandard1.3/System.ServiceModel.Primitives.dll",
-        "ref/netstandard2.0/System.ServiceModel.Primitives.dll",
-        "ref/netstandard2.0/System.ServiceModel.dll",
-        "ref/portable-net45+win8+wp8/_._",
-        "ref/uap10.0.16300/System.ServiceModel.Primitives.dll",
-        "ref/uap10.0.16300/System.ServiceModel.dll",
-        "ref/win8/_._",
-        "ref/wp8/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.servicemodel.primitives.4.5.3.nupkg.sha512",
-        "system.servicemodel.primitives.nuspec",
-        "version.txt"
-      ]
-    },
     "System.Text.Encoding/4.3.0": {
       "sha512": "BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==",
       "type": "package",
@@ -13548,50 +13111,6 @@
         "system.threading.timer.nuspec"
       ]
     },
-    "System.ValueTuple/4.5.0": {
-      "sha512": "okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ==",
-      "type": "package",
-      "path": "system.valuetuple/4.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net461/System.ValueTuple.dll",
-        "lib/net461/System.ValueTuple.xml",
-        "lib/net47/System.ValueTuple.dll",
-        "lib/net47/System.ValueTuple.xml",
-        "lib/netcoreapp2.0/_._",
-        "lib/netstandard1.0/System.ValueTuple.dll",
-        "lib/netstandard1.0/System.ValueTuple.xml",
-        "lib/netstandard2.0/_._",
-        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
-        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
-        "lib/uap10.0.16299/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net461/System.ValueTuple.dll",
-        "ref/net47/System.ValueTuple.dll",
-        "ref/netcoreapp2.0/_._",
-        "ref/netstandard2.0/_._",
-        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
-        "ref/uap10.0.16299/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.valuetuple.4.5.0.nupkg.sha512",
-        "system.valuetuple.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "System.Windows.Extensions/7.0.0": {
       "sha512": "bR4qdCmssMMbo9Fatci49An5B1UaVJZHKNq70PRgzoLYIlitb8Tj7ns/Xt5Pz1CkERiTjcVBDU2y1AVrPBYkaw==",
       "type": "package",
@@ -13797,11 +13316,6 @@
       "path": "../MessageMiddleware/MessageMiddleware.csproj",
       "msbuildProject": "../MessageMiddleware/MessageMiddleware.csproj"
     },
-    "Redis.Extensions/1.0.0": {
-      "type": "project",
-      "path": "../Redis.Extensions/Redis.Extensions.csproj",
-      "msbuildProject": "../Redis.Extensions/Redis.Extensions.csproj"
-    },
     "RepositoryComponent/1.0.0": {
       "type": "project",
       "path": "../RepositoryComponent/RepositoryComponent.csproj",
@@ -13821,7 +13335,6 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.9",
       "MySql.EntityFrameworkCore >= 7.0.2",
       "NSwag.AspNetCore >= 13.20.0",
-      "Redis.Extensions >= 1.0.0",
       "RepositoryComponent >= 1.0.0",
       "StackExchange.Redis.Extensions.Core >= 9.1.0"
     ]
@@ -13861,9 +13374,6 @@
             },
             "D:\\github\\efcore-template\\MessageMiddleware\\MessageMiddleware.csproj": {
               "projectPath": "D:\\github\\efcore-template\\MessageMiddleware\\MessageMiddleware.csproj"
-            },
-            "D:\\github\\efcore-template\\Redis.Extensions\\Redis.Extensions.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\Redis.Extensions\\Redis.Extensions.csproj"
             },
             "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj": {
               "projectPath": "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj"

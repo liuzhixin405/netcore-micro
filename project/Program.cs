@@ -15,10 +15,10 @@ using static Org.BouncyCastle.Math.EC.ECCurve;
 using static System.Net.Mime.MediaTypeNames;
 using MessageMiddleware.Factory;
 using MessageMiddleware.RabbitMQ;
-using Redis.Extensions.Serializer;
-using Redis.Extensions;
+
 using System.Configuration;
-using Redis.Extensions.Configuration;
+
+using Confluent.Kafka;
 
 namespace project
 {
@@ -71,14 +71,7 @@ namespace project
 
             #region redis
             CacheHelper.Init(builder.Configuration); //跟下面的差不多
-
-            builder.Services.AddSingleton<IProductRedis>(obj =>
-            {
-                var config = builder.Configuration.GetSection("ProductRedis").Get<RedisConfiguration>();
-                var serializer = new MsgPackSerializer();
-                var connection = new PooledConnectionMultiplexer(config.ConfigurationOptions);
-                return new ProductRedis(obj.GetService<ILoggerFactory>().CreateLogger<ProductRedis>(), connection, config, serializer);
-            });
+         
             #endregion
 
             #region rabbitmqsetting

@@ -29,6 +29,6 @@ namespace project.Filters
 
         public ContentResult Error() => JsonContent(System.Text.Json.JsonSerializer.Serialize(new AjaxResult { Success = false, Msg = "请求失败!" }));
         public ContentResult Error(string msg) => JsonContent(System.Text.Json.JsonSerializer.Serialize(new AjaxResult { Success = false, Msg = msg }));
-        public ContentResult Error<T>(string msg,int errorCode) => JsonContent(System.Text.Json.JsonSerializer.Serialize(new AjaxResult<T> { Success = false, Msg = msg, ErrorCOde = errorCode }));
+        public ContentResult Error<T>(string msg,int errorCode) => JsonContent(System.Text.Json.JsonSerializer.Serialize(new AjaxResult<T> { Success = false, Msg = msg, ErrorCode = errorCode }));
     }
 }

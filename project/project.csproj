@@ -24,7 +24,6 @@
     <ProjectReference Include="..\Common.Util\Common.Util.csproj" />
     <ProjectReference Include="..\DapperDal\DapperDal.csproj" />
     <ProjectReference Include="..\MessageMiddleware\MessageMiddleware.csproj" />
-    <ProjectReference Include="..\Redis.Extensions\Redis.Extensions.csproj" />
     <ProjectReference Include="..\RepositoryComponent\RepositoryComponent.csproj" />
   </ItemGroup>
 

@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using project.Models;
 using project.Services;
 using project.Utility.BaseController;
-using Redis.Extensions;
+using project.Utility.Helper;
+
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,7 +17,7 @@ namespace project.Controllers
     {
         private readonly IProductService _productService;
         
-        public HomeController(IRedisCache redisCache,IProductService eFCoreService):base(redisCache)
+        public HomeController(IProductService eFCoreService)
         {
             _productService = eFCoreService;
         }
@@ -39,7 +40,7 @@ namespace project.Controllers
 
         protected async override Task<IActionResult> Search<KeyType>(KeyType searchId)
         {
-            var result = await _redisCache.GetAsync<string>("test");
+            var result = await CacheHelper.GetAsync<string>("test");
            return Ok(result);
         }
     }

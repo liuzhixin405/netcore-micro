@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using project.Attributes;
 using project.Models.Common;
-using Redis.Extensions;
+
 
 namespace project.Utility.BaseController
 {
@@ -11,11 +11,7 @@ namespace project.Utility.BaseController
     [FormatResponse]
     public abstract class AbsEfWorkController<T> : ControllerBase where T : IEntity
     {
-        protected readonly IRedisCache _redisCache;
-        public AbsEfWorkController(IRedisCache redisCache)
-        {
-            _redisCache = redisCache;
-        }
+      
         //分页格式待定
         [HttpGet("Search/{id}")]
         [HttpPut("Update")]  //参数在body  swagger无法做测试
@@ -48,8 +44,6 @@ namespace project.Utility.BaseController
                 default:
                     throw new Exception("未知");
             }
-            await Task.CompletedTask;
-            return Ok();
         }
         protected abstract Task<IActionResult> Search<KeyType>(KeyType searchId);
 
