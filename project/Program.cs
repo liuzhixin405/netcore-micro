@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using project.Repositories;
 using project.SeedWork;
 using RepositoryComponent.DbFactories;
+using Microsoft.AspNetCore.Builder;
+using project.Filters;
+using Microsoft.AspNetCore.Mvc;
 
 namespace project
 {
@@ -17,8 +20,12 @@ namespace project
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
-            builder.Services.AddControllers();
+            builder.Services.Configure<ApiBehaviorOptions>(options=>options.SuppressModelStateInvalidFilter = true);
+            builder.Services.AddControllers(options =>
+            {
+                options.Filters.Add<ValidFilter>();
+                options.Filters.Add<GlobalExceptionFilter>();
+            });
             ///sqlserver   
                 if (builder.Configuration["DbType"]?.ToLower() == "sqlserver")
             {
@@ -53,15 +60,15 @@ namespace project
 
             builder.Services.AddTransient<ICustomerService,CustomerService>();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerDocument();
             
             var app = builder.Build();
             DatabaseStartup.CreateTable(app.Services);
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseOpenApi();
+                app.UseSwaggerUi3();
             }
 
             app.UseHttpsRedirection();
