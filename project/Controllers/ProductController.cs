@@ -9,6 +9,9 @@ using project.Utility.Helper;
 using RepositoryComponent.Page;
 using project.Attributes;
 using MessageMiddleware;
+using project.Elasticsearchs.Product.Search;
+using project.Elasticsearchs.Product.Parameters;
+
 namespace project.Controllers
 {
     [ApiController]
@@ -19,11 +22,13 @@ namespace project.Controllers
         private readonly IProductService _productService;
         
         private readonly IMQPublisher _publisher;
+        private readonly EsProductContext _esContext;
       
-        public ProductsController(IProductService productService, IMQPublisher publisher)
+        public ProductsController(IProductService productService, IMQPublisher publisher,EsProductContext productEsContext)
         {
             _productService = productService;
             _publisher = publisher;
+            _esContext = productEsContext;
         }
 
         [HttpPost("PageList")]
@@ -105,7 +110,12 @@ namespace project.Controllers
             return (await _productService.GetById(id)) != null;
         }
 
-
+        [HttpPost("GetPageByEs")]
+        public async Task<IActionResult> GetPageByEs(EsProductParameter parameter)
+        {
+            var res = await _esContext.Search(parameter);
+            return Ok(res);
+        }
     }
 
 

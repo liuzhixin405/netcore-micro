@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "NEST": {
+              "target": "Package",
+              "version": "[7.17.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
