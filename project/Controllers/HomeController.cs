@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using project.Models;
 using project.Services;
 using project.Utility.BaseController;
+using Redis.Extensions;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,13 +15,15 @@ namespace project.Controllers
     public class HomeController : AbsEfWorkController<Product>
     {
         private readonly IProductService _productService;
-        public HomeController(IProductService eFCoreService)
+        
+        public HomeController(IRedisCache redisCache,IProductService eFCoreService):base(redisCache)
         {
             _productService = eFCoreService;
         }
 
         protected override Task<IActionResult> CreateOrUpdate(Product product)
         {
+          
             throw new NotImplementedException();
         }
 
@@ -34,9 +37,10 @@ namespace project.Controllers
             throw new NotImplementedException();
         }
 
-        protected override Task<IActionResult> Search<KeyType>(KeyType searchId)
+        protected async override Task<IActionResult> Search<KeyType>(KeyType searchId)
         {
-            throw new NotImplementedException();
+            var result = await _redisCache.GetAsync<string>("test");
+           return Ok(result);
         }
     }
 }

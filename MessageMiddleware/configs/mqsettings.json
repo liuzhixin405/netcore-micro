@@ -1,0 +1,20 @@
+{
+    "mqsetting": {
+        "use": 2, //1 代表kafka，2 代表Rabbit
+        "publishLog": true,
+        "consumerLog":true,
+        "kafka": {
+            "BootstrapServers": "localhost:9092",
+            "Key": "kafka",
+            "SaslUsername": "",
+            "SaslPassword": ""
+        },
+        "Rabbit": {
+            "ConnectionString": [ "amqps://xx:5671" ],
+            "UserName": "test",
+            "PassWord": "test",
+            "Port": 5671,
+            "SslEnabled": true
+        }
+    }
+}

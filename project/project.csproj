@@ -10,17 +10,21 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <PackageReference Include="LinqKit.Core" Version="1.2.4" />
+    <PackageReference Include="MessagePack" Version="2.2.60" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
     <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="NSwag.AspNetCore" Version="13.20.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.9" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="9.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Common.Util\Common.Util.csproj" />
     <ProjectReference Include="..\DapperDal\DapperDal.csproj" />
+    <ProjectReference Include="..\MessageMiddleware\MessageMiddleware.csproj" />
+    <ProjectReference Include="..\Redis.Extensions\Redis.Extensions.csproj" />
     <ProjectReference Include="..\RepositoryComponent\RepositoryComponent.csproj" />
   </ItemGroup>
 

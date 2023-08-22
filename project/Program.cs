@@ -10,6 +10,15 @@ using RepositoryComponent.DbFactories;
 using Microsoft.AspNetCore.Builder;
 using project.Filters;
 using Microsoft.AspNetCore.Mvc;
+using project.Utility.Helper;
+using static Org.BouncyCastle.Math.EC.ECCurve;
+using static System.Net.Mime.MediaTypeNames;
+using MessageMiddleware.Factory;
+using MessageMiddleware.RabbitMQ;
+using Redis.Extensions.Serializer;
+using Redis.Extensions;
+using System.Configuration;
+using Redis.Extensions.Configuration;
 
 namespace project
 {
@@ -59,6 +68,46 @@ namespace project
             builder.Services.AddTransient<IProductService, ProductService>();
 
             builder.Services.AddTransient<ICustomerService,CustomerService>();
+
+            #region redis
+            CacheHelper.Init(builder.Configuration); //跟下面的差不多
+
+            builder.Services.AddSingleton<IProductRedis>(obj =>
+            {
+                var config = builder.Configuration.GetSection("ProductRedis").Get<RedisConfiguration>();
+                var serializer = new MsgPackSerializer();
+                var connection = new PooledConnectionMultiplexer(config.ConfigurationOptions);
+                return new ProductRedis(obj.GetService<ILoggerFactory>().CreateLogger<ProductRedis>(), connection, config, serializer);
+            });
+            #endregion
+
+            #region rabbitmqsetting
+            var rabbitMqSetting = new RabbitMQSetting
+            {
+                ConnectionString = builder.Configuration["MqSetting:RabbitMq:ConnectionString"].Split(';'),
+                Password = builder.Configuration["MqSetting:RabbitMq:PassWord"],
+                Port = int.Parse(builder.Configuration["MqSetting:RabbitMq:Port"]),
+                SslEnabled = bool.Parse(builder.Configuration["MqSetting:RabbitMq:SslEnabled"]),
+                UserName = builder.Configuration["MqSetting:RabbitMq:UserName"],
+            };
+            var kafkaSetting = new MessageMiddleware.Kafka.Producers.ProducerOptions
+            {
+                BootstrapServers = builder.Configuration["MqSetting:Kafka:BootstrapServers"],
+                SaslUsername = builder.Configuration["MqSetting:Kafka:SaslUserName"],
+                SaslPassword = builder.Configuration["MqSetting:Kafka:SaslPassWord"],
+                Key = builder.Configuration["MqSetting:Kafka:Key"]
+            };
+            var mqConfig = new MQConfig
+            {
+                ConsumerLog = bool.Parse(builder.Configuration["MqSetting:ConsumerLog"]),
+                PublishLog = bool.Parse(builder.Configuration["MqSetting:PublishLog"]),
+                Rabbit = rabbitMqSetting,
+                Use = int.Parse(builder.Configuration["MqSetting:Use"]),
+                Kafka = kafkaSetting
+            };
+            builder.Services.AddSingleton<MQConfig>(sp => mqConfig);
+            builder.Services.AddMQ(mqConfig);
+            #endregion
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerDocument();
             
