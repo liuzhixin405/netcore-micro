@@ -2,7 +2,7 @@
 
 namespace project.Filters
 {
-    public class ValidFilter:BaseAcyionFilter
+    public class ValidFilter:BaseActionFilter
     {
         protected override Task OnActionExecuting(ActionExecutingContext context)
         {
@@ -11,7 +11,6 @@ namespace project.Filters
                 var list = context.ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage);
                 context.Result = Error(string.Join(", ", list));
             }
-
             return Task.CompletedTask;
         }
     }

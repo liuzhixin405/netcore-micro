@@ -6,7 +6,7 @@ using project.Filters;
 
 namespace project.Attributes
 {
-    public class FormatResponseAttribute:BaseAcyionFilter
+    public class FormatResponseAttribute:BaseActionFilter
     {
         protected override Task OnActionExecuted(ActionExecutedContext context)
         {

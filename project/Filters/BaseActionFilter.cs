@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace project.Filters
 {
-    public class BaseAcyionFilter : Attribute, IAsyncActionFilter
+    public class BaseActionFilter : Attribute, IAsyncActionFilter
     {
         protected virtual Task OnActionExecuting(ActionExecutingContext context) => Task.CompletedTask;
         protected virtual Task OnActionExecuted(ActionExecutedContext context) => Task.CompletedTask;

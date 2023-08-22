@@ -8,6 +8,8 @@ using project.Repositories;
 using project.SeedWork;
 using RepositoryComponent.DbFactories;
 using Microsoft.AspNetCore.Builder;
+using project.Filters;
+using Microsoft.AspNetCore.Mvc;
 
 namespace project
 {
@@ -18,8 +20,12 @@ namespace project
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
-            builder.Services.AddControllers();
+            builder.Services.Configure<ApiBehaviorOptions>(options=>options.SuppressModelStateInvalidFilter = true);
+            builder.Services.AddControllers(options =>
+            {
+                options.Filters.Add<ValidFilter>();
+                options.Filters.Add<GlobalExceptionFilter>();
+            });
             ///sqlserver   
                 if (builder.Configuration["DbType"]?.ToLower() == "sqlserver")
             {
