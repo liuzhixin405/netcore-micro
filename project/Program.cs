@@ -64,13 +64,15 @@ namespace project
 
             #region redis
             var message = string.Empty;
-            Task.WaitAny(new Task[]{ Task.Run(() => {
-               CacheHelper.Init(builder.Configuration); //有可能初始化失败
+            Task.WaitAny(new Task[]{
+                Task.Run(() => {
+               CacheHelper.Init(builder.Configuration); //redis链接不上会死机
              return Task.CompletedTask;
               }), Task.Run(async () => {
              await Task.Delay(5000);
                 message =$"{nameof(CacheHelper)} 初始化失败,请重试";
-             }) });
+             })
+            });
             if (!string.IsNullOrEmpty(message)) throw new Exception(message);
             #endregion
             #region rabbitmqsetting
