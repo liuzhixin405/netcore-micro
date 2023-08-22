@@ -11,15 +11,15 @@ namespace project.Utility.Helper
     public class CacheHelper
     {
         private static IRedisClientFactory _factory_with_msgpack;
-        private static IRedisDatabase _redis_with_msgpack=>_factory_with_msgpack.GetDefaultRedisDatabase();
+        private static IRedisDatabase _redis_with_msgpack => _factory_with_msgpack.GetDefaultRedisDatabase();
 
         private static IRedisClientFactory _factory;
         private static IRedisDatabase _redis => _factory.GetDefaultRedisDatabase();
         public static void Init(IConfiguration configuration)
         {
-            var config=configuration.GetSection("Redis").Get<RedisConfiguration>()??throw new Exception("redis 配置文件获取失败,检查后重试");
-            _factory = new RedisClientFactory(new[] { config },null,new RedisSerializer());
-            _factory_with_msgpack = new RedisClientFactory(new[] {config},null,new RedisMessagepackSerializer());
+            var config = configuration.GetSection("Redis").Get<RedisConfiguration>();
+            _factory = new RedisClientFactory(new[] { config }, null, new RedisSerializer());
+            _factory_with_msgpack = new RedisClientFactory(new[] { config }, null, new RedisMessagepackSerializer());
         }
         static CacheHelper() { }
 
@@ -105,12 +105,12 @@ namespace project.Utility.Helper
         }
         public T? Deserialize<T>(byte[] serializedObject)
         {
-            return MessagePackSerializer.Deserialize<T>(serializedObject,_options);
+            return MessagePackSerializer.Deserialize<T>(serializedObject, _options);
         }
 
         public byte[] Serialize<T>(T? item)
         {
-            return MessagePackSerializer.Serialize(item,_options);
+            return MessagePackSerializer.Serialize(item, _options);
         }
     }
 }
