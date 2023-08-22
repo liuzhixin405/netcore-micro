@@ -8,7 +8,7 @@ using project.Dtos;
 using project.Utility.Helper;
 using RepositoryComponent.Page;
 using project.Attributes;
-
+using MessageMiddleware;
 namespace project.Controllers
 {
     [ApiController]
@@ -17,12 +17,13 @@ namespace project.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
-        private readonly IConfiguration _configuration;
-
-        public ProductsController(IProductService productService,IConfiguration configuration)
+        
+        private readonly IMQPublisher _publisher;
+      
+        public ProductsController(IProductService productService, IMQPublisher publisher)
         {
             _productService = productService;
-            _configuration = configuration;
+            _publisher = publisher;
         }
 
         [HttpPost("PageList")]
@@ -35,6 +36,7 @@ namespace project.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetList()
         {
+            await CacheHelper.SetAsync("test", "test", TimeSpan.FromSeconds(60));
             var products = await _productService.GetList();
             return Ok(products);
         }
@@ -83,11 +85,27 @@ namespace project.Controllers
             await _productService.Delete(product);
             return NoContent();
         }
-
+        [HttpGet("Publisher")]
+        public Task Publisher()
+        {
+            _ = Task.Factory.StartNew(() => {
+                int i = 1200;
+                while (i > 0)
+                {
+                    var str = "test";
+                    _publisher.Publish<string>(str, "xx", "xx");
+                    Console.WriteLine($"发送消息:{str}");
+                    i--;
+                }
+            });
+            return Task.CompletedTask;
+        }
         private async Task<bool> ProductExists(int id)
         {
             return (await _productService.GetById(id)) != null;
         }
+
+
     }
 
 

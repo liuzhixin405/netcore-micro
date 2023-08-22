@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "MessageMiddleware": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:55549;http://localhost:55550"
+    }
+  }
+}

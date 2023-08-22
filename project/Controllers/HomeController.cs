@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using project.Models;
 using project.Services;
 using project.Utility.BaseController;
+using project.Utility.Helper;
+
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,6 +16,7 @@ namespace project.Controllers
     public class HomeController : AbsEfWorkController<Product>
     {
         private readonly IProductService _productService;
+        
         public HomeController(IProductService eFCoreService)
         {
             _productService = eFCoreService;
@@ -21,6 +24,7 @@ namespace project.Controllers
 
         protected override Task<IActionResult> CreateOrUpdate(Product product)
         {
+          
             throw new NotImplementedException();
         }
 
@@ -34,9 +38,10 @@ namespace project.Controllers
             throw new NotImplementedException();
         }
 
-        protected override Task<IActionResult> Search<KeyType>(KeyType searchId)
+        protected async override Task<IActionResult> Search<KeyType>(KeyType searchId)
         {
-            throw new NotImplementedException();
+            var result = await CacheHelper.GetAsync<string>("test");
+           return Ok(result);
         }
     }
 }

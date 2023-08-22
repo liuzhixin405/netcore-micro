@@ -1,0 +1,7 @@
+{
+  "connectionString": [ "amqps://xx:5671" ],
+  "userName": "test",
+  "password": "tests",
+  "Port": 5671,
+  "SslEnabled": true
+}
