@@ -12,6 +12,8 @@ using project.Services;
 using project.Utility.Helper;
 using RepositoryComponent.DbFactories;
 using StackExchange.Redis.Extensions.Core.Implementations;
+using WatchDog;
+using WatchDog.src.Enums;
 
 namespace project
 {
@@ -70,7 +72,7 @@ namespace project
              return Task.CompletedTask;
               }), Task.Run(async () => {
              await Task.Delay(5000);
-                message =$"{nameof(CacheHelper)} 初始化失败,请重试";
+                message =$"{nameof(CacheHelper)} 初始化失败,redis可能连接不上,请重试";
              })
             });
             if (!string.IsNullOrEmpty(message)) throw new Exception(message);
@@ -110,6 +112,16 @@ namespace project
             #endregion
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerDocument();
+            //添加看门狗
+            builder.Services.AddWatchDogServices(opt =>
+            {
+                opt.IsAutoClear = true;
+                opt.ClearTimeSchedule = WatchDogAutoClearScheduleEnum.Monthly;
+
+                //opt.IsAutoClear = false;
+                //opt.SetExternalDbConnString = "Server=localhost;Database=testDb;User Id=root;Password=root;";
+                //opt.DbDriverOption = WatchDogDbDriverEnum.MSSQL;
+            });
             //builder.Services.AddProblemDetails();
             var app = builder.Build();
             DatabaseStartup.CreateTable(app.Services);
@@ -120,7 +132,12 @@ namespace project
                 app.UseSwaggerUi3();
                 app.UseDeveloperExceptionPage();
             }
-
+            //https://localhost:7281/watchdog
+            app.UseWatchDog(opt =>
+            {
+                opt.WatchPageUsername = "admin";
+                opt.WatchPagePassword = "Qwerty@123";
+            });
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
