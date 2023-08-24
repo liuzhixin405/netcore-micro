@@ -5,6 +5,17 @@
 可以单独使用使用dapper
 ElasticSearch
 
+RepositoryComponent组件是efcore，可选mysql、sqlserver
+MessageMiddleware组件时kafka和rabbitmq，可以二选一，也可以都使用
+DapperDal组件时dapper的封装
+Common.Util组件是工具类，有es和其他的组件使用,后期可以把redishelper和其他的helper都移进来。
+ConsumerClient 是简单的消息中间件的消费客户端示例
+project是webapi，示例项目。
+现成的grpc，signalr、websocket的通信暂时没有加进来
+orlean没有加进来
+dapr没有加进来
+redis组件没有加进来，现在用的是原生的Idaatabase做缓存。
+mongodb、pgsql等都没加进来。
 在program.cs中,当然你可以通过扩展分散出去。
 
   var builder = WebApplication.CreateBuilder(args);
