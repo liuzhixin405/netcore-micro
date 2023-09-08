@@ -76,7 +76,7 @@ namespace project
                CacheHelper.Init(builder.Configuration); //redis链接不上会死机
              return Task.CompletedTask;
               }), Task.Run(async () => {
-             await Task.Delay(5000);
+             await Task.Delay(1000*60);
                 message =$"{nameof(CacheHelper)} 初始化失败,redis可能连接不上,请重试";
              })
             });
@@ -131,12 +131,12 @@ namespace project
             var app = builder.Build();
             DatabaseStartup.CreateTable(app.Services);
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
+            //if (app.Environment.IsDevelopment()) //docker测试
+            //{
                 app.UseOpenApi();
                 app.UseSwaggerUi3();
                 app.UseDeveloperExceptionPage();
-            }
+            //}
             //https://localhost:7281/watchdog
             app.UseWatchDog(opt =>
             {

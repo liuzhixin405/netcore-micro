@@ -90,8 +90,8 @@ namespace project.Controllers
             await _productService.Delete(product);
             return NoContent();
         }
-        [HttpGet("Publisher")]
-        public Task Publisher()
+        [HttpGet("PublisherFromKafka")]
+        public Task PublisherFromKafka() //测试通过
         {
             _ = Task.Factory.StartNew(() => {
                 int i = 1200;
@@ -101,6 +101,23 @@ namespace project.Controllers
                     _publisher.Publish<string>(str, "xx", "xx");
                     Console.WriteLine($"发送消息:{str}");
                     i--;
+                }
+            });
+            return Task.CompletedTask;
+        }
+
+        [HttpGet("PublisherFromRabbitMq")]
+        public Task PublisherFromMq()  //测试通过
+        {
+            _ = Task.Factory.StartNew(async () => {
+                int i = 1200;
+                while (i > 0)
+                {
+                    var str = "test";
+                    _publisher.Publish<string>(str, "xx", "xx");
+                    Console.WriteLine($"发送消息:{str}");
+                    i--;
+                    await Task.Delay(1000*5);
                 }
             });
             return Task.CompletedTask;

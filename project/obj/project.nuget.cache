@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "P4XIkwLPXBA4jMwFv0PuWu0tTGjEpTHUF8uVuBGk3KjhyetALZwoQ7AhFPhKrB84x8U/W4L7Kgm8bqvkVfdOJA==",
-=======
-  "dgSpecHash": "SSgDv+Z9IJBDYg96nv626ee1ajmJkTE5sPew1u7BynIw32Z68l5Iu70QVpx+O2O6LXJ7x5ecp59cQGpNp8d36g==",
->>>>>>> main
+  "dgSpecHash": "qKhEuAcIpRDfdSkaft0T52DDvhKvNwbM/Tp7PZw8wbTnzwRe4/fER/m8+myvXhQePqIz8H1TisPBTRqFf6SFig==",
   "success": true,
   "projectFilePath": "D:\\github\\efcore-template\\project\\project.csproj",
   "expectedPackageFiles": [
@@ -191,6 +187,7 @@
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "C:\\Users\\lzx\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.4\\microsoft.visualstudio.azure.containers.tools.targets.1.19.4.nupkg.sha512",
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\7.0.9\\microsoft.visualstudio.web.codegeneration.7.0.9.nupkg.sha512",
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\7.0.9\\microsoft.visualstudio.web.codegeneration.core.7.0.9.nupkg.sha512",
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.design\\7.0.9\\microsoft.visualstudio.web.codegeneration.design.7.0.9.nupkg.sha512",
