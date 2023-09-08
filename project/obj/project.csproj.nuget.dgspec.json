@@ -327,6 +327,10 @@
             "StackExchange.Redis.Extensions.Core": {
               "target": "Package",
               "version": "[9.1.0, )"
+            },
+            "WatchDog.NET": {
+              "target": "Package",
+              "version": "[1.4.10, )"
             }
           },
           "imports": [
