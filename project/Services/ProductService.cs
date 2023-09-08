@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 using LinqKit;
 using project.Utility.Helper;
 using RepositoryComponent.Page;
+using AutoMapper;
 
 namespace project.Services
 {
@@ -14,22 +15,27 @@ namespace project.Services
     {
         private readonly IWriteProductRepository _writeProductRepository;
         private readonly IReadProductRepository _readProductRepository;
+        private readonly IMapper _mapper;
        
         public ProductService(IWriteProductRepository writeProductRepository
-            , IReadProductRepository readProductRepository)
+            , IReadProductRepository readProductRepository
+            ,IMapper mapper)
         {
             _writeProductRepository = writeProductRepository;
             _readProductRepository = readProductRepository;
+            _mapper = mapper;
         }
         public async Task<bool> Add(CreateProductDto product)
         {
-            var newProduct = new Product
-            {
-                Name = product.Name,
-                Price = product.Price,
-                CreateTime = TimestampHelper.ToUnixTimeMilliseconds(DateTime.UtcNow)
-            };
-
+            var newProduct 
+             //= new Product
+            //{
+            //    Name = product.Name,
+            //    Price = product.Price,
+            //    CreateTime = TimestampHelper.ToUnixTimeMilliseconds(DateTime.UtcNow)
+            //};
+            =
+            _mapper.Map<Product>(product);
             await _writeProductRepository.AddAsync(newProduct);
             var result = await _writeProductRepository.SaveChangeAsync();
             return result == 1;

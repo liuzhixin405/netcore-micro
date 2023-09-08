@@ -1,8 +1,9 @@
 ﻿namespace project.Dtos
 {
-    public class PageProductDto
+    public record class PageProductDto
     {
         public string? Name { get; set; }
         public decimal? Price { get; set; }
     }
+    
 }

@@ -1,4 +1,5 @@
-﻿using project.Dapper;
+﻿using AutoMapper;
+using project.Dapper;
 using project.Dtos;
 using project.Models;
 using project.Utility.Helper;
@@ -9,19 +10,16 @@ namespace project.Services
     public class CustomerService : ICustomerService
     {
         private readonly string _connectionString;
-        public CustomerService(IConfiguration configuration)
+        private readonly IMapper _mapper;
+        public CustomerService(IConfiguration configuration,IMapper mapper)
         {
             _connectionString = configuration["ConnectionStrings:SqlServer:WriteConnection"];
+            _mapper = mapper;
         }
         public Task Add(CreateCustomerDto cdto)
         {
-            new CustomerDal(_connectionString).Insert(new
-               Customer()
-            {
-                FirstName = cdto.FirstName,
-                LastName = cdto.LastName,
-                CreateTime = TimestampHelper.ToUnixTimeMilliseconds(DateTime.UtcNow)
-            });
+            new CustomerDal(_connectionString).Insert(
+                _mapper.Map<Customer>(cdto));
             return Task.CompletedTask;
         }
 

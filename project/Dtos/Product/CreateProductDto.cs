@@ -1,8 +1,9 @@
-﻿namespace project.Dtos
+﻿using project.Utility.Helper;
+
+namespace project.Dtos
 {
-    public class CreateProductDto
+    public record class CreateProductDto(string name,decimal price)
     {
-        public string Name { get; set; }
-        public decimal Price { get; set; }
     }
+
 }

@@ -23,8 +23,8 @@
         }
     }
 
-    public class PaginatedOptions<T>: PaginatedOptions where T : new()
+    public class PaginatedOptions<T>: PaginatedOptions
     {
-        public T Search { get; set; } = new();
+        public T Search { get; set; } = default(T);
     }
 }

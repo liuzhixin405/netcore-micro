@@ -1,3 +1,4 @@
+using System.Reflection;
 using Common.Util.Es.Foundation;
 using MessageMiddleware.Factory;
 using MessageMiddleware.RabbitMQ;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using project.Context;
 using project.Elasticsearchs.Product.Search;
 using project.Filters;
+using project.Models;
 using project.Repositories;
 using project.SeedWork;
 using project.Services;
@@ -64,6 +66,9 @@ namespace project
 
             builder.Services.AddTransient<ICustomerService, CustomerService>();
 
+            #region automapper
+            builder.Services.AddAutoMapper(new Assembly[] { typeof(ProductProfile).Assembly ,typeof(CustomerProfile).Assembly});
+            #endregion
             #region redis
             var message = string.Empty;
             Task.WaitAny(new Task[]{
