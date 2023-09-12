@@ -39,7 +39,7 @@ namespace project.Services
             //};
             =
             _mapper.Map<Product>(product);
-            newProduct.Id = _distributedId.NewLongId().ToString();
+            newProduct.Id = _distributedId.NewLongId();
             await _writeProductRepository.AddAsync(newProduct);
             var result = await _writeProductRepository.SaveChangeAsync();
             return result == 1;
@@ -56,7 +56,7 @@ namespace project.Services
             return _readProductRepository.GetListAsync();
         }
 
-        public ValueTask<Product> GetById(string id)
+        public ValueTask<Product> GetById(long id)
         {
             return _readProductRepository.GetById(id);
         }

@@ -8,7 +8,7 @@ namespace project.Services
     {
         Task<bool> Add(CreateProductDto product);
         Task<IEnumerable<Product>> GetList();
-        ValueTask<Product> GetById(string id);
+        ValueTask<Product> GetById(long id);
         Task Update(Product entity);
         Task Delete(Product entity);
         Task<PaginatedList<Product>> PageList(PaginatedOptions<PageProductDto> query);
