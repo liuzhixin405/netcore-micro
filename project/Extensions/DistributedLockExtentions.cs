@@ -45,18 +45,9 @@ namespace project.Extensions
             {
                 var options = serviceProvider.GetService<IOptions<DistributedLockOptions>>()?.Value??throw new Exception($"未能获取{nameof(DistributedLockOptions)}配置");
                 string assemblyName = $"DistributedLock.{options.LockType}";
-                Type implementType;
-                try
-                {
-                    implementType = Assembly.Load(assemblyName).GetTypes()
-                        .Where(x => typeof(IDistributedLock).IsAssignableFrom(x))
-                        .FirstOrDefault();
-                }
-                catch
-                {
-                    throw new Exception($"请安装包:{assemblyName}");
-                }
-
+                Type implementType = Assembly.Load(assemblyName)?.GetTypes()?
+                        .Where(x => typeof(IDistributedLock).IsAssignableFrom(x))?
+                        .FirstOrDefault() ?? throw new Exception($"请添加{assemblyName}的依赖");
                 return ActivatorUtilities.CreateInstance(serviceProvider, implementType);
             });
 

@@ -8,7 +8,9 @@ namespace project.Models
     {
         public ProductProfile()
         {
-            CreateMap<CreateProductDto, Product>().ForMember(e => e.CreateTime, opt => opt.MapFrom(src => TimestampHelper.ToUnixTimeMilliseconds(DateTime.UtcNow)));
+            CreateMap<CreateProductDto, Product>()
+                .ForMember(e => e.CreateTime, opt => opt.MapFrom(src => TimestampHelper.ToUnixTimeMilliseconds(DateTime.UtcNow)))
+                ;
            
         }
     }

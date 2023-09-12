@@ -5,7 +5,7 @@ namespace project.Repositories
 {
     public interface IReadProductRepository:IReadRepository<Product>
     {
-        ValueTask<Product> GetById(int id);
+        ValueTask<Product> GetById(string id);
     }
 
    

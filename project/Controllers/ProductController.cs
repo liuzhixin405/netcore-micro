@@ -47,7 +47,7 @@ namespace project.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> Get(int id)
+        public async Task<ActionResult<Product>> Get(string id)
         {
             var product = await _productService.GetById(id);
             if (product == null)
@@ -67,7 +67,7 @@ namespace project.Controllers
 
        
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, Product product)
+        public async Task<IActionResult> Put(string id, Product product)
         {
             if (id != product.Id)
             {
@@ -79,7 +79,7 @@ namespace project.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             var product = await _productService.GetById(id);
             if (product == null)
@@ -122,7 +122,7 @@ namespace project.Controllers
             });
             return Task.CompletedTask;
         }
-        private async Task<bool> ProductExists(int id)
+        private async Task<bool> ProductExists(string id)
         {
             return (await _productService.GetById(id)) != null;
         }
