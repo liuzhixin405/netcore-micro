@@ -1,12 +1,18 @@
+using System.Composition.Convention;
+using System.Diagnostics;
 using System.Reflection;
+using System.Threading.RateLimiting;
 using Cache;
 using Cache.Options;
 using DistributedId;
 using DistributedLock.Abstractions;
+using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using project.Extensions;
 using project.Filters;
 using project.Models;
+using project.Options;
 using project.SeedWork;
 using WatchDog;
 namespace project
@@ -56,8 +62,36 @@ namespace project
             #region 添加看门狗
             builder.AddWatchDog();
             #endregion
-            //builder.Services.AddProblemDetails();
+//builder.Services.AddProblemDetails();
+#if DEBUG
+            builder.Services.AddW3CLogging(logging =>
+            {
+                // Log all W3C fields
+                logging.LoggingFields = W3CLoggingFields.All;
+
+                logging.AdditionalRequestHeaders.Add("x-forwarded-for");
+                logging.AdditionalRequestHeaders.Add("x-client-ssl-protocol");
+                logging.FileSizeLimit = 5 * 1024 * 1024;
+                logging.RetainedFileCountLimit = 2;
+                logging.FileName = "MyLogFile";
+                logging.LogDirectory = @"D:\logs";
+                logging.FlushInterval = TimeSpan.FromSeconds(2);
+            });
+#endif
+            #region 限速
+            var slipExpRatOptions = new SlipExpirationRateLimitOptions();
+            builder.Configuration.GetSection(SlipExpirationRateLimitOptions.SlipExpirationRateLimit).Bind(slipExpRatOptions);
+            builder.Services.AddRateLimiter(_ => _.AddSlidingWindowLimiter("fixed", options =>
+            {
+                options.PermitLimit = slipExpRatOptions.PermitLimit;
+                options.Window = TimeSpan.FromSeconds(slipExpRatOptions.Window);
+                options.SegmentsPerWindow = slipExpRatOptions.SegmentsPerWindow;
+                options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+                options.QueueLimit = slipExpRatOptions.QueueLimit;
+            })); //30秒最多3000个请求
+            #endregion
             var app = builder.Build();
+           
             DatabaseStartup.CreateTable(app.Services);
             // Configure the HTTP request pipeline.
             //if (app.Environment.IsDevelopment()) //docker测试
@@ -66,8 +100,14 @@ namespace project
             app.UseSwaggerUi3();
             app.UseDeveloperExceptionPage();
             //}
+#if DEBUG
+            #region w3clog
+            app.UseW3CLogging();
+            #endregion
+#endif
             #region usewatchdog
-            app.UseWatchDog(builder.Configuration);
+            app.UseWatchDog(builder.Configuration);           
+            app.UseRateLimiter();
             #endregion
             app.UseHttpsRedirection();
 
