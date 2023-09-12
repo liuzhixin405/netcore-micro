@@ -7,7 +7,7 @@ namespace project.Extensions
     /// <summary>
     /// 分布式锁拓展
     /// </summary>
-    public static class DistributedLockExtentions
+    public static partial class TheExtensions
     {
         /// <summary>
         /// 使用默认配置分布式锁
