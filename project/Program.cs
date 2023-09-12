@@ -29,11 +29,11 @@ namespace project
             builder.Services.AddDistributedLock(x =>
             {
                 x.LockType = LockType.InMemory;
-                x.RedisEndPoints = new string[] { "localhost:6379" };
+                x.RedisEndPoints = new string[] { builder.Configuration["DistributedRedis:ConnectionString"] ?? throw new Exception("$未能获取distributedredis连接字符串")};
             }).AddCache(new CacheOptions
             {
                 CacheType = CacheTypes.Redis,
-                RedisConnectionString = "localhost:6379"
+                RedisConnectionString = builder.Configuration["DistributedRedis:ConnectionString"] ?? throw new Exception("$未能获取distributedredis连接字符串")
             }).AddDistributedId(new DistributedIdOptions
             {
                 Distributed = true

@@ -12,7 +12,7 @@ namespace project.Extensions
                CacheHelper.Init(builder.Configuration); //redis链接不上会死机
              return Task.CompletedTask;
               }), Task.Run(async () => {
-             await Task.Delay(1000*60);
+             await Task.Delay(1000*30);
                 message =$"{nameof(CacheHelper)} 初始化失败,redis可能连接不上,请重试";
              })
             });
