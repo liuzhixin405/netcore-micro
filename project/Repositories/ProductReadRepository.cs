@@ -17,7 +17,7 @@ namespace project.Repositories
             _readContext = readContextFactory?.Context;
         }
 
-        public async ValueTask<Product> GetById(int id)
+        public async ValueTask<Product> GetById(string id)
         {
             var result =await _readContext.Set<Product>().Where(x => x.Id == id).FirstOrDefaultAsync();
             return result;

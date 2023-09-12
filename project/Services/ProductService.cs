@@ -8,6 +8,7 @@ using LinqKit;
 using project.Utility.Helper;
 using RepositoryComponent.Page;
 using AutoMapper;
+using DistributedId;
 
 namespace project.Services
 {
@@ -16,14 +17,16 @@ namespace project.Services
         private readonly IWriteProductRepository _writeProductRepository;
         private readonly IReadProductRepository _readProductRepository;
         private readonly IMapper _mapper;
-       
+        private readonly IDistributedId _distributedId;
         public ProductService(IWriteProductRepository writeProductRepository
             , IReadProductRepository readProductRepository
-            ,IMapper mapper)
+            ,IMapper mapper
+            ,IDistributedId distributedId)
         {
             _writeProductRepository = writeProductRepository;
             _readProductRepository = readProductRepository;
             _mapper = mapper;
+            _distributedId = distributedId;
         }
         public async Task<bool> Add(CreateProductDto product)
         {
@@ -36,6 +39,7 @@ namespace project.Services
             //};
             =
             _mapper.Map<Product>(product);
+            newProduct.Id = _distributedId.NewLongId().ToString();
             await _writeProductRepository.AddAsync(newProduct);
             var result = await _writeProductRepository.SaveChangeAsync();
             return result == 1;
@@ -52,7 +56,7 @@ namespace project.Services
             return _readProductRepository.GetListAsync();
         }
 
-        public ValueTask<Product> GetById(int id)
+        public ValueTask<Product> GetById(string id)
         {
             return _readProductRepository.GetById(id);
         }

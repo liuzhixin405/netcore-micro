@@ -47,7 +47,7 @@ namespace project.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> Get(int id)
+        public async Task<ActionResult<Product>> Get(string id)
         {
             var product = await _productService.GetById(id);
             if (product == null)
@@ -67,7 +67,7 @@ namespace project.Controllers
 
        
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, Product product)
+        public async Task<IActionResult> Put(string id, Product product)
         {
             if (id != product.Id)
             {
@@ -79,7 +79,7 @@ namespace project.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             var product = await _productService.GetById(id);
             if (product == null)
@@ -90,8 +90,8 @@ namespace project.Controllers
             await _productService.Delete(product);
             return NoContent();
         }
-        [HttpGet("Publisher")]
-        public Task Publisher()
+        [HttpGet("PublisherFromKafka")]
+        public Task PublisherFromKafka() //测试通过
         {
             _ = Task.Factory.StartNew(() => {
                 int i = 1200;
@@ -105,7 +105,24 @@ namespace project.Controllers
             });
             return Task.CompletedTask;
         }
-        private async Task<bool> ProductExists(int id)
+
+        [HttpGet("PublisherFromRabbitMq")]
+        public Task PublisherFromMq()  //测试通过
+        {
+            _ = Task.Factory.StartNew(async () => {
+                int i = 1200;
+                while (i > 0)
+                {
+                    var str = "test";
+                    _publisher.Publish<string>(str, "xx", "xx");
+                    Console.WriteLine($"发送消息:{str}");
+                    i--;
+                    await Task.Delay(1000*5);
+                }
+            });
+            return Task.CompletedTask;
+        }
+        private async Task<bool> ProductExists(string id)
         {
             return (await _productService.GetById(id)) != null;
         }
