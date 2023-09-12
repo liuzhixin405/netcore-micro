@@ -2656,6 +2656,25 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "Microsoft.Extensions.Caching.StackExchangeRedis/7.0.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Caching.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.1",
+          "Microsoft.Extensions.Options": "7.0.1",
+          "StackExchange.Redis": "2.2.4"
+        },
+        "compile": {
+          "lib/net7.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.Configuration/7.0.0": {
         "type": "package",
         "dependencies": {
@@ -2695,7 +2714,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Binder/7.0.0": {
+      "Microsoft.Extensions.Configuration.Binder/7.0.4": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
@@ -2924,7 +2943,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/7.0.0": {
+      "Microsoft.Extensions.Logging.Abstractions/7.0.1": {
         "type": "package",
         "compile": {
           "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.dll": {
@@ -6016,6 +6035,24 @@
           "lib/net6.0/ZstdSharp.dll": {}
         }
       },
+      "Cache/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Common.Util": "1.0.0",
+          "Microsoft.Extensions.Caching.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Caching.Memory": "7.0.0",
+          "Microsoft.Extensions.Caching.StackExchangeRedis": "7.0.10",
+          "Microsoft.Extensions.Configuration.Binder": "7.0.4",
+          "Microsoft.Extensions.Hosting.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Cache.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Cache.dll": {}
+        }
+      },
       "Common.Util/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -6042,6 +6079,34 @@
         },
         "runtime": {
           "bin/placeholder/DapperDal.dll": {}
+        }
+      },
+      "DistributedId/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DistributedLock.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Caching.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "7.0.4",
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "7.0.1"
+        },
+        "compile": {
+          "bin/placeholder/DistributedId.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DistributedId.dll": {}
+        }
+      },
+      "DistributedLock.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DistributedLock.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DistributedLock.Abstractions.dll": {}
         }
       },
       "MessageMiddleware/1.0.0": {
@@ -9124,6 +9189,25 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Microsoft.Extensions.Caching.StackExchangeRedis/7.0.10": {
+      "sha512": "1Mnr1Hd1U523kafJIm7KJp6fjyLphXwtU8xBKGIy2BWlw9edfgcx2BciZLHYJcFINbKukR9ATqAr9xt9lqqsnQ==",
+      "type": "package",
+      "path": "microsoft.extensions.caching.stackexchangeredis/7.0.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net462/Microsoft.Extensions.Caching.StackExchangeRedis.dll",
+        "lib/net462/Microsoft.Extensions.Caching.StackExchangeRedis.xml",
+        "lib/net7.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll",
+        "lib/net7.0/Microsoft.Extensions.Caching.StackExchangeRedis.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Caching.StackExchangeRedis.xml",
+        "microsoft.extensions.caching.stackexchangeredis.7.0.10.nupkg.sha512",
+        "microsoft.extensions.caching.stackexchangeredis.nuspec"
+      ]
+    },
     "Microsoft.Extensions.Configuration/7.0.0": {
       "sha512": "tldQUBWt/xeH2K7/hMPPo5g8zuLc3Ro9I5d4o/XrxvxOCA2EZBtW7bCHHTc49fcBtvB8tLAb/Qsmfrq+2SJ4vA==",
       "type": "package",
@@ -9178,10 +9262,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Configuration.Binder/7.0.0": {
-      "sha512": "tgU4u7bZsoS9MKVRiotVMAwHtbREHr5/5zSEV+JPhg46+ox47Au84E3D2IacAaB0bk5ePNaNieTlPrfjbbRJkg==",
+    "Microsoft.Extensions.Configuration.Binder/7.0.4": {
+      "sha512": "8+XPvJnHZsYgHOQlcMuQe7QNF5KdVKHH1F/wW3nd8/u81Gk/XFAYMDP0Lpz18h7/AM95M662vvqMorcYxCBB4w==",
       "type": "package",
-      "path": "microsoft.extensions.configuration.binder/7.0.0",
+      "path": "microsoft.extensions.configuration.binder/7.0.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -9200,7 +9284,7 @@
         "lib/net7.0/Microsoft.Extensions.Configuration.Binder.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.xml",
-        "microsoft.extensions.configuration.binder.7.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.binder.7.0.4.nupkg.sha512",
         "microsoft.extensions.configuration.binder.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -9448,10 +9532,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Logging.Abstractions/7.0.0": {
-      "sha512": "kmn78+LPVMOWeITUjIlfxUPDsI0R6G0RkeAMBmQxAJ7vBJn4q2dTva7pWi65ceN5vPGjJ9q/Uae2WKgvfktJAw==",
+    "Microsoft.Extensions.Logging.Abstractions/7.0.1": {
+      "sha512": "pkeBFx0vqMW/A3aUVHh7MPu3WkBhaVlezhSZeb1c9XD0vUReYH1TLFSy5MxJgZfmz5LZzYoErMorlYZiwpOoNA==",
       "type": "package",
-      "path": "microsoft.extensions.logging.abstractions/7.0.0",
+      "path": "microsoft.extensions.logging.abstractions/7.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -9513,7 +9597,7 @@
         "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
-        "microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
         "microsoft.extensions.logging.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -16089,6 +16173,11 @@
         "zstdsharp.port.nuspec"
       ]
     },
+    "Cache/1.0.0": {
+      "type": "project",
+      "path": "../Cache/Cache.csproj",
+      "msbuildProject": "../Cache/Cache.csproj"
+    },
     "Common.Util/1.0.0": {
       "type": "project",
       "path": "../Common.Util/Common.Util.csproj",
@@ -16098,6 +16187,16 @@
       "type": "project",
       "path": "../DapperDal/DapperDal.csproj",
       "msbuildProject": "../DapperDal/DapperDal.csproj"
+    },
+    "DistributedId/1.0.0": {
+      "type": "project",
+      "path": "../DistributedId/DistributedId.csproj",
+      "msbuildProject": "../DistributedId/DistributedId.csproj"
+    },
+    "DistributedLock.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../DistributedLock.Abstractions/DistributedLock.Abstractions.csproj",
+      "msbuildProject": "../DistributedLock.Abstractions/DistributedLock.Abstractions.csproj"
     },
     "MessageMiddleware/1.0.0": {
       "type": "project",
@@ -16114,8 +16213,11 @@
     "net7.0": [
       "AutoMapper >= 12.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
+      "Cache >= 1.0.0",
       "Common.Util >= 1.0.0",
       "DapperDal >= 1.0.0",
+      "DistributedId >= 1.0.0",
+      "DistributedLock.Abstractions >= 1.0.0",
       "LinqKit.Core >= 1.2.4",
       "MessageMiddleware >= 1.0.0",
       "MessagePack >= 2.2.60",
@@ -16158,11 +16260,20 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "D:\\github\\efcore-template\\Cache\\Cache.csproj": {
+              "projectPath": "D:\\github\\efcore-template\\Cache\\Cache.csproj"
+            },
             "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj": {
               "projectPath": "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj"
             },
             "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj": {
               "projectPath": "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj"
+            },
+            "D:\\github\\efcore-template\\DistributedId\\DistributedId.csproj": {
+              "projectPath": "D:\\github\\efcore-template\\DistributedId\\DistributedId.csproj"
+            },
+            "D:\\github\\efcore-template\\DistributedLock.Abstractions\\DistributedLock.Abstractions.csproj": {
+              "projectPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\DistributedLock.Abstractions.csproj"
             },
             "D:\\github\\efcore-template\\MessageMiddleware\\MessageMiddleware.csproj": {
               "projectPath": "D:\\github\\efcore-template\\MessageMiddleware\\MessageMiddleware.csproj"

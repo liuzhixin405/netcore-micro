@@ -1,11 +1,13 @@
 using System.Reflection;
 using Common.Util.Es.Foundation;
+using DistributedLock.Abstractions;
 using MessageMiddleware.Factory;
 using MessageMiddleware.RabbitMQ;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using project.Context;
 using project.Elasticsearchs.Product.Search;
+using project.Extensions;
 using project.Filters;
 using project.Models;
 using project.Repositories;
@@ -16,7 +18,9 @@ using RepositoryComponent.DbFactories;
 using StackExchange.Redis.Extensions.Core.Implementations;
 using WatchDog;
 using WatchDog.src.Enums;
-
+using Cache.Options;
+using Cache;
+using DistributedId;
 namespace project
 {
     public class Program
@@ -65,7 +69,20 @@ namespace project
             builder.Services.AddTransient<IProductService, ProductService>();
 
             builder.Services.AddTransient<ICustomerService, CustomerService>();
-
+            #region 雪花id 分布式
+            builder.Services.AddDistributedLock(x =>
+            {
+                x.LockType = LockType.InMemory;
+                x.RedisEndPoints = new string[] { "localhost:6379" };
+            }).AddCache(new CacheOptions
+            {
+                CacheType = CacheTypes.Redis,
+                RedisConnectionString = "localhost:6379"
+            }).AddDistributedId(new DistributedIdOptions
+            {
+                Distributed = true
+            });
+            #endregion 
             #region automapper
             builder.Services.AddAutoMapper(new Assembly[] { typeof(ProductProfile).Assembly ,typeof(CustomerProfile).Assembly});
             #endregion

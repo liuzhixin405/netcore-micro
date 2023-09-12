@@ -27,8 +27,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Cache\Cache.csproj" />
     <ProjectReference Include="..\Common.Util\Common.Util.csproj" />
     <ProjectReference Include="..\DapperDal\DapperDal.csproj" />
+    <ProjectReference Include="..\DistributedId\DistributedId.csproj" />
+    <ProjectReference Include="..\DistributedLock.Abstractions\DistributedLock.Abstractions.csproj" />
     <ProjectReference Include="..\MessageMiddleware\MessageMiddleware.csproj" />
     <ProjectReference Include="..\RepositoryComponent\RepositoryComponent.csproj" />
   </ItemGroup>
