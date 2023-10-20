@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MagicOnion;
+using MessagePack;
+
+namespace MicroService.Shared
+{
+    public interface IAccountService:IService<IAccountService>
+    {
+        UnaryResult<SignInResponse> SignInAsync(string signInId, string password);
+        UnaryResult<CurrentUserResponse> GetCurrentUserNameAsync();
+        UnaryResult<string> DangerousOperationAsync();
+    }
+
+    [MessagePackObject(true)]
+    public class SignInResponse
+    {
+        public long UserId { get; set; }
+        public string Name { get; set; }
+        public string Token { get; set; }
+        public DateTimeOffset Expiration { get; set; }
+        public bool Success { get; set; }
+
+        public static SignInResponse Failed { get; } = new SignInResponse() { Success = false };
+
+        public SignInResponse() { }
+
+        public SignInResponse(long userId, string name, string token, DateTimeOffset expiration)
+        {
+            Success = true;
+            UserId = userId;
+            Name = name;
+            Token = token;
+            Expiration = expiration;
+        }
+    }
+
+    [MessagePackObject(true)]
+    public class CurrentUserResponse
+    {
+        public static CurrentUserResponse Anonymous { get; } = new CurrentUserResponse() { IsAuthenticated = false, Name = "Anonymous" };
+
+        public bool IsAuthenticated { get; set; }
+        public string Name { get; set; }
+        public long UserId { get; set; }
+    }
+}

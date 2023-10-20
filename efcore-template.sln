@@ -21,15 +21,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C187F47F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestRepositoryComponent", "TestRepositoryComponent\TestRepositoryComponent.csproj", "{5DE68ECC-7A9C-4E88-921E-E2E9D8B6A3FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedId", "DistributedId\DistributedId.csproj", "{1C75C228-DC52-42D0-A21A-F8299C0C4737}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedId", "DistributedId\DistributedId.csproj", "{1C75C228-DC52-42D0-A21A-F8299C0C4737}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedLock.Abstractions", "DistributedLock.Abstractions\DistributedLock.Abstractions.csproj", "{5178EAEC-51DF-4A79-A1AE-8A98B7088033}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedLock.Abstractions", "DistributedLock.Abstractions\DistributedLock.Abstractions.csproj", "{5178EAEC-51DF-4A79-A1AE-8A98B7088033}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedLock.Redis", "DistributedLock.Redis\DistributedLock.Redis.csproj", "{EA873895-8553-4B48-BF20-B5E6A629FD10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedLock.Redis", "DistributedLock.Redis\DistributedLock.Redis.csproj", "{EA873895-8553-4B48-BF20-B5E6A629FD10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedLock.InMemory", "DistributedLock.InMemory\DistributedLock.InMemory.csproj", "{B24E298F-6895-4C36-AC67-92A6656624F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedLock.InMemory", "DistributedLock.InMemory\DistributedLock.InMemory.csproj", "{B24E298F-6895-4C36-AC67-92A6656624F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cache", "Cache\Cache.csproj", "{8AC2D7DD-F89C-4F97-A987-FCB4AF9404F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cache", "Cache\Cache.csproj", "{8AC2D7DD-F89C-4F97-A987-FCB4AF9404F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GrpcService", "GrpcService", "{FEABF7A2-B6A8-4A89-ABD4-691785A5585F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroService.Shared", "MicroService.Shared\MicroService.Shared.csproj", "{2DFFF355-8262-49C6-8771-3AD39984749F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtAuthApp.Server", "JwtAuthApp.Server\JwtAuthApp.Server.csproj", "{C1A845DC-E52C-491A-AC98-521822BCDBE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login.Client", "Login.Client\Login.Client.csproj", "{B732383E-7669-4F8A-A381-A441DF8CF8F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,12 +97,27 @@ Global
 		{8AC2D7DD-F89C-4F97-A987-FCB4AF9404F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AC2D7DD-F89C-4F97-A987-FCB4AF9404F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AC2D7DD-F89C-4F97-A987-FCB4AF9404F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DFFF355-8262-49C6-8771-3AD39984749F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DFFF355-8262-49C6-8771-3AD39984749F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DFFF355-8262-49C6-8771-3AD39984749F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DFFF355-8262-49C6-8771-3AD39984749F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1A845DC-E52C-491A-AC98-521822BCDBE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1A845DC-E52C-491A-AC98-521822BCDBE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1A845DC-E52C-491A-AC98-521822BCDBE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1A845DC-E52C-491A-AC98-521822BCDBE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B732383E-7669-4F8A-A381-A441DF8CF8F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B732383E-7669-4F8A-A381-A441DF8CF8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B732383E-7669-4F8A-A381-A441DF8CF8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B732383E-7669-4F8A-A381-A441DF8CF8F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5DE68ECC-7A9C-4E88-921E-E2E9D8B6A3FB} = {C187F47F-6B7B-4F33-A519-07A6761E4CCE}
+		{2DFFF355-8262-49C6-8771-3AD39984749F} = {FEABF7A2-B6A8-4A89-ABD4-691785A5585F}
+		{C1A845DC-E52C-491A-AC98-521822BCDBE9} = {FEABF7A2-B6A8-4A89-ABD4-691785A5585F}
+		{B732383E-7669-4F8A-A381-A441DF8CF8F1} = {FEABF7A2-B6A8-4A89-ABD4-691785A5585F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF80A80F-3048-4F17-B639-A0A461DE8128}
