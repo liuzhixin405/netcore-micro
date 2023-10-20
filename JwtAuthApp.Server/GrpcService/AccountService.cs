@@ -13,8 +13,8 @@ namespace JwtAuthApp.Server.GrpcService
     {
         private static IDictionary<string, (string Password, long UserId, string DisplayName)> DummyUsers = new Dictionary<string, (string, long, string)>(StringComparer.OrdinalIgnoreCase)
         {
-            {"pecorine@example.com", ("P@ssw0rd1", 1001, "Eustiana von Astraea")},
-            {"kyaru@example.com", ("P@ssword2", 1002, "Kiruya Momochi")},
+            {"signInId001", ("123456", 1001, "Jack")},
+            {"signInId002", ("123456", 1002, "Rose")},
         };
 
         private readonly JwtTokenService _jwtTokenService;
