@@ -4,6 +4,8 @@
 数据库使用mysql、sqlserver
 可以单独使用使用dapper
 ElasticSearch
+微服务之间调用grpc，示例代码JwtAuthApp.Server、Login.Client
+后续新增orleans
 
 RepositoryComponent组件是efcore，可选mysql、sqlserver
 MessageMiddleware组件时kafka和rabbitmq，可以二选一，也可以都使用
