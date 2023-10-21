@@ -33,11 +33,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cache", "Cache\Cache.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GrpcService", "GrpcService", "{FEABF7A2-B6A8-4A89-ABD4-691785A5585F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroService.Shared", "MicroService.Shared\MicroService.Shared.csproj", "{2DFFF355-8262-49C6-8771-3AD39984749F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroService.Shared", "MicroService.Shared\MicroService.Shared.csproj", "{2DFFF355-8262-49C6-8771-3AD39984749F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtAuthApp.Server", "JwtAuthApp.Server\JwtAuthApp.Server.csproj", "{C1A845DC-E52C-491A-AC98-521822BCDBE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JwtAuthApp.Server", "JwtAuthApp.Server\JwtAuthApp.Server.csproj", "{C1A845DC-E52C-491A-AC98-521822BCDBE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login.Client", "Login.Client\Login.Client.csproj", "{B732383E-7669-4F8A-A381-A441DF8CF8F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Login.Client", "Login.Client\Login.Client.csproj", "{B732383E-7669-4F8A-A381-A441DF8CF8F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login.Client002", "Login.Client002\Login.Client002.csproj", "{9783879C-3B64-4F46-962A-1FF56E92E5BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +111,10 @@ Global
 		{B732383E-7669-4F8A-A381-A441DF8CF8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B732383E-7669-4F8A-A381-A441DF8CF8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B732383E-7669-4F8A-A381-A441DF8CF8F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9783879C-3B64-4F46-962A-1FF56E92E5BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9783879C-3B64-4F46-962A-1FF56E92E5BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9783879C-3B64-4F46-962A-1FF56E92E5BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9783879C-3B64-4F46-962A-1FF56E92E5BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,6 +124,7 @@ Global
 		{2DFFF355-8262-49C6-8771-3AD39984749F} = {FEABF7A2-B6A8-4A89-ABD4-691785A5585F}
 		{C1A845DC-E52C-491A-AC98-521822BCDBE9} = {FEABF7A2-B6A8-4A89-ABD4-691785A5585F}
 		{B732383E-7669-4F8A-A381-A441DF8CF8F1} = {FEABF7A2-B6A8-4A89-ABD4-691785A5585F}
+		{9783879C-3B64-4F46-962A-1FF56E92E5BF} = {FEABF7A2-B6A8-4A89-ABD4-691785A5585F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF80A80F-3048-4F17-B639-A0A461DE8128}
