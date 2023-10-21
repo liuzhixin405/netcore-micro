@@ -1,13 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Channels;
 using Grpc.Net.Client;
-using Login.Client.GrpcClient;
+using Login.Client002.GrpcClient;
 using MagicOnion.Client;
 using MicroService.Shared;
 using MicroService.Shared.GrpcPool;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Login.Client.Controllers
+namespace Login.Client002.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -32,13 +32,6 @@ namespace Login.Client.Controllers
         public async Task<ActionResult<Tuple<bool,string?>>> Login([Required]string signInId, [Required]string pwd)
         {
             SignInResponse authResult;
-            /*using (var channel = GrpcChannel.ForAddress(_configuration["JwtAuthApp.ServiceAddress"])) 
-            {
-                //var accountClient = MagicOnionClient.Create<IAccountService>(channel);
-
-                 
-            }*/
-
             var client = _grpcClientPool.GetClient();
             try
             {

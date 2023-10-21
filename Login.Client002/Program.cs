@@ -1,8 +1,9 @@
-using Login.Client.GrpcClient;
-using MicroService.Shared.GrpcPool;
+using Login.Client002.GrpcClient;
 using MicroService.Shared;
+using MicroService.Shared.GrpcPool;
+using Microsoft.Extensions.Configuration;
 
-namespace Login.Client
+namespace Login.Client002
 {
     public class Program
     {
@@ -16,9 +17,8 @@ namespace Login.Client
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddTransient<IGrpcClientFactory<IAccountService>, LoginClientFactory>();
-            builder.Services.AddTransient(sp => new GrpcClientPool<IAccountService>(sp.GetService<IGrpcClientFactory<IAccountService>>(), builder.Configuration, builder.Configuration["Grpc:Service:JwtAuthApp.ServiceAddress"]));
-
+            builder.Services.AddTransient<IGrpcClientFactory<IAccountService>,LoginClientFactory>();
+            builder.Services.AddTransient(sp=>new GrpcClientPool<IAccountService>(sp.GetService<IGrpcClientFactory<IAccountService>>(), builder.Configuration, builder.Configuration["Grpc:Service:JwtAuthApp.ServiceAddress"]));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
