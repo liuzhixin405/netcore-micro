@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Channels;
 using Grpc.Net.Client;
 using MagicOnion.Client;
@@ -13,19 +14,22 @@ namespace Login.Client.Controllers
 
 
         private readonly ILogger<LoginController> _logger;
-        private readonly GrpcChannel _grpcChannel;
+        private IConfiguration _configuration;
         public LoginController(ILogger<LoginController> logger, IConfiguration configuration)
         {
-            _grpcChannel = GrpcChannel.ForAddress(configuration["JwtAuthApp.ServiceAddress"]);
+            _configuration = configuration;
             _logger = logger;
         }
 
         [HttpGet(Name = "Login")]
-        public async Task<ActionResult<Tuple<bool,string?>>> Login(string user,string pwd)
+        public async Task<ActionResult<Tuple<bool,string?>>> Login([Required]string user,[Required]string pwd)
         {
-            var accountClient = MagicOnionClient.Create<IAccountService>(_grpcChannel);
-            var authResult = await accountClient.SignInAsync(user,pwd);
-            
+            SignInResponse authResult;
+            using (var channel = GrpcChannel.ForAddress(_configuration["JwtAuthApp.ServiceAddress"])) 
+            {
+                var accountClient = MagicOnionClient.Create<IAccountService>(channel);
+                 authResult = await accountClient.SignInAsync(user, pwd);
+            }
             return (authResult!=null && authResult.Success)?  Tuple.Create(true,authResult.Token): Tuple.Create(false,string.Empty);
         }
     }
