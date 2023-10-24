@@ -1,8 +1,5 @@
-using Login.Client.GrpcClient;
-using MicroService.Shared.GrpcPool;
-using MicroService.Shared;
-
-namespace Login.Client
+﻿
+namespace Order.Server
 {
     public class Program
     {
@@ -16,9 +13,9 @@ namespace Login.Client
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddTransient<IGrpcClientFactory<IAccountService>, LoginClientFactory>();
-            builder.Services.AddTransient(sp => new GrpcClientPool<IAccountService>(sp.GetService<IGrpcClientFactory<IAccountService>>(), builder.Configuration, builder.Configuration["Grpc:Service:JwtAuthApp.ServiceAddress"]));
-
+            var siloPort =int.Parse( builder.Configuration["OrleansOptions:SiloPort"]);
+            var gatewayPort = int.Parse(builder.Configuration["OrleansOptions:GatewayPort"]);
+            builder.Host.UseOrleans(b => b.UseLocalhostClustering(siloPort, gatewayPort));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -4,7 +4,11 @@
 数据库使用mysql、sqlserver
 可以单独使用使用dapper
 ElasticSearch
-微服务之间调用grpc，http，示例代码JwtAuthApp.Server、Login.Client
+微服务之间调用grpc，http，orleans，示例代码JwtAuthApp.Server、Login.Client
+重点:
+调用外部第三方服务可以用http请求，restshar库，
+服务之间的调用用grpc,核心服务最好交给orleans。
+重点orleans分布式高并发负载等特点，用作核心服务，比如订单处理，交易中心。
 
 
 RepositoryComponent组件是efcore，可选mysql、sqlserver

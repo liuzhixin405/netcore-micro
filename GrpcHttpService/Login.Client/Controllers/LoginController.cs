@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Channels;
+using AdventureGrainInterfaces;
 using Grpc.Net.Client;
 using Login.Client.GrpcClient;
 using MagicOnion.Client;
@@ -21,13 +22,15 @@ namespace Login.Client.Controllers
         private IConfiguration _configuration;
         private readonly IGrpcClientFactory<IAccountService> _grpcClientFactory;
         private readonly GrpcClientPool<IAccountService> _grpcClientPool;
-        public LoginController(ILogger<LoginController> logger, IConfiguration configuration, IGrpcClientFactory<IAccountService> grpcClientFactory, GrpcClientPool<IAccountService> grpcClientPool)
+        private readonly IClusterClient _clusterClient;
+        public LoginController(ILogger<LoginController> logger, IConfiguration configuration, IGrpcClientFactory<IAccountService> grpcClientFactory, GrpcClientPool<IAccountService> grpcClientPool, IClusterClient clusterClient)
         {
 
             _configuration = configuration;
             _logger = logger;
             _grpcClientFactory = grpcClientFactory;
             _grpcClientPool = grpcClientPool;
+            _clusterClient = clusterClient;
         }
 
         [HttpGet(Name = "Login")]
@@ -63,5 +66,11 @@ namespace Login.Client.Controllers
             return res.Data ?? default;
         }
 
+        [HttpGet(Name = "OrleansResponse")]
+        public async Task<string> OrleansResponse()
+        {
+            Console.WriteLine(DateTime.Now.ToString());
+            return await _clusterClient.GetGrain<IFakeMessage>(Random.Shared.Next()).GetMessage();
+        }
     }
 }
