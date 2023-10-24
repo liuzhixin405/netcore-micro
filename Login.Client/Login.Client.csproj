@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MicroService.Shared\MicroService.Shared.csproj" />
+    <ProjectReference Include="..\RestSharpClient\RestSharpClient.csproj" />
   </ItemGroup>
 
 </Project>

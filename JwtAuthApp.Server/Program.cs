@@ -1,3 +1,4 @@
+using System.Net;
 using JwtAuthApp.Server.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -12,13 +13,14 @@ namespace JwtAuthApp.Server
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.WebHost.ConfigureKestrel(options =>
-            {
-                options.ConfigureEndpointDefaults(endpointOptions =>
-                {
-                    endpointOptions.Protocols = HttpProtocols.Http2;
-                });
-            });
+            //builder.WebHost.ConfigureKestrel(options =>
+            //{
+            //    //options.Listen(IPAddress.Any, 7021, endpointOptions =>
+            //    //{
+            //    //    endpointOptions.Protocols = HttpProtocols.Http2;
+            //    //    endpointOptions.UseHttps();
+            //    //});
+            //});
             builder.Services.AddGrpc();
             builder.Services.AddMagicOnion();
 
@@ -58,7 +60,7 @@ namespace JwtAuthApp.Server
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            
             app.UseHttpsRedirection();
 
             app.UseAuthentication();

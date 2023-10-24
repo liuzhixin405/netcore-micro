@@ -5,12 +5,14 @@ using Login.Client.GrpcClient;
 using MagicOnion.Client;
 using MicroService.Shared;
 using MicroService.Shared.GrpcPool;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using static Login.Client.HtppClient.WeatherforecastApi;
 
 namespace Login.Client.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class LoginController : ControllerBase
     {
 
@@ -51,5 +53,15 @@ namespace Login.Client.Controllers
             }
             return (authResult!=null && authResult.Success)?  Tuple.Create(true,authResult.Token): Tuple.Create(false,string.Empty);
         }
+
+        [HttpGet(Name = "HttpResponse")]
+        
+        public List<WeatherForecast> HttpResponse()
+        {
+            IWeatherForecastApi api = new WeatherForecastApi("https://localhost:5224");
+            var res = api.ListWeatherForecastAsync().GetAwaiter().GetResult();
+            return res.Data ?? default;
+        }
+
     }
 }
