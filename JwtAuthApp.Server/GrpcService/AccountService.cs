@@ -27,8 +27,7 @@ namespace JwtAuthApp.Server.GrpcService
         [AllowAnonymous]
         public async UnaryResult<SignInResponse> SignInAsync(string signInId, string password)
         {
-            await Task.Delay(1); // some workloads...
-
+            await Task.Delay(0); // some workloads...
             if (DummyUsers.TryGetValue(signInId, out var userInfo) && userInfo.Password == password)
             {
                 var (token, expires) = _jwtTokenService.CreateToken(userInfo.UserId, userInfo.DisplayName);
