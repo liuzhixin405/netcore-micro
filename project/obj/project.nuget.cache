@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "AJO7nYtCXx5zUl8/48YIjfr4JDkQGpsjI1JGIoXNE77bcAiJNhyZgR/irnQjD3WddwQSwYj5qi+3CQfPbylgIg==",
+  "dgSpecHash": "OAZTNC8kmpr9Sr4xzhgjdiYxonekgJ10GJrRZuxC0q+muKOog13mjDepKfbnHcOt1C6dm+LvKaSLtgsHtJLy1g==",
   "success": true,
   "projectFilePath": "D:\\github\\efcore-template\\project\\project.csproj",
   "expectedPackageFiles": [
@@ -74,6 +74,7 @@
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\lzx\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.0\\microsoft.aspnetcore.authentication.jwtbearer.6.0.0.nupkg.sha512",
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.aspnetcore.authorization.policy\\2.2.0\\microsoft.aspnetcore.authorization.policy.2.2.0.nupkg.sha512",
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\2.2.0\\microsoft.aspnetcore.connections.abstractions.2.2.0.nupkg.sha512",

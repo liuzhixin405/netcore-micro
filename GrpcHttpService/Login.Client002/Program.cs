@@ -1,7 +1,9 @@
 using Login.Client002.GrpcClient;
+using MagicOnion;
 using MicroService.Shared;
 using MicroService.Shared.GrpcPool;
 using Microsoft.Extensions.Configuration;
+using NetCore.AutoRegisterDi;
 
 namespace Login.Client002
 {
@@ -19,6 +21,8 @@ namespace Login.Client002
             builder.Services.AddSwaggerGen();
             builder.Services.AddTransient<IGrpcClientFactory<IAccountService>,LoginClientFactory>();
             builder.Services.AddTransient(sp=>new GrpcClientPool<IAccountService>(sp.GetService<IGrpcClientFactory<IAccountService>>(), builder.Configuration, builder.Configuration["Grpc:Service:JwtAuthApp.ServiceAddress"]));
+            builder.Services.RegisterAssemblyPublicNonGenericClasses()
+               .AsPublicImplementedInterfaces(); 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
