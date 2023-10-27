@@ -1,5 +1,7 @@
 using Common.Util.Jwt;
+using NetCore.AutoRegisterDi;
 using NSwag;
+using Customers.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,12 +20,15 @@ builder.Services.AddOpenApiDocument(settings =>
     });
 });
 builder.Services.AddJwt(builder.Configuration);
+builder.Services.AddDB(builder.Configuration);
+
+builder.Services.RegisterAssemblyPublicNonGenericClasses();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
-
+ApplicationStartup.CreateTable(app.Services);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
