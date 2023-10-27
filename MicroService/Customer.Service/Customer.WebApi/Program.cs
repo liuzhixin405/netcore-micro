@@ -1,7 +1,7 @@
 using Common.Util.Jwt;
+using Customers.Infrastructure;
 using NetCore.AutoRegisterDi;
 using NSwag;
-using Customers.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
