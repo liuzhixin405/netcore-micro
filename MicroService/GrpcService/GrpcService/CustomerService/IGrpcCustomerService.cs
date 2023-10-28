@@ -14,15 +14,15 @@ namespace GrpcService.CustomerService
     }
 
     [MessagePackObject(true)]
-    public class CustomerRequest
+    public record CustomerRequest(string username, string password)
     {
-       public string UserName { get; set; }
-        public string Password { get; set; }
+       //public string UserName { get; set; }
+       //public string Password { get; set; }
 
         //public CustomerRequest(string username, string password)
         //{
-        //    UserName=username;
-        //    Password=password;
+        //    UserName = username;
+        //    Password = password;
         //}
     }
     //public record CustomerRequest(string username, string password)
@@ -30,9 +30,9 @@ namespace GrpcService.CustomerService
 
     //}
     [MessagePackObject(true)]
-    public class CustomerResponse
+    public record CustomerResponse(string username)
     {
-        public string UserName { get; set; }
+        //public string UserName { get; set; }
         //public CustomerResponse(string username)
         //{
         //    UserName = username;

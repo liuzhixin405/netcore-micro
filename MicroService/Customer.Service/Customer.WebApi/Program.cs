@@ -1,3 +1,5 @@
+using Cache.Options;
+using Cache;
 using Common.Util.Jwt;
 using Customers.Center.Service;
 using Customers.Domain.Customers;
@@ -5,6 +7,7 @@ using Customers.Domain.Seedwork;
 using Customers.Infrastructure;
 using Customers.Infrastructure.Domain;
 using Customers.Infrastructure.Domain.Customers;
+using DistributedId;
 using NetCore.AutoRegisterDi;
 using NSwag;
 
@@ -33,7 +36,16 @@ builder.Services.AddMagicOnion();
 builder.Services.AddTransient<ICustomerService, CustomerService>();
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
-
+#region 雪花id 分布式
+builder.Services.AddCache(new CacheOptions
+{
+    CacheType = CacheTypes.Redis,
+    RedisConnectionString = builder.Configuration["DistributedRedis:ConnectionString"] ?? throw new Exception("$未能获取distributedredis连接字符串")
+}).AddDistributedId(new DistributedIdOptions
+{
+    Distributed = true
+});
+#endregion
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

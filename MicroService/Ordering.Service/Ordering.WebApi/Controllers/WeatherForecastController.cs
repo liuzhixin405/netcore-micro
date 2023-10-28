@@ -22,8 +22,8 @@ public class WeatherForecastController : ControllerBase
         using (var channel = GrpcChannel.ForAddress("https://localhost:7021"))
         {
             var client = MagicOnionClient.Create<IGrpcCustomerService>(channel);
-            var result = await client.GetCustomer(new CustomerRequest() { UserName=username,Password=password});
-            return result.UserName;
+            var result = await client.GetCustomer(new CustomerRequest(username,password));
+            return result.username;
         }
     }
 }

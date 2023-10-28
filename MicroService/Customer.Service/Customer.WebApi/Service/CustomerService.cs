@@ -1,6 +1,8 @@
 ﻿using Customers.Center.Service.Dtos;
 using Customers.Domain.Customers;
 using Customers.Domain.Seedwork;
+using DistributedId;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace Customers.Center.Service
 {
@@ -8,15 +10,19 @@ namespace Customers.Center.Service
     {
         private readonly ICustomerRepository _customerRepository;
         private readonly IUnitOfWork _unitOfWork;
-        public CustomerService(ICustomerRepository customerRepository,IUnitOfWork unitOfWork)
+        private readonly IDistributedId _distributedId;
+        public CustomerService(ICustomerRepository customerRepository,IUnitOfWork unitOfWork, IDistributedId distributedId)
         {
             _customerRepository = customerRepository;
             _unitOfWork = unitOfWork;
+            _distributedId =distributedId;
         }
 
         public async Task AddCustomer(AddCustomerDto customerDto)
         {
-           await _customerRepository.Add(new Customer { CreateTime = DateTime.Now, PassWord = customerDto.password, UserName = customerDto.user });
+            var oldCus = await _customerRepository.Get(customerDto.user, customerDto.password);
+            if(oldCus !=null) { throw new ArgumentNullException("已经存在该用户"); }
+           await _customerRepository.Add(new Customer {Id= _distributedId.NewLongId().ToString(), CreateTime = DateTime.Now, PassWord = customerDto.password, UserName = customerDto.user });
            await _unitOfWork.CommitAsync();
         }
 
