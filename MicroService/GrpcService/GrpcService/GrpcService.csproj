@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MicroService\GrpcShared\Shared\Shared.csproj" />
+    <ProjectReference Include="..\..\GrpcShared\Shared\Shared.csproj" />
   </ItemGroup>
 
 </Project>

@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Customers.Infrastructure.Domain.Customers
 {
-    public class CsutomerRepository : ICustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
         private readonly CustomerContext _;
-        public CsutomerRepository(CustomerContext context)
+        public CustomerRepository(CustomerContext context)
         {
             _ = context??throw new ArgumentNullException(nameof(context));
         }

@@ -15,7 +15,7 @@ namespace Customers.Center.GrpcService
         public async UnaryResult<CustomerResponse> GetCustomer(CustomerRequest request)
         {
             var customer = await _customerService.GetCustomer(new Service.Dtos.LoginDto(request.UserName, request.Password));
-            return new CustomerResponse() {  UserName=customer.UserName};   
+            return new CustomerResponse() {  UserName=customer.UserName??""};   
         }
     }
 }

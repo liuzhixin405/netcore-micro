@@ -43,6 +43,7 @@ namespace Customers.Center.Controllers
                 signingCredentials: credentials);
 
             var token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
+            
             return JsonConvert.SerializeObject(new
             {
                 result = true,
