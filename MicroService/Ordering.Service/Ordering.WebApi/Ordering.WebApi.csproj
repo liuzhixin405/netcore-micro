@@ -1,17 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Grpc.Net.Client" Version="2.34.0" />
     <PackageReference Include="NSwag.AspNetCore" Version="13.20.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common.Util\Common.Util.csproj" />
+    <ProjectReference Include="..\..\..\GrpcService\GrpcService.csproj" />
+    <ProjectReference Include="..\..\GrpcShared\Shared\Shared.csproj" />
   </ItemGroup>
 
 </Project>

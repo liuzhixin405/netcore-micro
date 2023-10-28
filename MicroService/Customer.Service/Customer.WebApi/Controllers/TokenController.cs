@@ -12,7 +12,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Customer.Center.Controllers
+namespace Customers.Center.Controllers
 {
     [Route("[controller]/[action]")]
     [ApiController]

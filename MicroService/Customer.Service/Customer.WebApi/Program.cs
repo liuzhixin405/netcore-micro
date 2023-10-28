@@ -22,6 +22,8 @@ builder.Services.AddOpenApiDocument(settings =>
 builder.Services.AddJwt(builder.Configuration);
 builder.Services.AddDB(builder.Configuration);
 
+builder.Services.AddGrpc();
+builder.Services.AddMagicOnion();
 builder.Services.RegisterAssemblyPublicNonGenericClasses();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -44,5 +46,5 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers().RequireAuthorization();
 });
 //app.MapControllers();
-
+app.MapMagicOnionService();
 app.Run();
