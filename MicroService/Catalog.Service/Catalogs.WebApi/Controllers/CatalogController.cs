@@ -4,16 +4,16 @@ namespace Catalogs.WebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class CatalogController : ControllerBase
 {
     private static readonly string[] Summaries = new[]
     {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-    private readonly ILogger<WeatherForecastController> _logger;
+    private readonly ILogger<CatalogController> _logger;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public CatalogController(ILogger<CatalogController> logger)
     {
         _logger = logger;
     }
