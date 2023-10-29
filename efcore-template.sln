@@ -19,8 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb", "MongoDb\MongoDb.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C187F47F-6B7B-4F33-A519-07A6761E4CCE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestRepositoryComponent", "TestRepositoryComponent\TestRepositoryComponent.csproj", "{5DE68ECC-7A9C-4E88-921E-E2E9D8B6A3FB}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedId", "DistributedId\DistributedId.csproj", "{1C75C228-DC52-42D0-A21A-F8299C0C4737}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedLock.Abstractions", "DistributedLock.Abstractions\DistributedLock.Abstractions.csproj", "{5178EAEC-51DF-4A79-A1AE-8A98B7088033}"
@@ -71,15 +69,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "MicroService\Grpc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GrpcService", "GrpcService", "{64335C2C-309C-4C87-8EE0-3AEE435BD99D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcService", "MicroService\GrpcService\GrpcService\GrpcService.csproj", "{C19C3BA1-FCA4-4C23-B761-8C6C2967E3BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcService", "MicroService\GrpcService\GrpcService\GrpcService.csproj", "{C19C3BA1-FCA4-4C23-B761-8C6C2967E3BA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog.Service", "Catalog.Service", "{1A42A9BD-54A7-41D9-A132-E2A6E998D420}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalogs.Domain", "MicroService\Catalog.Service\Catalogs.Domain\Catalogs.Domain.csproj", "{3A66FC81-DF1F-468D-8B17-8BECA787FEBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalogs.Domain", "MicroService\Catalog.Service\Catalogs.Domain\Catalogs.Domain.csproj", "{3A66FC81-DF1F-468D-8B17-8BECA787FEBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalogs.Infrastructure", "MicroService\Catalog.Service\Catalogs.Infrastructure\Catalogs.Infrastructure.csproj", "{55C26C48-ACD6-420F-83A6-5B16C42A3D93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalogs.Infrastructure", "MicroService\Catalog.Service\Catalogs.Infrastructure\Catalogs.Infrastructure.csproj", "{55C26C48-ACD6-420F-83A6-5B16C42A3D93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalogs.WebApi", "MicroService\Catalog.Service\Catalogs.WebApi\Catalogs.WebApi.csproj", "{3C42FA16-7CE4-4C14-BC59-42BF31B12B91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalogs.WebApi", "MicroService\Catalog.Service\Catalogs.WebApi\Catalogs.WebApi.csproj", "{3C42FA16-7CE4-4C14-BC59-42BF31B12B91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,10 +113,6 @@ Global
 		{55D0837F-9818-408E-9CF3-7B6D0D3ACF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55D0837F-9818-408E-9CF3-7B6D0D3ACF3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55D0837F-9818-408E-9CF3-7B6D0D3ACF3F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5DE68ECC-7A9C-4E88-921E-E2E9D8B6A3FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5DE68ECC-7A9C-4E88-921E-E2E9D8B6A3FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5DE68ECC-7A9C-4E88-921E-E2E9D8B6A3FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5DE68ECC-7A9C-4E88-921E-E2E9D8B6A3FB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1C75C228-DC52-42D0-A21A-F8299C0C4737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C75C228-DC52-42D0-A21A-F8299C0C4737}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C75C228-DC52-42D0-A21A-F8299C0C4737}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -212,11 +206,12 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{5DE68ECC-7A9C-4E88-921E-E2E9D8B6A3FB} = {C187F47F-6B7B-4F33-A519-07A6761E4CCE}
+		{FEABF7A2-B6A8-4A89-ABD4-691785A5585F} = {C187F47F-6B7B-4F33-A519-07A6761E4CCE}
 		{2DFFF355-8262-49C6-8771-3AD39984749F} = {FEABF7A2-B6A8-4A89-ABD4-691785A5585F}
 		{C1A845DC-E52C-491A-AC98-521822BCDBE9} = {FEABF7A2-B6A8-4A89-ABD4-691785A5585F}
 		{B732383E-7669-4F8A-A381-A441DF8CF8F1} = {FEABF7A2-B6A8-4A89-ABD4-691785A5585F}
 		{9783879C-3B64-4F46-962A-1FF56E92E5BF} = {FEABF7A2-B6A8-4A89-ABD4-691785A5585F}
+		{763585D2-7087-4F47-A3FF-71C589819105} = {C187F47F-6B7B-4F33-A519-07A6761E4CCE}
 		{FBC9644C-2046-4A8D-8AA7-661C1BFF7C80} = {763585D2-7087-4F47-A3FF-71C589819105}
 		{C6542C68-59F3-416C-9EB6-826B580567BA} = {763585D2-7087-4F47-A3FF-71C589819105}
 		{B865CF40-7930-4D04-8518-C4E310F75C52} = {763585D2-7087-4F47-A3FF-71C589819105}
