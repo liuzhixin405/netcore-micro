@@ -1,19 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MagicOnion" Version="5.1.8" />
+    <PackageReference Include="Microsoft.Orleans.Client" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\OrderService\AdventureGrainInterfaces\AdventureGrainInterfaces.csproj" />
+    <ProjectReference Include="..\..\RestSharpClient\RestSharpClient.csproj" />
     <ProjectReference Include="..\MicroService.Shared\MicroService.Shared.csproj" />
-    <ProjectReference Include="..\RestSharpClient\RestSharpClient.csproj" />
   </ItemGroup>
 
 </Project>
