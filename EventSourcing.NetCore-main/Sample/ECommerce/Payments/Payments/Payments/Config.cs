@@ -1,0 +1,42 @@
+using Core.Commands;
+using Core.Events;
+using Core.Marten.Repository;
+using Marten;
+using Marten.Events.Projections;
+using Microsoft.Extensions.DependencyInjection;
+using Payments.Payments.CompletingPayment;
+using Payments.Payments.DiscardingPayment;
+using Payments.Payments.FailingPayment;
+using Payments.Payments.FinalizingPayment;
+using Payments.Payments.RequestingPayment;
+using Payments.Payments.TimingOutPayment;
+
+namespace Payments.Payments;
+
+internal static class PaymentsConfig
+{
+    internal static IServiceCollection AddPayments(this IServiceCollection services) =>
+        services
+            .AddMartenRepository<Payment>()
+            .AddCommandHandlers()
+            .AddEventHandlers();
+
+    private static IServiceCollection AddCommandHandlers(this IServiceCollection services) =>
+        services
+            .AddCommandHandler<RequestPayment, HandleRequestPayment>()
+            .AddCommandHandler<CompletePayment, HandleCompletePayment>()
+            .AddCommandHandler<DiscardPayment, HandleDiscardPayment>()
+            .AddCommandHandler<TimeOutPayment, HandleTimeOutPayment>();
+
+    private static IServiceCollection AddEventHandlers(this IServiceCollection services) =>
+        services
+            .AddEventHandler<EventEnvelope<PaymentCompleted>, TransformIntoPaymentFinalized>()
+            .AddEventHandler<EventEnvelope<PaymentDiscarded>, TransformIntoPaymentFailed>()
+            .AddEventHandler<EventEnvelope<PaymentTimedOut>, TransformIntoPaymentFailed>();
+
+    internal static void ConfigurePayments(this StoreOptions options)
+    {
+        // Snapshots
+        options.Projections.Snapshot<Payment>(SnapshotLifecycle.Inline);
+    }
+}
