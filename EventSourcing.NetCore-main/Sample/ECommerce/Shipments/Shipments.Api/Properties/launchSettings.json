@@ -1,0 +1,13 @@
+﻿{
+    "profiles": {
+        "ShipmentsApi": {
+            "commandName": "Project",
+            "launchBrowser": true,
+            "applicationUrl": "http://localhost:5503",
+            "launchUrl": "http://localhost:5503",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        }
+    }
+}
