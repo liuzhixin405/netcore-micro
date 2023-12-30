@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Example</title>
+</head>
+<body>
+    <p>当前时间: </p>
+    <div id="output"></div>
+
+    <script>
+        const socket = new WebSocket("ws://localhost:5000/time");
+
+        socket.onmessage = function (event) {
+            const outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = event.data;
+        };
+    </script>
+</body>
+</html>

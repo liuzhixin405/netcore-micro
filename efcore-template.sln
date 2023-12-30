@@ -81,15 +81,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalogs.WebApi", "MicroSer
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Paying.Service", "Paying.Service", "{A4BC41CB-6215-4F87-9FB6-F9AE2F1C3320}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paying.Infrastructure", "MicroService\Paying.Service\Paying.Infrastructure\Paying.Infrastructure.csproj", "{FCC905D3-575B-4B09-AF97-FD9B493DC6BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paying.Infrastructure", "MicroService\Paying.Service\Paying.Infrastructure\Paying.Infrastructure.csproj", "{FCC905D3-575B-4B09-AF97-FD9B493DC6BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paying.Domain", "MicroService\Paying.Service\Paying.Domain\Paying.Domain.csproj", "{7E0097D4-CBD0-4790-A370-0A4BAE70F193}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paying.Domain", "MicroService\Paying.Service\Paying.Domain\Paying.Domain.csproj", "{7E0097D4-CBD0-4790-A370-0A4BAE70F193}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paying.WebApi", "MicroService\Paying.Service\Paying.WebApi\Paying.WebApi.csproj", "{90ABD365-8107-49E3-9B6D-1C55E17013AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paying.WebApi", "MicroService\Paying.Service\Paying.WebApi\Paying.WebApi.csproj", "{90ABD365-8107-49E3-9B6D-1C55E17013AF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Message.Service", "Message.Service", "{D2E42A79-6443-4A33-8C12-8FACF5B69D1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message.WebApi", "MicroService\Message.Service\Message.WebApi\Message.WebApi.csproj", "{1654E143-5587-4152-9570-0D3A340FA1AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Message.WebApi", "MicroService\Message.Service\Message.WebApi\Message.WebApi.csproj", "{1654E143-5587-4152-9570-0D3A340FA1AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebScoket.Server", "WebSocket.Server\WebScoket.Server.csproj", "{454B479B-C3DE-49F3-A0F7-04EBD9FECDA6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSocket.WebClient", "WebSocket.Client\WebSocket.WebClient.csproj", "{8A26F787-3E1D-4FF4-BF02-F70250E1B71F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -229,6 +233,14 @@ Global
 		{1654E143-5587-4152-9570-0D3A340FA1AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1654E143-5587-4152-9570-0D3A340FA1AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1654E143-5587-4152-9570-0D3A340FA1AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{454B479B-C3DE-49F3-A0F7-04EBD9FECDA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{454B479B-C3DE-49F3-A0F7-04EBD9FECDA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{454B479B-C3DE-49F3-A0F7-04EBD9FECDA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{454B479B-C3DE-49F3-A0F7-04EBD9FECDA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A26F787-3E1D-4FF4-BF02-F70250E1B71F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A26F787-3E1D-4FF4-BF02-F70250E1B71F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A26F787-3E1D-4FF4-BF02-F70250E1B71F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A26F787-3E1D-4FF4-BF02-F70250E1B71F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
