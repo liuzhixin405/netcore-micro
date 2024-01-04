@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: url('background.jpg') center/cover no-repeat; /* 替换 'background.jpg' 为你的背景图路径 */
+            background: url('/img/Login.png') center/cover no-repeat; /* 替换 'background.jpg' 为你的背景图路径 */
             background-color: #333; /* 如果背景图加载失败，显示背景颜色 */
             color: #fff;
         }
@@ -91,7 +91,7 @@
                 .then(response => {
                     const token = response.data.token;
 
-                    localStorage.setItem('token', token);
+                    localStorage.setItem('userToken', token);
 
                     window.location.href = '/product.html';
                 })

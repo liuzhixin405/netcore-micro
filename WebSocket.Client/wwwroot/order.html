@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>下单详情</title>
+</head>
+<body>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 在下单页面检查登录状态
+            const isLoggedIn = checkLoginStatus();
+
+            if (isLoggedIn) {
+                // 用户已登录，显示下单页面内容
+                // 获取传递的参数
+                const params = new URLSearchParams(window.location.search);
+                const productName = params.get('productName');
+                const quantity = params.get('quantity');
+                const price = params.get('price');
+                const imgPath = params.get('imgPath');
+                // 显示订单详情
+                showOrderDetails(productName, quantity, price, imgPath);
+
+                // 添加确认按钮
+                const confirmButton = document.createElement('button');
+                confirmButton.textContent = '确认下单';
+                confirmButton.addEventListener('click', function () {
+                    // 调用新增订单的函数
+                    placeOrder(productName, quantity, price, imgPath);
+                });
+
+                document.body.appendChild(confirmButton);
+            } else {
+                // 用户未登录，可以跳转到登录页面或显示提示信息
+                redirectToLoginPage();
+                // 或者显示提示信息
+            }
+        });
+        function checkLoginStatus() {
+
+            // 从 localStorage 中获取用户信息或令牌
+            const userToken = localStorage.getItem('userToken');
+            return !!userToken; // 返回用户是否已登录的布尔值
+        }
+
+        function showOrderDetails(productName, quantity, price, imgPath) {
+            // 创建一个新的 div 元素用于显示订单详情
+            const orderDetailsContainer = document.createElement('div');
+
+            // 构建订单详情内容
+            orderDetailsContainer.innerHTML = `<h2>订单详情</h2>
+                                           <img src="${imgPath}" alt="${productName}" style="max-width: 10%; height: auto;">
+                                           <p>商品名称: ${productName}</p>
+                                           <p>数量: ${quantity}</p>
+                                           <p>价格: ${price}</p>`;
+
+            // 将订单详情添加到页面
+            document.body.appendChild(orderDetailsContainer);
+        }
+
+        function redirectToLoginPage() {
+            // 可以跳转到登录页面
+            window.location.href = "/login.html";
+        }
+
+        function displayLoginPrompt() {
+            // 在页面上显示登录提示信息
+            document.body.innerHTML = "<p>请先登录再进行下单操作。</p>";
+            // 还可以提供登录链接等
+        }
+
+        function placeOrder(productName, quantity, price, imgPath) {
+            // 发送 POST 请求来创建新订单
+            const orderData = {
+                productName: productName,
+                quantity: quantity,
+                price: price,
+                imgPath: imgPath
+            };
+        // 假设订单创建的 API 端点是 /api/orders
+        const apiUrl = 'http://example.com/api/orders';
+
+        // 使用 fetch 发送 POST 请求
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                // 如果有登录令牌，可以添加在请求头中
+                // 'Authorization': 'Bearer ' + userToken
+            },
+            body: JSON.stringify(orderData)
+        })
+            .then(response => {
+                if (response.ok) {
+                    // 订单创建成功，可以进行相关处理
+                    console.log('订单创建成功');
+                } else {
+                    // 订单创建失败，可以进行相关处理
+                    console.error('订单创建失败');
+                }
+            })
+            .catch(error => {
+                console.error('请求失败:', error);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -93,7 +93,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Message.WebApi", "MicroServ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebScoket.Server", "WebSocket.Server\WebScoket.Server.csproj", "{454B479B-C3DE-49F3-A0F7-04EBD9FECDA6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSocket.WebClient", "WebSocket.Client\WebSocket.WebClient.csproj", "{8A26F787-3E1D-4FF4-BF02-F70250E1B71F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebClient", "WebSocket.Client\WebClient.csproj", "{8A26F787-3E1D-4FF4-BF02-F70250E1B71F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
