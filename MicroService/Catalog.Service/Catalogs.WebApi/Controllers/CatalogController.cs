@@ -2,6 +2,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime;
 using Catalogs.Domain.Catalogs;
+using Catalogs.Domain.Dtos;
 using Catalogs.Infrastructure.Database;
 using Catalogs.WebApi.ViewModel;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +34,7 @@ public class CatalogController : ControllerBase
     [HttpGet]
     [Route("items")]
     [ProducesResponseType(typeof(PaginatedViewModel<Catalog>), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(IEnumerable<Catalog>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(IEnumerable<ProductDto>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Catalogs([FromQuery] int pageSize = 10, [FromQuery] int pageIndex = 0, string ids = null)
     {
@@ -57,8 +58,8 @@ public class CatalogController : ControllerBase
             .Skip(pageSize * pageIndex)
             .Take(pageSize)
             .ToListAsync();
-
-        var model = new PaginatedViewModel<Catalog>(pageIndex, pageSize, totalItems, itemsOnPage);
+       var result = itemsOnPage.Select(x => new ProductDto(x.Id.ToString(), x.Name, x.Price.ToString(), x.Stock.ToString(), x.ImgPath));
+        var model = new PaginatedViewModel<ProductDto>(pageIndex, pageSize, totalItems, result);
         return Ok(model);
 
     }
