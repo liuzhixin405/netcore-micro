@@ -4,15 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Catalogs.Domain.Catalogs
 {
+    [Serializable]
     [Table("Catalog")]
-    public  class Catalog
+    public class Catalog
     {
-        public static Catalog CreateNew(long id,string name,decimal price,int stock,int maxStock,string desc = "",string imgPath = "/Img/R.jpg")
+        public static Catalog CreateNew(long id, string name, decimal price, int stock, int maxStock, string desc = "", string imgPath = "/Img/R.jpg")
         {
+            //var catalog = new Catalog(id,name,price,stock,maxStock,desc,imgPath)
             var catalog = new Catalog()
             {
                 Id = id,
@@ -33,24 +36,43 @@ namespace Catalogs.Domain.Catalogs
         public int Stock { get; private set; }
         public int MaxStock { get; private set; } = 10000;
         public string ImgPath { get; set; }
-        protected Catalog()
+
+        public Catalog() { }
+        [JsonConstructor]
+        public Catalog(long id, string name, decimal price, int stock, int maxStock, string description, string imgPath)
         {
-            
+            Id = id;
+            Name = name;
+            Price = price;
+            Stock = stock;
+            MaxStock = maxStock;
+            Description = description;
+            ImgPath = imgPath;
         }
-        public Task<Tuple<bool,string>> AddStock(int quantity)
+        //public Catalog(long id, string name, decimal price, int stock, int maxStock, string desc, string imgPath)
+        //{
+        //    Id = id;
+        //    Name = name;
+        //    Price = price;
+        //    Stock = stock;
+        //    MaxStock = maxStock;
+        //    Description = desc;
+        //    ImgPath = imgPath;
+        //}
+        public Task<Tuple<bool, string>> AddStock(int quantity)
         {
 
-            if(Stock+quantity > MaxStock)
+            if (Stock + quantity > MaxStock)
             {
                 return Task.FromResult(Tuple.Create(false, "超出库存限制"));
             }
             Stock += quantity;
-            return Task.FromResult(Tuple.Create(true,""));
+            return Task.FromResult(Tuple.Create(true, ""));
         }
         public Task<Tuple<bool, string>> RemoveStock(int quantity)
         {
 
-            if ( quantity > Stock)
+            if (quantity > Stock)
             {
                 return Task.FromResult(Tuple.Create(false, "超出库存限制"));
             }

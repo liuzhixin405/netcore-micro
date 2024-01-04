@@ -4,6 +4,7 @@ using Catalogs.Infrastructure.Database;
 using Cache.Options;
 using DistributedId;
 using Cache;
+using Catalogs.WebApi.BackgroudServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,7 +36,7 @@ builder.Services.AddCache(new CacheOptions
     Distributed = true
 });
 #endregion
-
+builder.Services.AddHostedService<InitProductListToRedisService>();
 var app = builder.Build();
 ApplicationStartup.CreateTable(app.Services);
 using (var scope = app.Services.CreateScope())
