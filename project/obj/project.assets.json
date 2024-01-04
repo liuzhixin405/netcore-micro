@@ -6079,7 +6079,8 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.0",
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
-          "NEST": "7.17.5"
+          "NEST": "7.17.5",
+          "Portable.BouncyCastle": "1.9.0"
         },
         "compile": {
           "bin/placeholder/Common.Util.dll": {}
