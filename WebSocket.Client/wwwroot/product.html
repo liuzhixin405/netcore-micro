@@ -33,19 +33,39 @@
                 max-height: 150px;
                 margin-bottom: 10px;
             }
+
+        #pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+            #pagination a {
+                padding: 5px;
+                margin: 0 5px;
+                text-decoration: none;
+                cursor: pointer;
+                color: #333;
+            }
+
+                #pagination a.active {
+                    font-weight: bold;
+                    color: #333;
+                }
     </style>
 </head>
 <body>
 
     <div id="products"></div>
     <div id="pagination"></div>
+    <div id="currentPage"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        const pageSize = 10;
+        const pageSize = 5;
         let currentPage = 0;
 
-        function displayProducts(baseUrl,data) {
+        function displayProducts(baseUrl, data) {
             const productsContainer = document.getElementById('products');
             productsContainer.innerHTML = '';
 
@@ -53,9 +73,9 @@
                 const productElement = document.createElement('div');
                 productElement.classList.add('product');
                 productElement.innerHTML = `<img src="${baseUrl}${product.imgPath}" alt="${product.name}">
-                                              <h3>${product.name}</h3>
-                                              <p>价格: ${product.price}</p>
-                                              <p>库存: ${product.stock}</p>`;
+                                                  <h3>${product.name}</h3>
+                                                  <p>价格: ${product.price}</p>
+                                                  <p>库存: ${product.stock}</p>`;
                 productsContainer.appendChild(productElement);
             });
         }
@@ -64,14 +84,19 @@
             const paginationContainer = document.getElementById('pagination');
             paginationContainer.innerHTML = '';
 
-            for (let i = 1; i <= totalPages; i++) {
+            for (let i = 0; i < totalPages; i++) {
                 const link = document.createElement('a');
                 link.href = '#';
-                link.textContent = i;
+                link.textContent = i + 1;
                 link.addEventListener('click', () => {
                     currentPage = i;
                     fetchData();
                 });
+
+                // 高亮显示当前页
+                if (i === currentPage) {
+                    link.classList.add('active');
+                }
 
                 paginationContainer.appendChild(link);
             }
@@ -79,7 +104,7 @@
 
         function fetchData() {
             const baseUrl = `http://localhost:7000`;
-            const apiUrl = baseUrl+`/Catalog/items?pageSize=${pageSize}&pageIndex=${currentPage}`;
+            const apiUrl = baseUrl + `/Catalog/items?pageSize=${pageSize}&pageIndex=${currentPage}`;
 
             axios.get(apiUrl)
                 .then(response => {
@@ -87,8 +112,12 @@
                     displayProducts(baseUrl, data);
 
                     // 从响应中获取总页数
-                    const totalPages = response.data.totalPages;
+                    const totalPages = Math.ceil(response.data.count / pageSize);
                     displayPagination(totalPages);
+
+                    // 更新当前页数的显示
+                    const currentPageElement = document.getElementById('currentPage');
+                    currentPageElement.textContent = `当前页数: ${currentPage + 1} / 总页数: ${totalPages}`;
                 })
                 .catch(error => {
                     console.error('获取数据失败:', error);
