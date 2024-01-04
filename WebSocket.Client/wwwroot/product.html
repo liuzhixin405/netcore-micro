@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        #products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .product img {
+                max-width: 100%;
+                max-height: 150px;
+                margin-bottom: 10px;
+            }
+    </style>
+</head>
+<body>
+
+    <div id="products"></div>
+    <div id="pagination"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const pageSize = 10;
+        let currentPage = 0;
+
+        function displayProducts(baseUrl,data) {
+            const productsContainer = document.getElementById('products');
+            productsContainer.innerHTML = '';
+
+            data.forEach(product => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('product');
+                productElement.innerHTML = `<img src="${baseUrl}${product.imgPath}" alt="${product.name}">
+                                              <h3>${product.name}</h3>
+                                              <p>价格: ${product.price}</p>
+                                              <p>库存: ${product.stock}</p>`;
+                productsContainer.appendChild(productElement);
+            });
+        }
+
+        function displayPagination(totalPages) {
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = '';
+
+            for (let i = 1; i <= totalPages; i++) {
+                const link = document.createElement('a');
+                link.href = '#';
+                link.textContent = i;
+                link.addEventListener('click', () => {
+                    currentPage = i;
+                    fetchData();
+                });
+
+                paginationContainer.appendChild(link);
+            }
+        }
+
+        function fetchData() {
+            const baseUrl = `http://localhost:7000`;
+            const apiUrl = baseUrl+`/Catalog/items?pageSize=${pageSize}&pageIndex=${currentPage}`;
+
+            axios.get(apiUrl)
+                .then(response => {
+                    const data = response.data.data;
+                    displayProducts(baseUrl, data);
+
+                    // 从响应中获取总页数
+                    const totalPages = response.data.totalPages;
+                    displayPagination(totalPages);
+                })
+                .catch(error => {
+                    console.error('获取数据失败:', error);
+                });
+        }
+
+        // 初始加载数据
+        fetchData();
+    </script>
+
+</body>
+</html>

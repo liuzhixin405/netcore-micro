@@ -12,8 +12,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Cache\Cache.csproj" />
     <ProjectReference Include="..\Catalogs.Domain\Catalogs.Domain.csproj" />
     <ProjectReference Include="..\Catalogs.Infrastructure\Catalogs.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Img\R.jpg" />
   </ItemGroup>
 
 </Project>

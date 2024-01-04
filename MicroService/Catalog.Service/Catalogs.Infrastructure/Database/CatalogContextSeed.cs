@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Catalogs.Domain.Catalogs;
 using DistributedId;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Polly;
@@ -15,11 +16,21 @@ namespace Catalogs.Infrastructure.Database
 {
     public class CatalogContextSeed
     {
-        public async Task SeedAsync(CatalogContext context,ILogger<CatalogContextSeed> logger,IServiceProvider service) 
+        private readonly IServiceProvider _serviceProvider;
+        public CatalogContextSeed(IServiceProvider serviceProvider)
         {
+            _serviceProvider = serviceProvider;
+        }
+        public async Task SeedAsync() 
+        {
+            IServiceProvider service = _serviceProvider;
+            using var scope = service.CreateAsyncScope();
+            var logger = scope.ServiceProvider.GetService<ILogger<CatalogContextSeed>>();
+            var context = scope.ServiceProvider.GetService<CatalogContext>();
             var s = new string[] { "1", "2" };
             var policy = CreatePolicy(logger, nameof(CatalogContextSeed));
-            using var scope = service.CreateAsyncScope();
+            if ((await context.Catalogs.LongCountAsync()) > 0)
+                return;
             var distributedId = scope.ServiceProvider.GetService<IDistributedId>()??throw new ArgumentNullException(nameof(IDistributedId));
             await policy.ExecuteAsync(async () =>
             {
@@ -33,7 +44,7 @@ namespace Catalogs.Infrastructure.Database
             });
         }
 
-        private AsyncRetryPolicy CreatePolicy(ILogger<CatalogContextSeed> logger,string prefix,int retries = 3)
+        private static AsyncRetryPolicy CreatePolicy(ILogger<CatalogContextSeed> logger,string prefix,int retries = 3)
         {
             return Policy.Handle<SqlException>().WaitAndRetryAsync(retryCount:retries,sleepDurationProvider:retries=>TimeSpan.FromSeconds(5),
                 onRetry: (exception, timespance, retry, ctx) =>

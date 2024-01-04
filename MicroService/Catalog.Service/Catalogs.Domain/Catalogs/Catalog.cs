@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Catalogs.Domain.Catalogs
 {
-    [Table("Tables")]
+    [Table("Catalog")]
     public  class Catalog
     {
-        public static Catalog CreateNew(long id,string name,decimal price,int stock,int maxStock,string desc = "")
+        public static Catalog CreateNew(long id,string name,decimal price,int stock,int maxStock,string desc = "",string imgPath = "/Img/R.jpg")
         {
             var catalog = new Catalog()
             {
@@ -20,7 +20,8 @@ namespace Catalogs.Domain.Catalogs
                 Price = price,
                 Stock = stock,
                 MaxStock = maxStock,
-                Description = desc
+                Description = desc,
+                ImgPath = imgPath
             };
             return catalog;
         }
@@ -31,6 +32,7 @@ namespace Catalogs.Domain.Catalogs
         public decimal Price { get; private set; }
         public int Stock { get; private set; }
         public int MaxStock { get; private set; } = 10000;
+        public string ImgPath { get; set; }
         protected Catalog()
         {
             
