@@ -20,7 +20,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigin",
         builder =>
         {
-            builder.AllowAnyOrigin() // 允许特定的来源
+            builder.AllowAnyOrigin() // 允许所有来源
                    .AllowAnyHeader()
                    .AllowAnyMethod();
         });

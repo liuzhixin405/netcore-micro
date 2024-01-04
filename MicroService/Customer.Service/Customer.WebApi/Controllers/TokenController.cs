@@ -28,7 +28,7 @@ namespace Customers.Center.Controllers
         private readonly JwtOptions _jwtOptions;
         private readonly ICustomerService _customerService;
         private IDistributedCache _cache;
-        private readonly static string cacheToken = "TokenStr";
+        private readonly static string cacheToken = "TokenStr_";
         public TokenController(IOptions<JwtOptions> jwtOptions, ICustomerService customerService, IDistributedCache cache)
         {
             _jwtOptions = jwtOptions.Value;
@@ -38,27 +38,33 @@ namespace Customers.Center.Controllers
         [AllowAnonymous]
         [HttpPost]
         [SwaggerResponse(typeof(TokenDto))]
-        public async Task<IActionResult> GetToken([Required] string username, [Required] string password)
+        public async Task<IActionResult> GetToken(LoginDto login)
         {
-            var user = await _customerService.GetCustomer(new Service.Dtos.LoginDto(username, password));
+            var failResult = new
+            {
+                result = false,
+                token = "",
+                Msg = "账号密码错误"
+            };
+            if (string.IsNullOrWhiteSpace(login.username) || string.IsNullOrWhiteSpace(login.password))
+            {
+                return Ok(failResult);
+            }
+            string getcacheKey = cacheToken+ login.username + "_" + login.password;
+
+            var user = await _customerService.GetCustomer(login);
             if (string.IsNullOrEmpty(user.UserName))
             {
                 await Task.CompletedTask;
-                return Ok(new
-                {
-                    result = false,
-                    token = "",
-                    Msg = "账号密码错误"
-
-                });
+                return Ok(failResult);
             }
-            var result = await _cache.GetObjectAsync<TokenDto>(cacheToken);
+            var result = await _cache.GetObjectAsync<TokenDto>(getcacheKey);
             if (result == null)
             {
 
                 var claims = new[]
                 {
-                new Claim("username",username)
+                new Claim("username",login.username)
             };
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.Secret));
                 var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -72,7 +78,7 @@ namespace Customers.Center.Controllers
                 var token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
 
                 result = new TokenDto(token, true, "");
-                await _cache.SetObjectAsync<TokenDto>(cacheToken, result, new DistributedCacheEntryOptions { SlidingExpiration = TimeSpan.FromMinutes(1) });
+                await _cache.SetObjectAsync<TokenDto>(getcacheKey, result, new DistributedCacheEntryOptions { SlidingExpiration = TimeSpan.FromMinutes(5) });
             }
             return Ok(result);
         }
