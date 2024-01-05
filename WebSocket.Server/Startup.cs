@@ -20,6 +20,11 @@ using WsServer.Manager;
 using WsServer.Middleware;
 using WsServer.Services;
 using Cache;
+using Microsoft.Extensions.Logging;
+using Common.Redis.Extensions;
+using Common.Redis.Extensions.Configuration;
+using Common.Redis.Extensions.Serializer;
+
 public class Startup
 {
     private readonly IConfiguration _configuration;
@@ -30,13 +35,15 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddWebSocketManager();
-        #region 雪花id 分布式
-        services.AddCache(new CacheOptions
+      
+        //redis
+        services.AddSingleton<IRedisCache>(obj =>
         {
-            CacheType = CacheTypes.Redis,
-            RedisConnectionString = _configuration["DistributedRedis:ConnectionString"] ?? throw new Exception("$未能获取distributedredis连接字符串")
+            var config = _configuration.GetSection("Redis").Get<RedisConfiguration>();
+            var serializer = new MsgPackSerializer();
+            var connection = new PooledConnectionMultiplexer(config.ConfigurationOptions);
+            return new RedisCache(obj.GetService<ILoggerFactory>().CreateLogger<RedisCache>(), connection, config, serializer);
         });
-        #endregion
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -48,7 +55,7 @@ public class Startup
 
         app.UseWebSockets();
         app.MapWebSocketManager("/time", new TimeHandler(new WebSocketConnectionManager() ));
-        app.MapWebSocketManager("/productlist", new ProductListHandler(new WebSocketConnectionManager(), _configuration));
+        app.MapWebSocketManager("/productlist", new ProductListHandler(new WebSocketConnectionManager(),app.ApplicationServices));
         app.Use(async (context, next) =>
         {
             if (context.Request.Path.Equals("/"))

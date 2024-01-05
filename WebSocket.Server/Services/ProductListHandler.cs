@@ -9,22 +9,25 @@ using System.Collections.Generic;
 using Catalogs.Domain.Catalogs;
 using Catalogs.Domain.Dtos;
 using System.Net.Sockets;
+using Common.Redis.Extensions;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace WebScoket.Server.Services
 {
     /// <summary>
     /// 实时推送产品主要是最新的库存，其他信息也会更新
     /// </summary>
-    public class ProductListHandler : WebSocketHandler
+    public class ProductListHandler : WebSocketHandler 
     {
         private System.Threading.Timer _timer;
-        private readonly IDatabase _redisDb;
+        private readonly IRedisCache _redisDb;
         //展示列表推送
         private string productIdsStr;
-        public ProductListHandler(WebSocketConnectionManager webSocketConnectionManager,IConfiguration configuration) : base(webSocketConnectionManager)
+        public ProductListHandler(WebSocketConnectionManager webSocketConnectionManager,IServiceProvider serviceProvider) : base(webSocketConnectionManager)
         {
-            ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(configuration["DistributedRedis:ConnectionString"] ?? throw new Exception("$未能获取distributedredis连接字符串"));
-            _redisDb = redis.GetDatabase();
+            using var scope = serviceProvider.CreateScope();
+            _redisDb =scope.ServiceProvider.GetService<IRedisCache>();
+
             _timer = new System.Threading.Timer(Send, null, TimeSpan.Zero, TimeSpan.FromSeconds(1));
         }
         private void Send(object state)
@@ -41,7 +44,7 @@ namespace WebScoket.Server.Services
                     if(productId == "null") {
                         continue;
                     }
-                    string retrievedProductValue = _redisDb.HashGet(hashKeyToRetrieve, productId);
+                    string retrievedProductValue = _redisDb.HGetAsync(hashKeyToRetrieve, productId).Result;
                     if (!string.IsNullOrEmpty(retrievedProductValue))
                     {
                         //反序列化和构造函数冲突，改造了一下Catalog
@@ -63,6 +66,7 @@ namespace WebScoket.Server.Services
         {
             //每次页面有刷新就会拿到展示的id列表
             productIdsStr = System.Text.Encoding.UTF8.GetString(buffer, 0, result.Count);
+            await Task.Delay(1000);
         }
     }
 }

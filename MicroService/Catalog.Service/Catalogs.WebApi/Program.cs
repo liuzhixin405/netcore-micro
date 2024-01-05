@@ -7,6 +7,9 @@ using Cache;
 using Catalogs.WebApi.BackgroudServices;
 using System.Threading.Channels;
 using System.Text.Json;
+using Common.Redis.Extensions;
+using Common.Redis.Extensions.Configuration;
+using Common.Redis.Extensions.Serializer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +47,15 @@ builder.Services.AddCache(new CacheOptions
     Distributed = true
 });
 #endregion
+//redis
+builder.Services.AddSingleton<IRedisCache>(obj =>
+{
+    var config = builder.Configuration.GetSection("Redis").Get<RedisConfiguration>();
+    var serializer = new MsgPackSerializer();
+    var connection = new PooledConnectionMultiplexer(config.ConfigurationOptions);
+    return new RedisCache(obj.GetService<ILoggerFactory>().CreateLogger<RedisCache>(), connection, config, serializer);
+});
+
 builder.Services.AddHostedService<InitProductListToRedisService>();
 var app = builder.Build();
 ApplicationStartup.CreateTable(app.Services);

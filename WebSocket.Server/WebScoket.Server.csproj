@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cache\Cache.csproj" />
+    <ProjectReference Include="..\Common.Redis\Common.Redis.csproj" />
     <ProjectReference Include="..\MicroService\Catalog.Service\Catalogs.Domain\Catalogs.Domain.csproj" />
   </ItemGroup>
 
