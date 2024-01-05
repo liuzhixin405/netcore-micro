@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\OrderService\AdventureGrainInterfaces\AdventureGrainInterfaces.csproj" />
-    <ProjectReference Include="..\..\RestSharpClient\RestSharpClient.csproj" />
+    <ProjectReference Include="..\..\RestSharpClient\Common.RestSharpClient.csproj" />
     <ProjectReference Include="..\MicroService.Shared\MicroService.Shared.csproj" />
   </ItemGroup>
 

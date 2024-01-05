@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/8eXySpgtRUgGdU0VBIRKKUBX+oU/drwrZ6pRohdUoZ67nrAMqFXEheRAyzyi6MA9IR53is/tKd8WWvnC+cJAw==",
+  "dgSpecHash": "7b52o6iUp26r/95QOdsjHSf3PEnmrBt2nOpH9hwX0JospiPdhAcR0Zs6hEPJ+rhXDiimhZwpLHFzrfF7XqPDyg==",
   "success": true,
-  "projectFilePath": "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj",
+  "projectFilePath": "D:\\github\\efcore-template\\RepositoryComponent\\Common.RepositoryComponent.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
     "C:\\Users\\lzx\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.5\\microsoft.entityframeworkcore.abstractions.7.0.5.nupkg.sha512",

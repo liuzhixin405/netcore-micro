@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cache.Options
+namespace Common.Cache
 {
     /// <summary>
     /// 缓存配置

@@ -4,12 +4,12 @@
     "D:\\github\\efcore-template\\project\\project.csproj": {}
   },
   "projects": {
-    "D:\\github\\efcore-template\\Cache\\Cache.csproj": {
+    "D:\\github\\efcore-template\\Cache\\Common.Cache.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\Cache\\Cache.csproj",
-        "projectName": "Cache",
-        "projectPath": "D:\\github\\efcore-template\\Cache\\Cache.csproj",
+        "projectUniqueName": "D:\\github\\efcore-template\\Cache\\Common.Cache.csproj",
+        "projectName": "Common.Cache",
+        "projectPath": "D:\\github\\efcore-template\\Cache\\Common.Cache.csproj",
         "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
         "outputPath": "D:\\github\\efcore-template\\Cache\\obj\\",
         "projectStyle": "PackageReference",
@@ -162,12 +162,12 @@
         }
       }
     },
-    "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj": {
+    "D:\\github\\efcore-template\\DapperDal\\Common.DapperDal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj",
-        "projectName": "DapperDal",
-        "projectPath": "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj",
+        "projectUniqueName": "D:\\github\\efcore-template\\DapperDal\\Common.DapperDal.csproj",
+        "projectName": "Common.DapperDal",
+        "projectPath": "D:\\github\\efcore-template\\DapperDal\\Common.DapperDal.csproj",
         "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
         "outputPath": "D:\\github\\efcore-template\\DapperDal\\obj\\",
         "projectStyle": "PackageReference",
@@ -231,12 +231,12 @@
         }
       }
     },
-    "D:\\github\\efcore-template\\DistributedId\\DistributedId.csproj": {
+    "D:\\github\\efcore-template\\DistributedId\\Common..DistributedId.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\DistributedId\\DistributedId.csproj",
-        "projectName": "DistributedId",
-        "projectPath": "D:\\github\\efcore-template\\DistributedId\\DistributedId.csproj",
+        "projectUniqueName": "D:\\github\\efcore-template\\DistributedId\\Common..DistributedId.csproj",
+        "projectName": "Common..DistributedId",
+        "projectPath": "D:\\github\\efcore-template\\DistributedId\\Common..DistributedId.csproj",
         "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
         "outputPath": "D:\\github\\efcore-template\\DistributedId\\obj\\",
         "projectStyle": "PackageReference",
@@ -255,8 +255,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\github\\efcore-template\\DistributedLock.Abstractions\\DistributedLock.Abstractions.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\DistributedLock.Abstractions.csproj"
+              "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
+                "projectPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
               }
             }
           }
@@ -312,12 +312,12 @@
         }
       }
     },
-    "D:\\github\\efcore-template\\DistributedLock.Abstractions\\DistributedLock.Abstractions.csproj": {
+    "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\DistributedLock.Abstractions.csproj",
-        "projectName": "DistributedLock.Abstractions",
-        "projectPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\DistributedLock.Abstractions.csproj",
+        "projectUniqueName": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj",
+        "projectName": "Common.DistributedLock.Abstractions",
+        "projectPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj",
         "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
         "outputPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\obj\\",
         "projectStyle": "PackageReference",
@@ -367,12 +367,12 @@
         }
       }
     },
-    "D:\\github\\efcore-template\\MessageMiddleware\\MessageMiddleware.csproj": {
+    "D:\\github\\efcore-template\\MessageMiddleware\\Common.MessageMiddleware.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\MessageMiddleware\\MessageMiddleware.csproj",
-        "projectName": "MessageMiddleware",
-        "projectPath": "D:\\github\\efcore-template\\MessageMiddleware\\MessageMiddleware.csproj",
+        "projectUniqueName": "D:\\github\\efcore-template\\MessageMiddleware\\Common.MessageMiddleware.csproj",
+        "projectName": "Common.MessageMiddleware",
+        "projectPath": "D:\\github\\efcore-template\\MessageMiddleware\\Common.MessageMiddleware.csproj",
         "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
         "outputPath": "D:\\github\\efcore-template\\MessageMiddleware\\obj\\",
         "projectStyle": "PackageReference",
@@ -492,26 +492,26 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\github\\efcore-template\\Cache\\Cache.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Cache\\Cache.csproj"
+              "D:\\github\\efcore-template\\Cache\\Common.Cache.csproj": {
+                "projectPath": "D:\\github\\efcore-template\\Cache\\Common.Cache.csproj"
               },
               "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj": {
                 "projectPath": "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj"
               },
-              "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj"
+              "D:\\github\\efcore-template\\DapperDal\\Common.DapperDal.csproj": {
+                "projectPath": "D:\\github\\efcore-template\\DapperDal\\Common.DapperDal.csproj"
               },
-              "D:\\github\\efcore-template\\DistributedId\\DistributedId.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\DistributedId\\DistributedId.csproj"
+              "D:\\github\\efcore-template\\DistributedId\\Common..DistributedId.csproj": {
+                "projectPath": "D:\\github\\efcore-template\\DistributedId\\Common..DistributedId.csproj"
               },
-              "D:\\github\\efcore-template\\DistributedLock.Abstractions\\DistributedLock.Abstractions.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\DistributedLock.Abstractions.csproj"
+              "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
+                "projectPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
               },
-              "D:\\github\\efcore-template\\MessageMiddleware\\MessageMiddleware.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\MessageMiddleware\\MessageMiddleware.csproj"
+              "D:\\github\\efcore-template\\MessageMiddleware\\Common.MessageMiddleware.csproj": {
+                "projectPath": "D:\\github\\efcore-template\\MessageMiddleware\\Common.MessageMiddleware.csproj"
               },
-              "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj"
+              "D:\\github\\efcore-template\\RepositoryComponent\\Common.RepositoryComponent.csproj": {
+                "projectPath": "D:\\github\\efcore-template\\RepositoryComponent\\Common.RepositoryComponent.csproj"
               }
             }
           }
@@ -602,12 +602,12 @@
         }
       }
     },
-    "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj": {
+    "D:\\github\\efcore-template\\RepositoryComponent\\Common.RepositoryComponent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj",
-        "projectName": "RepositoryComponent",
-        "projectPath": "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj",
+        "projectUniqueName": "D:\\github\\efcore-template\\RepositoryComponent\\Common.RepositoryComponent.csproj",
+        "projectName": "Common.RepositoryComponent",
+        "projectPath": "D:\\github\\efcore-template\\RepositoryComponent\\Common.RepositoryComponent.csproj",
         "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
         "outputPath": "D:\\github\\efcore-template\\RepositoryComponent\\obj\\",
         "projectStyle": "PackageReference",

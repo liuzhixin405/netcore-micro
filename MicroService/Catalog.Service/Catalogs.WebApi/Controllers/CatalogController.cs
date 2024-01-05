@@ -2,7 +2,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime;
 using System.Threading.Channels;
-using Cache;
+using Common.Cache;
 using Catalogs.Domain.Catalogs;
 using Catalogs.Domain.Dtos;
 using Catalogs.Infrastructure.Database;

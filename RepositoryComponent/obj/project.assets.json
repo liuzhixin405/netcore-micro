@@ -523,9 +523,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj",
-      "projectName": "RepositoryComponent",
-      "projectPath": "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj",
+      "projectUniqueName": "D:\\github\\efcore-template\\RepositoryComponent\\Common.RepositoryComponent.csproj",
+      "projectName": "Common.RepositoryComponent",
+      "projectPath": "D:\\github\\efcore-template\\RepositoryComponent\\Common.RepositoryComponent.csproj",
       "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
       "outputPath": "D:\\github\\efcore-template\\RepositoryComponent\\obj\\",
       "projectStyle": "PackageReference",

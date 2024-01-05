@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\DistributedId\DistributedId.csproj" />
+    <ProjectReference Include="..\..\..\DistributedId\Common..DistributedId.csproj" />
     <ProjectReference Include="..\Catalogs.Domain\Catalogs.Domain.csproj" />
   </ItemGroup>
 

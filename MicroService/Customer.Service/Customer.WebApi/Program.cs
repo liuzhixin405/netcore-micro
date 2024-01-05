@@ -1,5 +1,4 @@
-using Cache.Options;
-using Cache;
+using Common.Cache;
 using Common.Util.Jwt;
 using Customers.Center.Service;
 using Customers.Domain.Customers;

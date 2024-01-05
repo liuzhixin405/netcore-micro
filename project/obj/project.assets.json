@@ -6054,7 +6054,25 @@
           "lib/net6.0/ZstdSharp.dll": {}
         }
       },
-      "Cache/1.0.0": {
+      "Common..DistributedId/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Common.DistributedLock.Abstractions": "1.0.0",
+          "Microsoft.Extensions.Caching.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "7.0.4",
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "7.0.1"
+        },
+        "compile": {
+          "bin/placeholder/Common..DistributedId.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Common..DistributedId.dll": {}
+        }
+      },
+      "Common.Cache/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -6066,10 +6084,71 @@
           "Microsoft.Extensions.Hosting.Abstractions": "6.0.0"
         },
         "compile": {
-          "bin/placeholder/Cache.dll": {}
+          "bin/placeholder/Common.Cache.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Cache.dll": {}
+          "bin/placeholder/Common.Cache.dll": {}
+        }
+      },
+      "Common.DapperDal/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Dapper": "2.0.123",
+          "System.Configuration.ConfigurationManager": "7.0.0",
+          "System.Data.SqlClient": "4.8.5"
+        },
+        "compile": {
+          "bin/placeholder/Common.DapperDal.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Common.DapperDal.dll": {}
+        }
+      },
+      "Common.DistributedLock.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Common.DistributedLock.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Common.DistributedLock.Abstractions.dll": {}
+        }
+      },
+      "Common.MessageMiddleware/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Confluent.Kafka": "1.8.2",
+          "Microsoft.Extensions.Configuration": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "Microsoft.Extensions.ObjectPool": "6.0.0",
+          "Microsoft.Extensions.Options": "7.0.1",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "7.0.0",
+          "Newtonsoft.Json": "13.0.3",
+          "RabbitMQ.Client": "6.5.0"
+        },
+        "compile": {
+          "bin/placeholder/Common.MessageMiddleware.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Common.MessageMiddleware.dll": {}
+        }
+      },
+      "Common.RepositoryComponent/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.5"
+        },
+        "compile": {
+          "bin/placeholder/Common.RepositoryComponent.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Common.RepositoryComponent.dll": {}
         }
       },
       "Common.Util/1.0.0": {
@@ -6087,85 +6166,6 @@
         },
         "runtime": {
           "bin/placeholder/Common.Util.dll": {}
-        }
-      },
-      "DapperDal/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "Dapper": "2.0.123",
-          "System.Configuration.ConfigurationManager": "7.0.0",
-          "System.Data.SqlClient": "4.8.5"
-        },
-        "compile": {
-          "bin/placeholder/DapperDal.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DapperDal.dll": {}
-        }
-      },
-      "DistributedId/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "DistributedLock.Abstractions": "1.0.0",
-          "Microsoft.Extensions.Caching.Abstractions": "7.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "7.0.4",
-          "Microsoft.Extensions.DependencyInjection": "7.0.0",
-          "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Options": "7.0.1"
-        },
-        "compile": {
-          "bin/placeholder/DistributedId.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DistributedId.dll": {}
-        }
-      },
-      "DistributedLock.Abstractions/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/DistributedLock.Abstractions.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DistributedLock.Abstractions.dll": {}
-        }
-      },
-      "MessageMiddleware/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "Confluent.Kafka": "1.8.2",
-          "Microsoft.Extensions.Configuration": "7.0.0",
-          "Microsoft.Extensions.DependencyInjection": "7.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
-          "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
-          "Microsoft.Extensions.ObjectPool": "6.0.0",
-          "Microsoft.Extensions.Options": "7.0.1",
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "7.0.0",
-          "Newtonsoft.Json": "13.0.3",
-          "RabbitMQ.Client": "6.5.0"
-        },
-        "compile": {
-          "bin/placeholder/MessageMiddleware.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/MessageMiddleware.dll": {}
-        }
-      },
-      "RepositoryComponent/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "7.0.5"
-        },
-        "compile": {
-          "bin/placeholder/RepositoryComponent.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/RepositoryComponent.dll": {}
         }
       }
     }
@@ -16211,53 +16211,54 @@
         "zstdsharp.port.nuspec"
       ]
     },
-    "Cache/1.0.0": {
+    "Common..DistributedId/1.0.0": {
       "type": "project",
-      "path": "../Cache/Cache.csproj",
-      "msbuildProject": "../Cache/Cache.csproj"
+      "path": "../DistributedId/Common..DistributedId.csproj",
+      "msbuildProject": "../DistributedId/Common..DistributedId.csproj"
+    },
+    "Common.Cache/1.0.0": {
+      "type": "project",
+      "path": "../Cache/Common.Cache.csproj",
+      "msbuildProject": "../Cache/Common.Cache.csproj"
+    },
+    "Common.DapperDal/1.0.0": {
+      "type": "project",
+      "path": "../DapperDal/Common.DapperDal.csproj",
+      "msbuildProject": "../DapperDal/Common.DapperDal.csproj"
+    },
+    "Common.DistributedLock.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../DistributedLock.Abstractions/Common.DistributedLock.Abstractions.csproj",
+      "msbuildProject": "../DistributedLock.Abstractions/Common.DistributedLock.Abstractions.csproj"
+    },
+    "Common.MessageMiddleware/1.0.0": {
+      "type": "project",
+      "path": "../MessageMiddleware/Common.MessageMiddleware.csproj",
+      "msbuildProject": "../MessageMiddleware/Common.MessageMiddleware.csproj"
+    },
+    "Common.RepositoryComponent/1.0.0": {
+      "type": "project",
+      "path": "../RepositoryComponent/Common.RepositoryComponent.csproj",
+      "msbuildProject": "../RepositoryComponent/Common.RepositoryComponent.csproj"
     },
     "Common.Util/1.0.0": {
       "type": "project",
       "path": "../Common.Util/Common.Util.csproj",
       "msbuildProject": "../Common.Util/Common.Util.csproj"
-    },
-    "DapperDal/1.0.0": {
-      "type": "project",
-      "path": "../DapperDal/DapperDal.csproj",
-      "msbuildProject": "../DapperDal/DapperDal.csproj"
-    },
-    "DistributedId/1.0.0": {
-      "type": "project",
-      "path": "../DistributedId/DistributedId.csproj",
-      "msbuildProject": "../DistributedId/DistributedId.csproj"
-    },
-    "DistributedLock.Abstractions/1.0.0": {
-      "type": "project",
-      "path": "../DistributedLock.Abstractions/DistributedLock.Abstractions.csproj",
-      "msbuildProject": "../DistributedLock.Abstractions/DistributedLock.Abstractions.csproj"
-    },
-    "MessageMiddleware/1.0.0": {
-      "type": "project",
-      "path": "../MessageMiddleware/MessageMiddleware.csproj",
-      "msbuildProject": "../MessageMiddleware/MessageMiddleware.csproj"
-    },
-    "RepositoryComponent/1.0.0": {
-      "type": "project",
-      "path": "../RepositoryComponent/RepositoryComponent.csproj",
-      "msbuildProject": "../RepositoryComponent/RepositoryComponent.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "AutoMapper >= 12.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
-      "Cache >= 1.0.0",
+      "Common..DistributedId >= 1.0.0",
+      "Common.Cache >= 1.0.0",
+      "Common.DapperDal >= 1.0.0",
+      "Common.DistributedLock.Abstractions >= 1.0.0",
+      "Common.MessageMiddleware >= 1.0.0",
+      "Common.RepositoryComponent >= 1.0.0",
       "Common.Util >= 1.0.0",
-      "DapperDal >= 1.0.0",
-      "DistributedId >= 1.0.0",
-      "DistributedLock.Abstractions >= 1.0.0",
       "LinqKit.Core >= 1.2.4",
-      "MessageMiddleware >= 1.0.0",
       "MessagePack >= 2.2.60",
       "Microsoft.AspNetCore.OpenApi >= 7.0.1",
       "Microsoft.EntityFrameworkCore.InMemory >= 7.0.5",
@@ -16266,7 +16267,6 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.9",
       "MySql.EntityFrameworkCore >= 7.0.2",
       "NSwag.AspNetCore >= 13.20.0",
-      "RepositoryComponent >= 1.0.0",
       "StackExchange.Redis.Extensions.Core >= 9.1.0",
       "WatchDog.NET >= 1.4.10"
     ]
@@ -16298,26 +16298,26 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\github\\efcore-template\\Cache\\Cache.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\Cache\\Cache.csproj"
+            "D:\\github\\efcore-template\\Cache\\Common.Cache.csproj": {
+              "projectPath": "D:\\github\\efcore-template\\Cache\\Common.Cache.csproj"
             },
             "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj": {
               "projectPath": "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj"
             },
-            "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\DapperDal\\DapperDal.csproj"
+            "D:\\github\\efcore-template\\DapperDal\\Common.DapperDal.csproj": {
+              "projectPath": "D:\\github\\efcore-template\\DapperDal\\Common.DapperDal.csproj"
             },
-            "D:\\github\\efcore-template\\DistributedId\\DistributedId.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\DistributedId\\DistributedId.csproj"
+            "D:\\github\\efcore-template\\DistributedId\\Common..DistributedId.csproj": {
+              "projectPath": "D:\\github\\efcore-template\\DistributedId\\Common..DistributedId.csproj"
             },
-            "D:\\github\\efcore-template\\DistributedLock.Abstractions\\DistributedLock.Abstractions.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\DistributedLock.Abstractions.csproj"
+            "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
+              "projectPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
             },
-            "D:\\github\\efcore-template\\MessageMiddleware\\MessageMiddleware.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\MessageMiddleware\\MessageMiddleware.csproj"
+            "D:\\github\\efcore-template\\MessageMiddleware\\Common.MessageMiddleware.csproj": {
+              "projectPath": "D:\\github\\efcore-template\\MessageMiddleware\\Common.MessageMiddleware.csproj"
             },
-            "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\RepositoryComponent\\RepositoryComponent.csproj"
+            "D:\\github\\efcore-template\\RepositoryComponent\\Common.RepositoryComponent.csproj": {
+              "projectPath": "D:\\github\\efcore-template\\RepositoryComponent\\Common.RepositoryComponent.csproj"
             }
           }
         }

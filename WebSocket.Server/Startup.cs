@@ -1,4 +1,4 @@
-using Cache.Options;
+using Common.Cache;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -19,7 +19,6 @@ using WsServer.Handler;
 using WsServer.Manager;
 using WsServer.Middleware;
 using WsServer.Services;
-using Cache;
 using Microsoft.Extensions.Logging;
 using Common.Redis.Extensions;
 using Common.Redis.Extensions.Configuration;
