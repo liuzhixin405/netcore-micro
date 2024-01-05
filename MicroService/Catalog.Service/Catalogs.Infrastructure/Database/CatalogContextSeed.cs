@@ -35,10 +35,28 @@ namespace Catalogs.Infrastructure.Database
             await policy.ExecuteAsync(async () =>
             {
                 await context.Catalogs.AddRangeAsync(new Catalogs.Domain.Catalogs.Catalog[] {
-                    Catalog.CreateNew(distributedId.NewLongId(), "iphone16", 7000, 1000, 5000, "热销产品1"),
-                    Catalog.CreateNew(distributedId.NewLongId(), "小米15", 7000, 1000, 5000, "热销产品2"),
-                    Catalog.CreateNew(distributedId.NewLongId(), "荣耀1", 7000, 1000, 5000, "热销产品3"),
-                    Catalog.CreateNew(distributedId.NewLongId(), "中兴天机", 7000, 1000, 5000, "热销产品4")
+                    Catalog.CreateNew(distributedId.NewLongId(), "iphone16",decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "小米15", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "荣耀1", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "太阳伞", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "茶杯", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "口罩", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "龙鳞", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "马鞍", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "天之骄子", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "百里守约", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "乌龟", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "矿泉水", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "米饭", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "无相神功", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "美团", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "三里屯", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "其几天八五", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "刮胡刀", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "我的日子", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")),Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "你是谁", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10)),
+                    Catalog.CreateNew(distributedId.NewLongId(), "我的天", decimal.Parse((Random.Shared.NextDouble()*1000).ToString("F2")), Random.Shared.Next(1,1000), Random.Shared.Next(1001,5000), "热销产品"+Random.Shared.Next(1,10))
+
                             });
                 await context.SaveChangesAsync();
             });

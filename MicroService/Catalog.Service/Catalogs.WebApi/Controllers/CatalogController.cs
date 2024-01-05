@@ -1,12 +1,16 @@
 using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime;
+using System.Threading.Channels;
+using Cache;
 using Catalogs.Domain.Catalogs;
 using Catalogs.Domain.Dtos;
 using Catalogs.Infrastructure.Database;
 using Catalogs.WebApi.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
+using StackExchange.Redis;
 
 namespace Catalogs.WebApi.Controllers;
 
@@ -17,11 +21,15 @@ public class CatalogController : ControllerBase
 
     private readonly ILogger<CatalogController> _logger;
     private readonly CatalogContext _catalogContext;
-
-    public CatalogController(ILogger<CatalogController> logger, CatalogContext catalogContext)
+    private readonly IDatabase _redisDb;
+    private readonly Channel<string> _channel;
+    public CatalogController(ILogger<CatalogController> logger, CatalogContext catalogContext, IConfiguration configuration, Channel<string> channel)
     {
         _logger = logger;
         _catalogContext = catalogContext;
+        ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(configuration["DistributedRedis:ConnectionString"] ?? throw new Exception("$未能获取distributedredis连接字符串"));
+        _redisDb = redis.GetDatabase();
+        _channel = channel;
     }
 
     /// <summary>
@@ -38,7 +46,6 @@ public class CatalogController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Catalogs([FromQuery] int pageSize = 10, [FromQuery] int pageIndex = 0, string ids = null)
     {
-
         if (!string.IsNullOrEmpty(ids))
         {
             var items = await GetItemByIds(ids);
@@ -58,7 +65,7 @@ public class CatalogController : ControllerBase
             .Skip(pageSize * pageIndex)
             .Take(pageSize)
             .ToListAsync();
-       var result = itemsOnPage.Select(x => new ProductDto(x.Id.ToString(), x.Name, x.Price.ToString(), x.Stock.ToString(), x.ImgPath));
+        var result = itemsOnPage.Select(x => new ProductDto(x.Id.ToString(), x.Name, x.Price.ToString(), x.Stock.ToString(), x.ImgPath));
         var model = new PaginatedViewModel<ProductDto>(pageIndex, pageSize, totalItems, result);
         return Ok(model);
 
@@ -86,10 +93,20 @@ public class CatalogController : ControllerBase
     }
 
     //PUT api/v1/[controller]/items
+    /* 测试参数
+         {
+      "id": 1743175179424882688,
+      "name": "iphone16",
+      "description": "热销产品1",
+      "price": 1000,
+      "stock": 50,
+      "maxStock":100,
+      "imgPath": "/Img/R.jpg"
+    }
+     */
     [Route("items")]
     [HttpPut]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
     public async Task<ActionResult> UpdateProductAsync([FromBody] Catalog productToUpdate)
     {
         var catalogItem = await _catalogContext.Catalogs.SingleOrDefaultAsync(i => i.Id == productToUpdate.Id);
@@ -99,16 +116,26 @@ public class CatalogController : ControllerBase
             return NotFound(new { Message = $"Item with id {productToUpdate.Id} not found." });
         }
 
-        var oldPrice = catalogItem.Price;
-        var raiseProductPriceChangedEvent = oldPrice != productToUpdate.Price;
-
-        // Update current product
-        catalogItem = productToUpdate;
+        if (!string.IsNullOrEmpty(productToUpdate.Name))
+            catalogItem.SetName(productToUpdate.Name);
+        if (!string.IsNullOrEmpty(productToUpdate.Description))
+            catalogItem.SetName(productToUpdate.Description);
+        if (productToUpdate.Price != 0M)
+            catalogItem.SetPrice(productToUpdate.Price);
+        if (!string.IsNullOrEmpty(productToUpdate.ImgPath))
+            catalogItem.SetImgPath(productToUpdate.ImgPath);
+        if (productToUpdate.Stock != 0)
+        {
+            var res = await catalogItem.AddStock(productToUpdate.Stock);
+            if(res.Item1==false)
+                return Ok(res);
+        }
+        _catalogContext.Entry(catalogItem).State = EntityState.Modified;
         _catalogContext.Catalogs.Update(catalogItem);
 
-        await _catalogContext.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(ItemByIdAsync), new { id = productToUpdate.Id }, null);
+        var result = await _catalogContext.SaveChangesAsync();
+        await DeleteCache();
+        return Ok();
     }
 
     //POST api/v1/[controller]/items
@@ -123,16 +150,15 @@ public class CatalogController : ControllerBase
         _catalogContext.Catalogs.Add(item);
 
         await _catalogContext.SaveChangesAsync();
-
+        await DeleteCache();
         return CreatedAtAction(nameof(ItemByIdAsync), new { id = item.Id }, null);
     }
 
     //DELETE api/v1/[controller]/id
     [Route("{id}")]
     [HttpDelete]
-    [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult> DeleteProductAsync(int id)
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult> DeleteProductAsync(long id)
     {
         var product = _catalogContext.Catalogs.SingleOrDefault(x => x.Id == id);
 
@@ -142,10 +168,9 @@ public class CatalogController : ControllerBase
         }
 
         _catalogContext.Catalogs.Remove(product);
-
         await _catalogContext.SaveChangesAsync();
-
-        return NoContent();
+        await DeleteCache();
+        return Ok();
     }
 
 
@@ -163,5 +188,11 @@ public class CatalogController : ControllerBase
         var items = await _catalogContext.Catalogs.Where(ci => idsToSelect.Contains(ci.Id)).ToListAsync();
 
         return items;
+    }
+
+    private async Task DeleteCache()
+    {
+        //await _redisDb.HashDeleteAsync("products",id); //没必要了
+        await _channel.Writer.WriteAsync("delete_catalog_fromredis");
     }
 }

@@ -38,6 +38,9 @@ namespace WebScoket.Server.Services
 
                 foreach (var productId in productIds)
                 {
+                    if(productId == "null") {
+                        continue;
+                    }
                     string retrievedProductValue = _redisDb.HashGet(hashKeyToRetrieve, productId);
                     if (!string.IsNullOrEmpty(retrievedProductValue))
                     {
@@ -49,6 +52,10 @@ namespace WebScoket.Server.Services
                 if (products.Count > 0)
                 {
                      SendMessageToAllAsync(System.Text.Json.JsonSerializer.Serialize(products)).Wait();
+                }
+                else
+                {
+                    SendMessageToAllAsync("NoProduct").Wait();
                 }
             }
         }
