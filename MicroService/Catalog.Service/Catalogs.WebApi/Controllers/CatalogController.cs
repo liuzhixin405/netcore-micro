@@ -95,7 +95,7 @@ public class CatalogController : ControllerBase
     //PUT api/v1/[controller]/items
     /* 测试参数
          {
-      "id": 1743175179424882688,
+      "id": 1743194721723641856,
       "name": "iphone16",
       "description": "热销产品1",
       "price": 1000,
@@ -119,7 +119,7 @@ public class CatalogController : ControllerBase
         if (!string.IsNullOrEmpty(productToUpdate.Name))
             catalogItem.SetName(productToUpdate.Name);
         if (!string.IsNullOrEmpty(productToUpdate.Description))
-            catalogItem.SetName(productToUpdate.Description);
+            catalogItem.SetDescription(productToUpdate.Description);
         if (productToUpdate.Price != 0M)
             catalogItem.SetPrice(productToUpdate.Price);
         if (!string.IsNullOrEmpty(productToUpdate.ImgPath))
