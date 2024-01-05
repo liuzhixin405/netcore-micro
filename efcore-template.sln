@@ -95,6 +95,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebScoket.Server", "WebSock
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebClient", "WebClient\WebClient.csproj", "{51907B04-D029-4080-A109-61372F00D2D8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Redis", "Common.Redis\Common.Redis.csproj", "{38FA9364-5EDA-4232-8285-8B3BA059EF29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -241,6 +243,10 @@ Global
 		{51907B04-D029-4080-A109-61372F00D2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51907B04-D029-4080-A109-61372F00D2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51907B04-D029-4080-A109-61372F00D2D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38FA9364-5EDA-4232-8285-8B3BA059EF29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38FA9364-5EDA-4232-8285-8B3BA059EF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38FA9364-5EDA-4232-8285-8B3BA059EF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38FA9364-5EDA-4232-8285-8B3BA059EF29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

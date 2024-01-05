@@ -7,6 +7,7 @@ using Catalogs.Domain.Catalogs;
 using Catalogs.Domain.Dtos;
 using Catalogs.Infrastructure.Database;
 using Catalogs.WebApi.ViewModel;
+using Common.Redis.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
@@ -21,14 +22,12 @@ public class CatalogController : ControllerBase
 
     private readonly ILogger<CatalogController> _logger;
     private readonly CatalogContext _catalogContext;
-    private readonly IDatabase _redisDb;
+    
     private readonly Channel<string> _channel;
-    public CatalogController(ILogger<CatalogController> logger, CatalogContext catalogContext, IConfiguration configuration, Channel<string> channel)
+    public CatalogController(ILogger<CatalogController> logger, CatalogContext catalogContext,Channel<string> channel)
     {
         _logger = logger;
         _catalogContext = catalogContext;
-        ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(configuration["DistributedRedis:ConnectionString"] ?? throw new Exception("$未能获取distributedredis连接字符串"));
-        _redisDb = redis.GetDatabase();
         _channel = channel;
     }
 
