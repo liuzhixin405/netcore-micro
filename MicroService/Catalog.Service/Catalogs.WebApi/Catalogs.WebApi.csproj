@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Cache\Cache.csproj" />
     <ProjectReference Include="..\..\..\Common.Redis\Common.Redis.csproj" />
     <ProjectReference Include="..\Catalogs.Domain\Catalogs.Domain.csproj" />
     <ProjectReference Include="..\Catalogs.Infrastructure\Catalogs.Infrastructure.csproj" />

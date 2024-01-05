@@ -5,29 +5,29 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "project", "project\project.csproj", "{9A921536-FA3D-4DC6-AC88-A5123CC58AD0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepositoryComponent", "RepositoryComponent\RepositoryComponent.csproj", "{099E5763-C581-4FE5-AE00-E0CFF3287FB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.RepositoryComponent", "Common.RepositoryComponent\Common.RepositoryComponent.csproj", "{099E5763-C581-4FE5-AE00-E0CFF3287FB6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperDal", "DapperDal\DapperDal.csproj", "{8592AD7B-E15C-4FC2-81EB-7D2C21F6EB6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.DapperDal", "Common.DapperDal\Common.DapperDal.csproj", "{8592AD7B-E15C-4FC2-81EB-7D2C21F6EB6E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Util", "Common.Util\Common.Util.csproj", "{FFF5D73C-0089-41A8-8085-86AFFE0F5DFB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageMiddleware", "MessageMiddleware\MessageMiddleware.csproj", "{813C5D67-CF02-428B-B822-76776C04C541}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.MessageMiddleware", "Common.MessageMiddleware\Common.MessageMiddleware.csproj", "{813C5D67-CF02-428B-B822-76776C04C541}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsumerClient", "ConsumerClient\ConsumerClient.csproj", "{BF0EEE4F-F60F-4624-9D19-F66945C8218B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb", "MongoDb\MongoDb.csproj", "{55D0837F-9818-408E-9CF3-7B6D0D3ACF3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.MongoDb", "Common.MongoDb\Common.MongoDb.csproj", "{55D0837F-9818-408E-9CF3-7B6D0D3ACF3F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C187F47F-6B7B-4F33-A519-07A6761E4CCE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedId", "DistributedId\DistributedId.csproj", "{1C75C228-DC52-42D0-A21A-F8299C0C4737}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.DistributedId", "Common.DistributedId\Common.DistributedId.csproj", "{1C75C228-DC52-42D0-A21A-F8299C0C4737}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedLock.Abstractions", "DistributedLock.Abstractions\DistributedLock.Abstractions.csproj", "{5178EAEC-51DF-4A79-A1AE-8A98B7088033}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.DistributedLock.Abstractions", "Common.DistributedLock.Abstractions\Common.DistributedLock.Abstractions.csproj", "{5178EAEC-51DF-4A79-A1AE-8A98B7088033}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedLock.Redis", "DistributedLock.Redis\DistributedLock.Redis.csproj", "{EA873895-8553-4B48-BF20-B5E6A629FD10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.DistributedLock.Redis", "Common.DistributedLock.Redis\Common.DistributedLock.Redis.csproj", "{EA873895-8553-4B48-BF20-B5E6A629FD10}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistributedLock.InMemory", "DistributedLock.InMemory\DistributedLock.InMemory.csproj", "{B24E298F-6895-4C36-AC67-92A6656624F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.DistributedLock.InMemory", "Common.DistributedLock.InMemory\Common.DistributedLock.InMemory.csproj", "{B24E298F-6895-4C36-AC67-92A6656624F1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cache", "Cache\Cache.csproj", "{8AC2D7DD-F89C-4F97-A987-FCB4AF9404F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Cache", "Common.Cache\Common.Cache.csproj", "{8AC2D7DD-F89C-4F97-A987-FCB4AF9404F3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GrpcService", "GrpcService", "{FEABF7A2-B6A8-4A89-ABD4-691785A5585F}"
 EndProject
@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Login.Client", "GrpcHttpSer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Login.Client002", "GrpcHttpService\Login.Client002\Login.Client002.csproj", "{9783879C-3B64-4F46-962A-1FF56E92E5BF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestSharpClient", "RestSharpClient\RestSharpClient.csproj", "{D13B27D3-39D3-42C8-A52D-F28BAF8BCB0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.RestSharpClient", "Common.RestSharpClient\Common.RestSharpClient.csproj", "{D13B27D3-39D3-42C8-A52D-F28BAF8BCB0C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OrleansService", "OrleansService", "{763585D2-7087-4F47-A3FF-71C589819105}"
 EndProject

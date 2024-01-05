@@ -12,9 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Cache\Cache.csproj" />
+    <ProjectReference Include="..\..\..\Common.Cache\Common.Cache.csproj" />
+    <ProjectReference Include="..\..\..\Common.DistributedId\Common.DistributedId.csproj" />
     <ProjectReference Include="..\..\..\Common.Util\Common.Util.csproj" />
-    <ProjectReference Include="..\..\..\DistributedId\DistributedId.csproj" />
     <ProjectReference Include="..\..\GrpcService\GrpcService\GrpcService.csproj" />
     <ProjectReference Include="..\Customer.Infrastructure\Customers.Infrastructure.csproj" />
   </ItemGroup>

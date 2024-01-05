@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DistributedLock.Abstractions\DistributedLock.Abstractions.csproj" />
+    <ProjectReference Include="..\Common.DistributedLock.Abstractions\Common.DistributedLock.Abstractions.csproj" />
+    <ProjectReference Include="..\DistributedLock.Abstractions\Common.DistributedLock.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

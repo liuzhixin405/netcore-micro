@@ -1,9 +1,7 @@
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Catalogs.Infrastructure;
 using Catalogs.Infrastructure.Database;
-using Cache.Options;
 using DistributedId;
-using Cache;
 using Catalogs.WebApi.BackgroudServices;
 using System.Threading.Channels;
 using System.Text.Json;
@@ -38,11 +36,7 @@ builder.Services.AddCors(options =>
         });
 });
 #region 雪花id 分布式
-builder.Services.AddCache(new CacheOptions
-{
-    CacheType = CacheTypes.Redis,
-    RedisConnectionString = builder.Configuration["DistributedRedis:ConnectionString"] ?? throw new Exception("$未能获取distributedredis连接字符串")
-}).AddDistributedId(new DistributedIdOptions
+builder.Services.AddDistributedId(new DistributedIdOptions
 {
     Distributed = true
 });

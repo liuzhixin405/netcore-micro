@@ -1,10 +1,10 @@
-﻿using Cache.Options;
-using Microsoft.Extensions.Caching.Distributed;
+﻿using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Common.Util.Primitives;
-namespace Cache
+
+namespace Common.Cache
 {
     /// <summary>
     /// 缓存拓展
