@@ -27,13 +27,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Cache\Common.Cache.csproj" />
+    <ProjectReference Include="..\Common.Cache\Common.Cache.csproj" />
+    <ProjectReference Include="..\Common.DapperDal\Common.DapperDal.csproj" />
+    <ProjectReference Include="..\Common.DistributedId\Common.DistributedId.csproj" />
+    <ProjectReference Include="..\Common.DistributedLock.Abstractions\Common.DistributedLock.Abstractions.csproj" />
+    <ProjectReference Include="..\Common.DistributedLock.InMemory\Common.DistributedLock.InMemory.csproj" />
+    <ProjectReference Include="..\Common.DistributedLock.Redis\Common.DistributedLock.Redis.csproj" />
+    <ProjectReference Include="..\Common.MessageMiddleware\Common.MessageMiddleware.csproj" />
+    <ProjectReference Include="..\Common.RepositoryComponent\Common.RepositoryComponent.csproj" />
     <ProjectReference Include="..\Common.Util\Common.Util.csproj" />
-    <ProjectReference Include="..\DapperDal\Common.DapperDal.csproj" />
-    <ProjectReference Include="..\DistributedId\Common..DistributedId.csproj" />
-    <ProjectReference Include="..\DistributedLock.Abstractions\Common.DistributedLock.Abstractions.csproj" />
-    <ProjectReference Include="..\MessageMiddleware\Common.MessageMiddleware.csproj" />
-    <ProjectReference Include="..\RepositoryComponent\Common.RepositoryComponent.csproj" />
   </ItemGroup>
 
   <ItemGroup>

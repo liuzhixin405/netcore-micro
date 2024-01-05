@@ -7,10 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AsyncKeyedLock" Version="6.2.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
+    <PackageReference Include="RedLock.net" Version="2.3.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Common.DistributedLock.Abstractions\Common.DistributedLock.Abstractions.csproj" />
     <ProjectReference Include="..\DistributedLock.Abstractions\Common.DistributedLock.Abstractions.csproj" />
   </ItemGroup>
 

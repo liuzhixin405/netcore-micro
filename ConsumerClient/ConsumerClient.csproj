@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MessageMiddleware\Common.MessageMiddleware.csproj" />
+    <ProjectReference Include="..\Common.MessageMiddleware\Common.MessageMiddleware.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="appsettings.json">

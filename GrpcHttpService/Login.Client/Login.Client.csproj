@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Common.RestSharpClient\Common.RestSharpClient.csproj" />
     <ProjectReference Include="..\..\OrderService\AdventureGrainInterfaces\AdventureGrainInterfaces.csproj" />
-    <ProjectReference Include="..\..\RestSharpClient\Common.RestSharpClient.csproj" />
     <ProjectReference Include="..\MicroService.Shared\MicroService.Shared.csproj" />
   </ItemGroup>
 
