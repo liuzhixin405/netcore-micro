@@ -135,6 +135,7 @@
                                                       <p>价格: ${product.Price}</p>
                                                       <p>库存: ${product.Stock}</p>
                                                        <button onclick="openModal('${product.Name}', ${product.Price}, '${baseUrl}${product.ImgPath}')">下单</button>`;
+                if(product!=null)
                 productsContainer.appendChild(productElement);
             });
         }
@@ -170,7 +171,7 @@
                     const data = response.data.data;
                     displayProducts(baseUrl, data);
 
-                    const newProductIds = data.map(product => product.id);
+                    const newProductIds = data.map(product => product.Id);
                     // Check if the WebSocket is open
                     updateAndSendProductIds(newProductIds);
                     // 从响应中获取总页数
@@ -225,7 +226,14 @@
                 socket.send(JSON.stringify(productIds));
             }
         }
+        function clearProductList() {
+            const productsContainer = document.getElementById('products');
+            productsContainer.innerHTML = ''; // Clear the HTML content of the products container
+        }
         socket.addEventListener('message', (event) => {
+            if (event.data == "NoProduct") {
+                clearProductList();
+            }
             // Handle the received product data and update the product list
             const productData = JSON.parse(event.data);
             // Update the product list with the received data (call your displayProducts function)

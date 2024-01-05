@@ -29,6 +29,7 @@ namespace Catalogs.Domain.Catalogs
             return catalog;
         }
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)] // 指定非自增
         public long Id { get; private set; }
         public string Name { get; private set; }
         public string Description { get; private set; }
@@ -80,5 +81,24 @@ namespace Catalogs.Domain.Catalogs
             return Task.FromResult(Tuple.Create(true, ""));
         }
 
+        public void SetName(string name)
+        {
+            Name = name;
+        }
+
+        public void SetDescription(string description)
+        {
+            Description = description;
+        }
+
+        public void SetPrice(decimal price)
+        {
+            Price = price;
+        }
+
+        public void SetImgPath(string imgPath)
+        {
+            ImgPath = imgPath;
+        }
     }
 }

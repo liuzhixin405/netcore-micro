@@ -5,16 +5,24 @@ using Cache.Options;
 using DistributedId;
 using Cache;
 using Catalogs.WebApi.BackgroudServices;
+using System.Threading.Channels;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+//    .AddJsonOptions(options =>
+//{
+//    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase; // 使用小驼峰命名策略
+//})
+    ;
 builder.Services.AddDB(builder.Configuration);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<CatalogContextSeed>();
+builder.Services.AddSingleton(Channel.CreateUnbounded<string>());
 // 添加CORS服务
 builder.Services.AddCors(options =>
 {
