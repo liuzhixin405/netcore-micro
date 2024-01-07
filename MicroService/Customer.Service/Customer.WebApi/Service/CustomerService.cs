@@ -22,7 +22,7 @@ namespace Customers.Center.Service
         {
             var oldCus = await _customerRepository.Get(customerDto.user, customerDto.password);
             if(oldCus !=null) { throw new ArgumentNullException("已经存在该用户"); }
-           await _customerRepository.Add(new Customer {Id= _distributedId.NewLongId().ToString(), CreateTime = DateTime.Now, PassWord = customerDto.password, UserName = customerDto.user });
+           await _customerRepository.Add(new Customer {Id= _distributedId.NewLongId(), CreateTime = DateTime.Now, PassWord = customerDto.password, UserName = customerDto.user });
            await _unitOfWork.CommitAsync();
         }
 

@@ -13,7 +13,8 @@ namespace Customers.Domain.Customers
     public class Customer
     {
         [Key]
-        public string Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)] // 指定非自增
+        public long Id { get; set; }
         public string UserName { get; set; }
         public string  PassWord { get; set; }
         public DateTime CreateTime { get; set; }

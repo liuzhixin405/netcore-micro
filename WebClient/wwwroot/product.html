@@ -53,41 +53,6 @@
                     color: #333;
                 }
         /* 在 head 标签中添加样式规则 */
-        /* 隐藏模态框 */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
-           
-            width: 50%; /* 设置宽度为父容器的80% */
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            box-sizing: border-box;
-        }
-
         button {
             background-color: #4CAF50;
             color: white;
@@ -100,15 +65,7 @@
 </head>
 <body>
     <!-- 在 body 标签中添加模态框元素 -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>输入下单数量</h2>
-            <label for="quantityInput">数量:</label>
-            <input type="number" id="quantityInput" min="1" value="1">
-            <button onclick="placeOrder()">确认下单</button>
-        </div>
-    </div>
+
 
     <div id="products"></div>
     <div id="pagination"></div>
@@ -134,7 +91,7 @@
                                                       <h3>${product.Name}</h3>
                                                       <p>价格: ${product.Price}</p>
                                                       <p>库存: ${product.Stock}</p>
-                                                       <button onclick="openModal('${product.Name}', ${product.Price}, '${baseUrl}${product.ImgPath}')">下单</button>`;
+                                                       <button data-product-id="${product.Id}" onclick="gotoDetail(this)">详情</button>`;
                 if(product!=null)
                 productsContainer.appendChild(productElement);
             });
@@ -186,25 +143,9 @@
                     console.error('获取数据失败:', error);
                 });
         }
-        function openModal(productName, productPrice, productImgPath) {
-            selectedProduct = { name: productName, price: productPrice, imgPath: productImgPath };
-            const modal = document.getElementById('modal');
-            modal.style.display = 'flex';
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('modal');
-            modal.style.display = 'none';
-        }
-
-        function placeOrder() {
-            const quantityInput = document.getElementById('quantityInput');
-            const quantity = quantityInput.value;
-
-            if (quantity) {
-                const orderUrl = `order.html?productName=${encodeURIComponent(selectedProduct.name)}&quantity=${encodeURIComponent(quantity)}&price=${encodeURIComponent(selectedProduct.price)}&imgPath=${encodeURIComponent(selectedProduct.imgPath)}`;
-                window.location.href = orderUrl;
-            }
+        function gotoDetail(button) {
+            const productId = button.getAttribute('data-product-id');
+            window.location.href = `/order.html?pid=${productId}`;
         }
 
         // 初始加载数据

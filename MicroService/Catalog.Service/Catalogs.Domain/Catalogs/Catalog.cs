@@ -50,16 +50,7 @@ namespace Catalogs.Domain.Catalogs
             Description = description;
             ImgPath = imgPath;
         }
-        //public Catalog(long id, string name, decimal price, int stock, int maxStock, string desc, string imgPath)
-        //{
-        //    Id = id;
-        //    Name = name;
-        //    Price = price;
-        //    Stock = stock;
-        //    MaxStock = maxStock;
-        //    Description = desc;
-        //    ImgPath = imgPath;
-        //}
+
         public Task<Tuple<bool, string>> AddStock(int quantity)
         {
 

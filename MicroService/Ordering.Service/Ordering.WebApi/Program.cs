@@ -1,5 +1,6 @@
 using NSwag;
 using Common.Util.Jwt;
+using DistributedId;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,12 @@ builder.Services.AddOpenApiDocument(settings =>
         Type = OpenApiSecuritySchemeType.Http
     });
 });
+#region 雪花id 分布式
+builder.Services.AddDistributedId(new DistributedIdOptions
+{
+    Distributed = true
+});
+#endregion
 builder.Services.AddJwt(builder.Configuration);
 var app = builder.Build();
 
