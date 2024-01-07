@@ -7,6 +7,7 @@ using Catalogs.Domain.Dtos;
 using Catalogs.Infrastructure.Database;
 using Catalogs.WebApi.ViewModel;
 using Common.Redis.Extensions;
+using DistributedId;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
@@ -21,13 +22,14 @@ public class CatalogController : ControllerBase
 
     private readonly ILogger<CatalogController> _logger;
     private readonly CatalogContext _catalogContext;
-    
+    private readonly IDistributedId _distributedId;
     private readonly Channel<string> _channel;
-    public CatalogController(ILogger<CatalogController> logger, CatalogContext catalogContext,Channel<string> channel)
+    public CatalogController(ILogger<CatalogController> logger, CatalogContext catalogContext,Channel<string> channel,IDistributedId distributedId)
     {
         _logger = logger;
         _catalogContext = catalogContext;
         _channel = channel;
+        _distributedId = distributedId;
     }
 
     /// <summary>
@@ -70,10 +72,11 @@ public class CatalogController : ControllerBase
     }
 
     [HttpGet]
-    [Route("items/{id:int}")]
+    [Route("items/{id:long}")]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<Catalog>> ItemByIdAsync(int id)
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<ActionResult<Catalog>> ItemByIdAsync(long id)
     {
         if (id <= 0)
         {
@@ -142,7 +145,7 @@ public class CatalogController : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     public async Task<ActionResult> CreateProductAsync([FromBody] Catalog product)
     {
-        var item = Catalog.CreateNew(product.Id, product.Name, product.Price, product.Stock, product.MaxStock, product.Description);
+        var item = Catalog.CreateNew(_distributedId.NewLongId(), product.Name, product.Price, product.Stock, product.MaxStock, product.Description);
 
 
         _catalogContext.Catalogs.Add(item);

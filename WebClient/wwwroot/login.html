@@ -89,11 +89,16 @@
                 }
             })
                 .then(response => {
-                    const token = response.data.token;
+                    const res = response.data;
+                    if (res.isSuccess) {
+                        localStorage.setItem('userToken', res.token);
 
-                    localStorage.setItem('userToken', token);
-
-                    window.location.href = '/product.html';
+                        window.location.href = '/product.html';
+                    } else {
+                        alert("登陆失败: " + res.message);
+                        return;
+                    }
+                   
                 })
                 .catch(error => {
                     console.error('Login failed:', error);
