@@ -11,6 +11,7 @@ namespace GrpcService.CustomerService
     public interface IGrpcCustomerService:IService<IGrpcCustomerService>
     {
         UnaryResult<CustomerResponse> GetCustomer(CustomerRequest request);
+        UnaryResult<UserIdResponse> GetUseIdFromToken(string token);
     }
 
     [MessagePackObject(true)]
@@ -42,4 +43,6 @@ namespace GrpcService.CustomerService
     //{
 
     //}
+    [MessagePackObject(true)]
+    public record UserIdResponse(long id);
 }

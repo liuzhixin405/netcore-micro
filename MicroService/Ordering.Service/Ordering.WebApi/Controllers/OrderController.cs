@@ -1,12 +1,14 @@
 using Grpc.Net.Client;
 using GrpcService.CustomerService;
 using MagicOnion.Client;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Domain.Dtos;
 using Ordering.WebApi.Services;
 
 namespace Ordering.WebApi.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("[controller]/[action]")]
 public class OrderController : ControllerBase
@@ -21,7 +23,7 @@ public class OrderController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<bool> Add(CreateOrderDto orderDto)
+    public async Task<bool> Add([FromBody]CreateOrderDto orderDto)
     {
         return await _orderService.Create(orderDto);
     }

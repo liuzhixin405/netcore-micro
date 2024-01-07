@@ -19,11 +19,13 @@
     <script>
 
         const baseCatalogUrl = `http://localhost:7000`;
-        const baseOrderUrl = `http://localhost:7010`;
+        const baseOrderUrl = `http://localhost:7105`;
+        let globalToken = "";
         function checkLoginStatus() {
 
             // 从 localStorage 中获取用户信息或令牌
             const userToken = localStorage.getItem('userToken');
+            globalToken = userToken;
             return !!userToken; // 返回用户是否已登录的布尔值
         }
 
@@ -62,8 +64,9 @@
             }
             // 发送 POST 请求来创建新订单
             const orderData = {
-                productId: productId,
-                quantity: quantity
+                pid: productId,
+                quantity: 1,
+                price:1
             };
             // 假设订单创建的 API 端点是 /api/orders
            
@@ -72,9 +75,8 @@
             fetch(baseOrderUrl+"/Order/Add", {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    // 如果有登录令牌，可以添加在请求头中
-                    // 'Authorization': 'Bearer ' + userToken
+                    "Authorization": `Bearer ${globalToken}`, // 注意这里使用 Bearer 认证方案，后面加上空格
+                    "Content-Type": "application/json", // 根据实际情况设置其他请求头
                 },
                 body: JSON.stringify(orderData)
             })

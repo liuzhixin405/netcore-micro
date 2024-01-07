@@ -25,60 +25,31 @@ namespace Customers.Center.Controllers
     [ApiController]
     public class TokenController : Controller
     {
-        private readonly JwtOptions _jwtOptions;
+       
         private readonly ICustomerService _customerService;
-        private IDistributedCache _cache;
-        private readonly static string cacheToken = "TokenStr_";
-        public TokenController(IOptions<JwtOptions> jwtOptions, ICustomerService customerService, IDistributedCache cache)
+        private readonly ILogger _logger;
+        public TokenController(ICustomerService customerService,ILogger<TokenController> logger)
         {
-            _jwtOptions = jwtOptions.Value;
+            _logger = logger;
             _customerService = customerService;
-            _cache = cache;
         }
         [AllowAnonymous]
         [HttpPost]
         [SwaggerResponse(typeof(TokenDto))]
         public async Task<IActionResult> GetToken(LoginDto login)
         {
-            var failResult = new
-            {
-                result = false,
-                token = "",
-                Msg = "账号密码错误"
-            };
+            var result = new TokenDto(false, "", "error");
+
             if (string.IsNullOrWhiteSpace(login.username) || string.IsNullOrWhiteSpace(login.password))
             {
-                return Ok(failResult);
+                return Ok(result);
             }
-            string getcacheKey = cacheToken+ login.username + "_" + login.password;
-
-            var user = await _customerService.GetCustomer(login);
-            if (string.IsNullOrEmpty(user.UserName))
+            try
             {
-                await Task.CompletedTask;
-                return Ok(failResult);
-            }
-            var result = await _cache.GetObjectAsync<TokenDto>(getcacheKey);
-            if (result == null)
+                return Ok(await _customerService.GetToken(login));
+            }catch(Exception ex)
             {
-
-                var claims = new[]
-                {
-                new Claim("username",login.username)
-            };
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.Secret));
-                var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-                var jwtToken = new JwtSecurityToken(
-                    string.Empty,
-                    string.Empty,
-                    claims,
-                    expires: DateTime.Now.AddHours(_jwtOptions.AccessExpireHours),
-                    signingCredentials: credentials);
-
-                var token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
-
-                result = new TokenDto(token, true, "");
-                await _cache.SetObjectAsync<TokenDto>(getcacheKey, result, new DistributedCacheEntryOptions { SlidingExpiration = TimeSpan.FromMinutes(5) });
+                _logger.LogError($"获取token报错,错误消息: {ex.Message}");
             }
             return Ok(result);
         }

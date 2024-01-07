@@ -6,7 +6,9 @@ namespace Customers.Center.Service
 {
     public interface ICustomerService
     {
-        Task<Customer> GetCustomer(LoginDto login);
+        Task<Customer> GetCustomer(LoginDto loginDto);
         Task AddCustomer(AddCustomerDto customerDto);
+        Task<TokenDto> GetToken(LoginDto loginDto);
+        Task<long> GetUseIdFromToken(string token);
     }
 }
