@@ -40,5 +40,8 @@ namespace Ordering.Domain.Orders
 
         public OrderStatus OrderStatus { get; private set; }
         public long CreateTime { get; private set; }
+        [Timestamp]
+        public byte[] Version { get; set; }
+
     }
 }

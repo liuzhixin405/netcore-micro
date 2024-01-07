@@ -14,8 +14,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common.DistributedId\Common.DistributedId.csproj" />
     <ProjectReference Include="..\..\..\Common.Util\Common.Util.csproj" />
-    <ProjectReference Include="..\..\..\Ordering.Infrastructure\Ordering.Infrastructure.csproj" />
     <ProjectReference Include="..\..\GrpcService\GrpcService\GrpcService.csproj" />
+    <ProjectReference Include="..\Ordering.Infrastructure\Ordering.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

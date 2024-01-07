@@ -40,7 +40,7 @@
                                                <p>数量: ${product.stock}</p>
                                                <p>描述: ${product.description}</p>
                                                <p>价格: ${product.price}</p>
-                                                <button onclick="placeOrder(${product.id})">下单</button> <input type="text" id="quantityInput" placeholder="输入数量" oninput="validateQuantity(${product.stock})">`;
+                                                <button onclick="placeOrder(${product.id},${product.price})">下单</button> <input type="text" id="quantityInput" placeholder="输入数量" oninput="validateQuantity(${product.stock})">`;
 
             // 将订单详情添加到页面
             document.body.appendChild(orderDetailsContainer);
@@ -57,7 +57,7 @@
             // 还可以提供登录链接等
         }
 
-        function placeOrder(productId) {
+        function placeOrder(productId,price) {
             const quantity = document.getElementById('quantityInput').value;
             if (quantity == '') {
                 alert('请输入购买数量！');
@@ -65,17 +65,17 @@
             // 发送 POST 请求来创建新订单
             const orderData = {
                 pid: productId,
-                quantity: 1,
-                price:1
+                quantity: quantity,
+                price:price
             };
             // 假设订单创建的 API 端点是 /api/orders
            
 
             // 使用 fetch 发送 POST 请求
-            fetch(baseOrderUrl+"/Order/Add", {
+            fetch(baseOrderUrl+"/Order/Create", {
                 method: 'POST',
                 headers: {
-                    "Authorization": `Bearer ${globalToken}`, // 注意这里使用 Bearer 认证方案，后面加上空格
+                    "Token": `${globalToken}`, // 注意这里使用 Bearer 认证方案，后面加上空格
                     "Content-Type": "application/json", // 根据实际情况设置其他请求头
                 },
                 body: JSON.stringify(orderData)

@@ -23,13 +23,14 @@ namespace Customers.Center.Service
         private IDistributedCache _cache;
         private readonly JwtOptions _jwtOptions;
         private readonly JwtSecurityTokenHandler _tokenHandler;
-        public CustomerService(ICustomerRepository customerRepository, IUnitOfWork unitOfWork, IDistributedId distributedId, IDistributedCache cache, IOptions<JwtOptions> jwtOptions)
+        public CustomerService(ICustomerRepository customerRepository, IUnitOfWork unitOfWork, IDistributedId distributedId, IDistributedCache cache, IOptions<JwtOptions> jwtOptions,JwtSecurityTokenHandler jwtSecurityTokenHandler)
         {
             _customerRepository = customerRepository;
             _unitOfWork = unitOfWork;
             _distributedId = distributedId;
             _cache = cache;
             _jwtOptions = jwtOptions.Value;
+            _tokenHandler = jwtSecurityTokenHandler;
         }
 
         public async Task AddCustomer(AddCustomerDto customerDto)
