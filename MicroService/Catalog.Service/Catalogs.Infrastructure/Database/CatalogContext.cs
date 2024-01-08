@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Catalogs.Domain.Catalogs;
+using Catalogs.Domain.OutBoxMessage;
 using Microsoft.EntityFrameworkCore;
+using Catalogs.Domain.OutBoxMessage;
 
 namespace Catalogs.Infrastructure.Database
 {
@@ -16,5 +18,7 @@ namespace Catalogs.Infrastructure.Database
         }
 
         public DbSet<Catalog> Catalogs { get; set; }
+        public DbSet<OutboxMessageConsumer> OutBoxMessageConsumers { get; set; }
+        public DbSet<OutBoxMessage> OutBoxMessages { get; set; }
     }
 }

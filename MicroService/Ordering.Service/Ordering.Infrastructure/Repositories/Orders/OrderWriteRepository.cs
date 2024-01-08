@@ -1,10 +1,9 @@
 ﻿using Ordering.Domain.Orders;
 using Ordering.Infrastructure.Database;
-using Ordering.Infrastructure.Repositories;
 using RepositoryComponent.BaseRepo;
 using RepositoryComponent.DbFactories;
 
-namespace project.Repositories
+namespace Ordering.Infrastructure.Repositories
 {
     public class OrderWriteRepository : WriteRepository<WriteOrderDbContext, Order>, IWriteOrderRepository
     {

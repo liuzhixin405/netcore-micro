@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Common.MessageMiddleware\Common.MessageMiddleware.csproj" />
     <ProjectReference Include="..\..\..\Common.RepositoryComponent\Common.RepositoryComponent.csproj" />
     <ProjectReference Include="..\Ordering.Domain\Ordering.Domain.csproj" />
   </ItemGroup>

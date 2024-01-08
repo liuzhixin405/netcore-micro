@@ -32,8 +32,6 @@ namespace Ordering.WebApi.Services
             await _writeRepo.AddAsync(Order.CreateNew(_distributedId.NewLongId(),userId, orderDto.pid, orderDto.quantity, totalAmount));
             var result = await _writeRepo.SaveChangeAsync();
             //扣减库存
-
-            //通知付款
             return result != -1;
         }
     }

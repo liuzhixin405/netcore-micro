@@ -9,10 +9,12 @@
   <ItemGroup>
     <PackageReference Include="Grpc.Net.Client" Version="2.34.0" />
     <PackageReference Include="NSwag.AspNetCore" Version="13.20.0" />
+    <PackageReference Include="Polly" Version="7.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common.DistributedId\Common.DistributedId.csproj" />
+    <ProjectReference Include="..\..\..\Common.MessageMiddleware\Common.MessageMiddleware.csproj" />
     <ProjectReference Include="..\..\..\Common.Util\Common.Util.csproj" />
     <ProjectReference Include="..\..\GrpcService\GrpcService\GrpcService.csproj" />
     <ProjectReference Include="..\Ordering.Infrastructure\Ordering.Infrastructure.csproj" />

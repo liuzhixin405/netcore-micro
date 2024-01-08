@@ -3,8 +3,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Ordering.Infrastructure.Database;
 using Ordering.Infrastructure.Repositories;
-using project.Repositories;
 using RepositoryComponent.DbFactories;
+using Ordering.Infrastructure.OutBoxMessageInterceptor;
+using MessageMiddleware.RabbitMQ;
+using MessageMiddleware.Factory;
 
 namespace Ordering.Infrastructure.Extensions
 {
@@ -16,8 +18,21 @@ namespace Ordering.Infrastructure.Extensions
             ///sqlserver   
             if (configuration["DbType"]?.ToLower() == "sqlserver")
             {
-                sc.AddDbContext<ReadOrderDbContext>(options => options.UseSqlServer(configuration["ConnectionStrings:SqlServer:ReadConnection"]), ServiceLifetime.Scoped);
-                sc.AddDbContext<WriteOrderDbContext>(options => options.UseSqlServer(configuration["ConnectionStrings:SqlServer:WriteConnection"]), ServiceLifetime.Scoped);
+                sc.AddScoped<CreateOrderInterceptor>();
+                sc.AddDbContext<ReadOrderDbContext>((sp,ops) =>
+                {
+                    ops.UseSqlServer(configuration["ConnectionStrings:SqlServer:ReadConnection"]);
+                    var interceptor = sp.GetService<CreateOrderInterceptor>();
+                    ops.AddInterceptors(interceptor);
+                }
+                , ServiceLifetime.Scoped);
+                sc.AddDbContext<WriteOrderDbContext>((sp,ops) =>
+                {
+                    ops.UseSqlServer(configuration["ConnectionStrings:SqlServer:WriteConnection"]);
+                    var interceptor = sp.GetService<CreateOrderInterceptor>();
+                    ops.AddInterceptors(interceptor);
+                }
+                , ServiceLifetime.Scoped);
 
             }
             ///mysql
@@ -43,6 +58,10 @@ namespace Ordering.Infrastructure.Extensions
 
             sc.AddTransient<IReadOrderRepository, OrderReadRepository>();
             sc.AddTransient<IWriteOrderRepository, OrderWriteRepository>();
+
+            sc.AddTransient<IReadOutBoxMessageRepository, ReadOutBoxMessageRepository>();
+            sc.AddTransient<IWriteOutBoxMessageRepository, WriteOutBoxMessageRepository>();
+
         }
     }
 }

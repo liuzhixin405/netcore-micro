@@ -8,6 +8,9 @@ using System.Text.Json;
 using Common.Redis.Extensions;
 using Common.Redis.Extensions.Configuration;
 using Common.Redis.Extensions.Serializer;
+using Microsoft.Extensions.DependencyInjection;
+using Common.MessageMiddleware.Extensions;
+using Catalogs.WebApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +49,8 @@ builder.Services.AddSingleton<IRedisCache>(obj =>
 });
 
 builder.Services.AddHostedService<InitProductListToRedisService>();
+builder.Services.AddMq(builder.Configuration);
+builder.Services.AddHostedService<CreateOrderHandler>();
 var app = builder.Build();
 ApplicationStartup.CreateTable(app.Services);
 using (var scope = app.Services.CreateScope())

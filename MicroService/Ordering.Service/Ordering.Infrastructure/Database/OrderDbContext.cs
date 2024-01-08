@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Ordering.Dimain.OutBoxMessages;
 using Ordering.Domain.Orders;
 
 namespace Ordering.Infrastructure.Database
@@ -13,6 +14,7 @@ namespace Ordering.Infrastructure.Database
             _configuration = configuration;
         }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OutBoxMessage> OutBoxMessages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
