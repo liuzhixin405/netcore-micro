@@ -80,6 +80,7 @@ namespace Customers.Center.Service
                 if (string.IsNullOrWhiteSpace(token))
                 {
                     result.Message = "获取token失败";
+                    return result;
                 }
                 result.Token = token;
                 result.Message = "";

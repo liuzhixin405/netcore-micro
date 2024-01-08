@@ -13,12 +13,12 @@ namespace Ordering.Infrastructure.Repositories
 {
     internal class WriteOutBoxMessageRepository : WriteRepository<WriteOrderDbContext, OutBoxMessage>, IWriteOutBoxMessageRepository
     {
-        private readonly WriteOrderDbContext _readContext;
+        private readonly WriteOrderDbContext _writeContext;
 
 
-        public WriteOutBoxMessageRepository(DbFactory<WriteOrderDbContext> readContextFactory) : base(readContextFactory)
+        public WriteOutBoxMessageRepository(DbFactory<WriteOrderDbContext> writeContextFactory) : base(writeContextFactory)
         {
-            _readContext = readContextFactory?.Context;
+            _writeContext = writeContextFactory?.Context;
         }
     }
 }

@@ -17,8 +17,8 @@ namespace Catalogs.WebApi
 
         public override bool Init()
         {
-            Exchange = "RabbitMQ.EventBus.CreateOrder";
-            Queue = "";
+            Exchange = "RabbitMQ.EventBus.CreateOrder";//提前rabbitmq增加一个exchange或者发布消息先
+            Queue = "RabbitMQ.EventBus.CreateOrder";
             return true;
         }
 
@@ -33,25 +33,31 @@ namespace Catalogs.WebApi
             {
                 return default;
             }
+            var outBoxMessageConsumer = new OutboxMessageConsumer();
             Console.WriteLine($"等待处理的消息{get.Id}_{get.Type}");
             CreateOrderEvent createOrderEvent = System.Text.Json.JsonSerializer.Deserialize<CreateOrderEvent>(get.Content);
            
             var catalog = await _context.Catalogs.FirstOrDefaultAsync(c=>c.Id== createOrderEvent.ProductId);
+            if(catalog == null)
+            {
+                outBoxMessageConsumer.Error = $"{createOrderEvent.ProductId} 不存在catalog中";
+                var goout = await _context.SaveChangesAsync(false);
+                return goout != -1;
+            }
+
             var updateResult = await catalog.RemoveStock(createOrderEvent.Quantity);
             if (!updateResult.Item1)
             {
-                throw new Exception($"更新库存失败:{updateResult.Item2}");
+                outBoxMessageConsumer.Error = $"更新库存失败:{updateResult.Item2}";
             }
-            _context.Catalogs.Update(catalog);
-            Console.WriteLine($"处理的消息完毕");
-
-            _context.Set<OutboxMessageConsumer>().Add(new OutboxMessageConsumer
+            else
             {
-                Id = get.Id,
-                Name = get.Type
-            });
-
-            var result = await _context.SaveChangesAsync();
+                _context.Catalogs.Update(catalog);
+                outBoxMessageConsumer.Id = get.Id;
+                outBoxMessageConsumer.Name =$"{get.Type}: 更新{catalog.Id}_库存-{createOrderEvent.Quantity},时间:{DateTime.UtcNow}";
+            }
+            _context.OutBoxMessageConsumers.Add(outBoxMessageConsumer);
+           var result = await _context.SaveChangesAsync(false);
             return result != -1;
         }
     }

@@ -16,6 +16,7 @@
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/bignumber.js@9.1.2/bignumber.min.js'></script>
     <script>
 
         const baseCatalogUrl = `http://localhost:7000`;
@@ -35,12 +36,12 @@
 
             // 构建订单详情内容
             orderDetailsContainer.innerHTML = `<h2>订单详情</h2>
-                                               <img src="${baseCatalogUrl}${product.imgPath}" alt="${product.name}" style="max-width: 10%; height: auto;">
-                                               <p>商品名称: ${product.name}</p>
-                                               <p>数量: ${product.stock}</p>
-                                               <p>描述: ${product.description}</p>
-                                               <p>价格: ${product.price}</p>
-                                                <button onclick="placeOrder(${product.id},${product.price})">下单</button> <input type="text" id="quantityInput" placeholder="输入数量" oninput="validateQuantity(${product.stock})">`;
+                                                   <img src="${baseCatalogUrl}${product.ImgPath}" alt="${product.Name}" style="max-width: 10%; height: auto;">
+                                                   <p>商品名称: ${product.Name}</p>
+                                                   <p>数量: ${product.Stock}</p>
+                                                   <p>描述: ${product.Description}</p>
+                                                   <p>价格: ${product.Price}</p>
+                                                    <button onclick="placeOrder('${product.Id}',${product.Price})">下单</button> <input type="text" id="quantityInput" placeholder="输入数量" oninput="validateQuantity(${product.Stock})">`;
 
             // 将订单详情添加到页面
             document.body.appendChild(orderDetailsContainer);
@@ -57,22 +58,22 @@
             // 还可以提供登录链接等
         }
 
-        function placeOrder(productId,price) {
+        function placeOrder(productId, price) {
             const quantity = document.getElementById('quantityInput').value;
             if (quantity == '') {
                 alert('请输入购买数量！');
             }
             // 发送 POST 请求来创建新订单
             const orderData = {
-                pid: productId,
+                pid: new BigNumber(productId),
                 quantity: quantity,
-                price:price
+                price: price
             };
             // 假设订单创建的 API 端点是 /api/orders
-           
 
-            // 使用 fetch 发送 POST 请求
-            fetch(baseOrderUrl+"/Order/Create", {
+
+            // 使用 fetch 发送 POST 请求下单
+            fetch(baseOrderUrl + "/Order/Create", {
                 method: 'POST',
                 headers: {
                     "Token": `${globalToken}`, // 注意这里使用 Bearer 认证方案，后面加上空格
@@ -109,7 +110,7 @@
         function validateQuantity(stock) {
             const inputElement = document.getElementById('quantityInput');
             let value = inputElement.value.trim();
-           
+
             // 移除非数字字符
             value = value.replace(/\D/g, '');
 

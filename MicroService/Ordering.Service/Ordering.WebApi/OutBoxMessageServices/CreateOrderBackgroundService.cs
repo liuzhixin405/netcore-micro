@@ -17,7 +17,7 @@ namespace Ordering.WebApi.OutBoxMessageServices
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            while (!stoppingToken.CanBeCanceled)
+            while (!stoppingToken.IsCancellationRequested)
             {
                 try
                 {
@@ -38,10 +38,11 @@ namespace Ordering.WebApi.OutBoxMessageServices
                             {
                                 Console.WriteLine($"发布时间失败:{message}");
                             });
-                        retry.Execute(() => _publisher.Publish(new { Content = message.Content, Id = message.Id,Type= message.Type}, exchange: "RabbitMQ.EventBus.CreateOrder", routingKey: "rabbitmq.eventbus.CreateOrder"));
+                        retry.Execute(() => _publisher.Publish(new { Content = message.Content, Id = message.Id,Type= message.Type}, exchange: "RabbitMQ.EventBus.CreateOrder",queue: "RabbitMQ.EventBus.CreateOrder"));
                         message.ProceddedOnUtc = DateTime.UtcNow;
                     }
-                    await writeRepo.SaveChangeAsync(stoppingToken);
+                    await writeRepo.UpdateRangeAsync(messages, stoppingToken);
+                    var res = await writeRepo.SaveChangeAsync(stoppingToken);
                 }
                 catch (Exception ex)
                 {
@@ -49,7 +50,7 @@ namespace Ordering.WebApi.OutBoxMessageServices
                 }
                 finally
                 {
-                    await Task.Delay(1000 * 60 * 5);
+                    await Task.Delay(1000 * 60 * 1);
                 }
             }
         }
