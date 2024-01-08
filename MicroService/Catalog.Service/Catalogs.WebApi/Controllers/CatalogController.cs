@@ -76,7 +76,7 @@ public class CatalogController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<ActionResult<Catalog>> ItemByIdAsync(long id)
+    public async Task<ActionResult<ProductDto>> ItemByIdAsync(long id)
     {
         if (id <= 0)
         {
@@ -87,7 +87,7 @@ public class CatalogController : ControllerBase
 
         if (item != null)
         {
-            return item;
+            return new ProductDto(item.Id.ToString(),item.Name,item.Price.ToString(),item.Stock.ToString(),item.ImgPath,item.Description);
         }
 
         return NotFound();

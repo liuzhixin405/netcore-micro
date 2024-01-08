@@ -3,7 +3,7 @@ using Ordering.Domain.Orders;
 
 namespace Ordering.Infrastructure.Repositories
 {
-    public interface IWriteOrderRepository:IWriteRepository<Order>
+    public interface IWriteOrderRepository : IWriteRepository<Order>
     {
 
     }

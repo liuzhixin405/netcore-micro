@@ -35,14 +35,4 @@ public class OrderController : ControllerBase
         }
         return await _orderService.Create(orderDto);
     }
-    //[HttpGet]
-    //public async Task<string> GetUserTest(string username, string password)
-    //{
-    //    using (var channel = GrpcChannel.ForAddress("https://localhost:7021"))
-    //    {
-    //        var client = MagicOnionClient.Create<IGrpcCustomerService>(channel);
-    //        var result = await client.GetCustomer(new CustomerRequest(username,password));
-    //        return result.username;
-    //    }
-    //}
 }

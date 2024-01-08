@@ -6,6 +6,9 @@ using MagicOnion;
 using Ordering.WebApi.Services;
 using Ordering.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Ordering.WebApi.OutBoxMessageServices;
+using Common.MessageMiddleware.Extensions;
+using Ordering.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,9 +41,13 @@ builder.Services.AddDistributedId(new DistributedIdOptions
 });
 #endregion
 builder.Services.AddDatabase(builder.Configuration);
-builder.Services.AddTransient<IOrderService, OrderService>();
-var app = builder.Build();
+builder.Services.AddMq(builder.Configuration);
 
+builder.Services.AddTransient<IOrderService, OrderService>();
+builder.Services.AddHostedService<CreateOrderBackgroundService>();
+
+var app = builder.Build();
+ApplicationStartup.CreateTable(app.Services);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

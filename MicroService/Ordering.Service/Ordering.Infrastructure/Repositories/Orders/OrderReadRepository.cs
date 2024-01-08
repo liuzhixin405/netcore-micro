@@ -2,11 +2,10 @@
 using Microsoft.EntityFrameworkCore.Internal;
 using Ordering.Domain.Orders;
 using Ordering.Infrastructure.Database;
-using Ordering.Infrastructure.Repositories;
 using RepositoryComponent.BaseRepo;
 using RepositoryComponent.DbFactories;
 
-namespace project.Repositories
+namespace Ordering.Infrastructure.Repositories
 {
     public class OrderReadRepository : ReadRepository<ReadOrderDbContext, Order>, IReadOrderRepository
     {
@@ -20,7 +19,7 @@ namespace project.Repositories
 
         public async ValueTask<Order> GetById(long id)
         {
-            var result =await _readContext.Set<Order>().Where(x => x.Id == id).FirstOrDefaultAsync();
+            var result = await _readContext.Set<Order>().Where(x => x.Id == id).FirstOrDefaultAsync();
             return result;
         }
     }

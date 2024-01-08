@@ -23,14 +23,17 @@ namespace Catalogs.Domain.Dtos
 
         [JsonPropertyName("ImgPath")]
         public string ImgPath { get; private set; }
-        public ProductDto(string id,string name,string price,string stock,string imgPath)
+
+        [JsonPropertyName("Description")]
+        public string Description { get; private set; }
+        public ProductDto(string id,string name,string price,string stock,string imgPath,string description="")
         {
             Id= id;
             Name= name;
             Price = price;
             Stock = stock;
             ImgPath= imgPath;
-
+            Description= description;
         }
     }
 }
