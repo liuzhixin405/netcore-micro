@@ -11,9 +11,7 @@ using Common.Redis.Extensions.Serializer;
 using Common.Redis.Extensions;
 using Ordering.IGrain;
 using Orleans.Configuration;
-using Ordering.GrainService;
 using Orleans.Serialization;
-using YamlDotNet.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +22,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpContextAccessor();
+#region Cors
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
@@ -34,6 +33,8 @@ builder.Services.AddCors(options =>
                    .AllowAnyMethod();
         });
 });
+#endregion
+
 builder.Services.AddOpenApiDocument(settings =>
 {
     settings.Title = "后台管理系统";
@@ -70,7 +71,7 @@ builder.Host.UseOrleans(clientBuilder =>
             options.ServiceId = "ordering.webapi";
         });
 });
-builder.Services.AddHostedService<CreateOrderBackgroundService>();
+builder.Services.AddHostedService<CreateOrderbService>();
 
 var app = builder.Build();
 ApplicationStartup.CreateTable(app.Services);
