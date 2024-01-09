@@ -19,6 +19,8 @@ https://www.cnblogs.com/morec/p/17054383.html
 
 温馨提示:前端展示仅仅只是配合后端操作，没有花费任何时间做UI
 温馨提示:有些非重点展示业务没有添加全部功能，比如注册，只是通过swagger接口创建用户而已
+目录结构:
+![Alt text](image-7.png)
 
 登录:
 ![Alt text](image.png)
