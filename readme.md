@@ -28,5 +28,19 @@ https://www.cnblogs.com/morec/p/17054383.html
 
 商品列表:
 第一次加载请求接口,后续每秒钟websocket实时推送最新数据
-![Alt text](image-2.png)
 
+![Alt text](image-6.png)
+
+
+进入详情，下单后:
+![Alt text](image-3.png)
+
+购买列表
+
+![Alt text](image-4.png)
+
+![Alt text](image-5.png)
+后续:
+
+付款，发货...
+完善：es商品查询
