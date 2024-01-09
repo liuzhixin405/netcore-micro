@@ -4,6 +4,7 @@ using MagicOnion.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Domain.Dtos;
+using Ordering.Domain.Orders;
 using Ordering.WebApi.Filters;
 using Ordering.WebApi.Services;
 
@@ -34,5 +35,12 @@ public class OrderController : ControllerBase
             return false;
         }
         return await _orderService.Create(orderDto);
+    }
+
+    [HttpGet]
+    [Route("GetOrders")]
+    public async Task<List<OrderDetailDto>> GetOrdersByUser()
+    {
+        return await _orderService.GetOrderDetails();
     }
 }

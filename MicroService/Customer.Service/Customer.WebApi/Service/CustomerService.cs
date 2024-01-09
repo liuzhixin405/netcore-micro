@@ -11,6 +11,7 @@ using Common.Util.Jwt;
 using Microsoft.Extensions.Options;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
+using Common.Util;
 
 namespace Customers.Center.Service
 {
@@ -23,6 +24,8 @@ namespace Customers.Center.Service
         private IDistributedCache _cache;
         private readonly JwtOptions _jwtOptions;
         private readonly JwtSecurityTokenHandler _tokenHandler;
+        private readonly string CryptionKey = "00000000006666666666660000000000";
+        private readonly string CryptionNonce = "999999999999";
         public CustomerService(ICustomerRepository customerRepository, IUnitOfWork unitOfWork, IDistributedId distributedId, IDistributedCache cache, IOptions<JwtOptions> jwtOptions,JwtSecurityTokenHandler jwtSecurityTokenHandler)
         {
             _customerRepository = customerRepository;
@@ -82,7 +85,7 @@ namespace Customers.Center.Service
                     result.Message = "获取token失败";
                     return result;
                 }
-                result.Token = token;
+                result.Token =CryptionHelper.Encrypt(token,CryptionKey,CryptionNonce);
                 result.Message = "";
                 result.IsSuccess = true;
                 await _cache.SetObjectAsync<TokenDto>(getcacheKey, result, new DistributedCacheEntryOptions { SlidingExpiration = TimeSpan.FromMinutes(5) });
@@ -94,7 +97,7 @@ namespace Customers.Center.Service
             return result;
         }
 
-        public Task<long> GetUseIdFromToken(String token)
+        public Task<long> GetUseIdFromToken(String tokenString)
         {
             var tokenValidationParameters = new TokenValidationParameters
             {
@@ -105,7 +108,7 @@ namespace Customers.Center.Service
                 ClockSkew = TimeSpan.Zero
             };
             ClaimsPrincipal principal = null;
-
+            var token = CryptionHelper.Decrypt(tokenString, CryptionKey,CryptionNonce);
             try
             {
                 principal = _tokenHandler.ValidateToken(token, tokenValidationParameters, out var securityToken);

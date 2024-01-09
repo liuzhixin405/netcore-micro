@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Ordering.WebApi.OutBoxMessageServices;
 using Common.MessageMiddleware.Extensions;
 using Ordering.Infrastructure;
+using Common.Redis.Extensions.Configuration;
+using Common.Redis.Extensions.Serializer;
+using Common.Redis.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,7 +45,14 @@ builder.Services.AddDistributedId(new DistributedIdOptions
 #endregion
 builder.Services.AddDatabase(builder.Configuration);
 builder.Services.AddMq(builder.Configuration);
-
+//redis
+builder.Services.AddSingleton<IRedisCache>(obj =>
+{
+    var config = builder.Configuration.GetSection("Redis").Get<RedisConfiguration>();
+    var serializer = new MsgPackSerializer();
+    var connection = new PooledConnectionMultiplexer(config.ConfigurationOptions);
+    return new RedisCache(obj.GetService<ILoggerFactory>().CreateLogger<RedisCache>(), connection, config, serializer);
+});
 builder.Services.AddTransient<IOrderService, OrderService>();
 builder.Services.AddHostedService<CreateOrderBackgroundService>();
 

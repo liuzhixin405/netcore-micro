@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common.DistributedId\Common.DistributedId.csproj" />
     <ProjectReference Include="..\..\..\Common.MessageMiddleware\Common.MessageMiddleware.csproj" />
+    <ProjectReference Include="..\..\..\Common.Redis\Common.Redis.csproj" />
     <ProjectReference Include="..\..\..\Common.Util\Common.Util.csproj" />
     <ProjectReference Include="..\..\GrpcService\GrpcService\GrpcService.csproj" />
     <ProjectReference Include="..\Ordering.Infrastructure\Ordering.Infrastructure.csproj" />
