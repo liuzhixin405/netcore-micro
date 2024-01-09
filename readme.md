@@ -1,4 +1,4 @@
-该项目作为开发模板, 该项目克隆下来可以正常运行，目前用的.NET6
+电商业务，克隆下来可以正常运行，目前用的.NET6
 包含redis缓存，
 消息中间件kafka、rabbitmq,
 数据库使用mysql、sqlserver
@@ -8,128 +8,25 @@ ElasticSearch
 重点:
 调用外部第三方服务可以用http请求，restshar库，
 服务之间的调用用grpc,核心服务最好交给orleans。
-重点orleans分布式高并发负载等特点，用作核心服务，比如订单处理，交易中心。
+orleans分布式高并发负载等特点，用作核心服务，比如订单处理，交易中心。
 推送websocket
-
-RepositoryComponent组件是efcore，可选mysql、sqlserver
-MessageMiddleware组件时kafka和rabbitmq，可以二选一，也可以都使用
-DapperDal组件时dapper的封装
 Common.Util组件是工具类，有es和其他的组件使用,后期可以把redishelper和其他的helper都移进来。
 ConsumerClient 是简单的消息中间件的消费客户端示例
 project是webapi，示例项目。
+关于使用es和sqlserver做数据实时同步,为了es查询的文档参考以前写的
+https://www.cnblogs.com/morec/p/17054383.html
+或者自己查询其他的文档，mysql或者其他存储介质，其他数据之间同步蛮多的。
 
-在program.cs中,当然你可以通过扩展分散出去。
+温馨提示:前端展示仅仅只是配合后端操作，没有花费任何时间做UI
+温馨提示:有些非重点展示业务没有添加全部功能，比如注册，只是通过swagger接口创建用户而已
 
-  var builder = WebApplication.CreateBuilder(args);
+登录:
+![Alt text](image.png)
 
-            // Add services to the container.
-            builder.Services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true);
-            builder.Services.AddControllers(options =>
-            {
-                options.Filters.Add<ValidFilter>();
-                options.Filters.Add<GlobalExceptionFilter>();
-            });
-            ///sqlserver   
-            if (builder.Configuration["DbType"]?.ToLower() == "sqlserver")
-            {
-                builder.Services.AddDbContext<ReadProductDbContext>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:SqlServer:ReadConnection"]), ServiceLifetime.Scoped);
-                builder.Services.AddDbContext<WriteProductDbContext>(options => options.UseSqlServer(builder.Configuration["ConnectionStrings:SqlServer:WriteConnection"]), ServiceLifetime.Scoped);
+提前注册账号:admin 123456
+![Alt text](image-1.png)
 
-            }
-            ///mysql
-            else if (builder.Configuration["DbType"]?.ToLower() == "mysql")
-            {
-                builder.Services.AddDbContext<ReadProductDbContext>(options => options.UseMySQL(builder.Configuration["ConnectionStrings:MySql:ReadConnection"]), ServiceLifetime.Scoped);
-                builder.Services.AddDbContext<WriteProductDbContext>(options => options.UseMySQL(builder.Configuration["ConnectionStrings:MySql:WriteConnection"]), ServiceLifetime.Scoped);
+商品列表:
+第一次加载请求接口,后续每秒钟websocket实时推送最新数据
+![Alt text](image-2.png)
 
-            }
-            else
-            {
-                builder.Services.AddDbContext<ReadProductDbContext>(options => options.UseInMemoryDatabase("test_inmemory_db"), ServiceLifetime.Scoped);
-                builder.Services.AddDbContext<WriteProductDbContext>(options => options.UseInMemoryDatabase("test_inmemory_db"), ServiceLifetime.Scoped);
-            }
-
-            builder.Services.AddScoped<Func<ReadProductDbContext>>(provider => () => provider.GetService<ReadProductDbContext>() ?? throw new ArgumentNullException("ReadProductDbContext is not inject to program"));
-            builder.Services.AddScoped<Func<WriteProductDbContext>>(provider => () => provider.GetService<WriteProductDbContext>() ?? throw new ArgumentNullException("WriteProductDbContext is not inject to program"));
-
-            builder.Services.AddScoped<DbFactory<WriteProductDbContext>>();
-            builder.Services.AddScoped<DbFactory<ReadProductDbContext>>();
-
-            builder.Services.AddTransient<IReadProductRepository, ProductReadRepository>();
-            builder.Services.AddTransient<IWriteProductRepository, ProductWriteRepository>();
-            builder.Services.AddTransient<IProductService, ProductService>();
-
-            builder.Services.AddTransient<ICustomerService, CustomerService>();
-
-            #region redis
-            var message = string.Empty;
-            Task.WaitAny(new Task[]{
-                Task.Run(() => {
-               CacheHelper.Init(builder.Configuration); //redis链接不上会死机
-             return Task.CompletedTask;
-              }), Task.Run(async () => {
-             await Task.Delay(5000);
-                message =$"{nameof(CacheHelper)} 初始化失败,请重试";
-             })
-            });
-            if (!string.IsNullOrEmpty(message)) throw new Exception(message);
-            #endregion
-            #region rabbitmqsetting
-            var rabbitMqSetting = new RabbitMQSetting
-            {
-                ConnectionString = builder.Configuration["MqSetting:RabbitMq:ConnectionString"].Split(';'),
-                Password = builder.Configuration["MqSetting:RabbitMq:PassWord"],
-                Port = int.Parse(builder.Configuration["MqSetting:RabbitMq:Port"]),
-                SslEnabled = bool.Parse(builder.Configuration["MqSetting:RabbitMq:SslEnabled"]),
-                UserName = builder.Configuration["MqSetting:RabbitMq:UserName"],
-            };
-            var kafkaSetting = new MessageMiddleware.Kafka.Producers.ProducerOptions
-            {
-                BootstrapServers = builder.Configuration["MqSetting:Kafka:BootstrapServers"],
-                SaslUsername = builder.Configuration["MqSetting:Kafka:SaslUserName"],
-                SaslPassword = builder.Configuration["MqSetting:Kafka:SaslPassWord"],
-                Key = builder.Configuration["MqSetting:Kafka:Key"]
-            };
-            var mqConfig = new MQConfig
-            {
-                ConsumerLog = bool.Parse(builder.Configuration["MqSetting:ConsumerLog"]),
-                PublishLog = bool.Parse(builder.Configuration["MqSetting:PublishLog"]),
-                Rabbit = rabbitMqSetting,
-                Use = int.Parse(builder.Configuration["MqSetting:Use"]),
-                Kafka = kafkaSetting
-            };
-            builder.Services.AddSingleton<MQConfig>(sp => mqConfig);
-            builder.Services.AddMQ(mqConfig);
-            #endregion
-
-            #region essearch
-            var section = builder.Configuration.GetSection("EsConfig");
-            builder.Services.AddSingleton(new EsConfig(section.Get<EsOption>()));
-            builder.Services.AddTransient<EsProductContext>();
-            #endregion
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerDocument();
-            //builder.Services.AddProblemDetails();
-            var app = builder.Build();
-            DatabaseStartup.CreateTable(app.Services);
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseOpenApi();
-                app.UseSwaggerUi3();
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-
-            app.MapControllers();
-
-            app.Run();
-
-
-            关于使用es和sqlserver做数据实时同步,为了es查询的文档参考以前写的
-            https://www.cnblogs.com/morec/p/17054383.html
-            或者自己查询其他的文档，mysql或者其他存储介质，其他数据之间同步蛮多的。
