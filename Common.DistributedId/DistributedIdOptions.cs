@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DistributedId
+namespace Common.DistributedId
 {
     /// <summary>
     /// 分布式Id选项

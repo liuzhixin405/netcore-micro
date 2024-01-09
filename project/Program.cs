@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Threading.RateLimiting;
 using Common.Cache;
-using DistributedId;
+using Common.DistributedId;
 using DistributedLock.Abstractions;
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Mvc;

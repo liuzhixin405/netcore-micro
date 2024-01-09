@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Catalogs.Infrastructure;
 using Catalogs.Infrastructure.Database;
-using DistributedId;
+using Common.DistributedId;
 using Catalogs.WebApi.BackgroudServices;
 using System.Threading.Channels;
 using System.Text.Json;

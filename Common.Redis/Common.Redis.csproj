@@ -23,7 +23,7 @@
     <PackageReference Include="MessagePackAnalyzer" Version="2.2.60" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.1" />
     <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
-    <PackageReference Include="NuGet.CommandLine" Version="5.7.0">
+    <PackageReference Include="NuGet.CommandLine" Version="5.11.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

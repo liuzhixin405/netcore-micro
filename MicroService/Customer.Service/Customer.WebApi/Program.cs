@@ -6,7 +6,7 @@ using Customers.Domain.Seedwork;
 using Customers.Infrastructure;
 using Customers.Infrastructure.Domain;
 using Customers.Infrastructure.Domain.Customers;
-using DistributedId;
+using Common.DistributedId;
 using NetCore.AutoRegisterDi;
 using NSwag;
 

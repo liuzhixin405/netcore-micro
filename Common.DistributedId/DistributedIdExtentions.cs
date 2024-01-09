@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
-namespace DistributedId
+namespace Common.DistributedId
 {
     /// <summary>
     /// extensions

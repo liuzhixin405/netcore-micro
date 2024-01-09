@@ -7,7 +7,7 @@ using Catalogs.Domain.Dtos;
 using Catalogs.Infrastructure.Database;
 using Catalogs.WebApi.ViewModel;
 using Common.Redis.Extensions;
-using DistributedId;
+using Common.DistributedId;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;

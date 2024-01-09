@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DistributedId
+namespace Common.DistributedId
 {
     internal static class AsyncHelper
     {
