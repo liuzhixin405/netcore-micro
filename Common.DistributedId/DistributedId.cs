@@ -8,7 +8,7 @@ using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace DistributedId
+namespace Common.DistributedId
 {
     internal class DistributedId : IDistributedId
     {

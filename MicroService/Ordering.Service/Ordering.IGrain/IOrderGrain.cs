@@ -1,9 +1,9 @@
 ﻿using Ordering.Domain.Dtos;
-using Ordering.Domain.Orders;
+using Orleans;
 
-namespace Ordering.WebApi.Services
+namespace Ordering.IGrain
 {
-    public interface IOrderService
+    public interface IOrderGrain: IGrainWithIntegerKey
     {
         Task<bool> Create(CreateOrderDto orderDto);
         Task<List<OrderDetailDto>> GetOrderDetails();

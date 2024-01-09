@@ -1,7 +1,7 @@
 ﻿using Customers.Center.Service.Dtos;
 using Customers.Domain.Customers;
 using Customers.Domain.Seedwork;
-using DistributedId;
+using Common.DistributedId;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Microsoft.Extensions.Caching.Distributed;
 using Common.Cache;

@@ -1,22 +1,23 @@
-﻿using Common.Redis.Extensions;
-using DistributedId;
+﻿using Microsoft.AspNetCore.Http;
 using Ordering.Domain.Dtos;
 using Ordering.Domain.Orders;
+using Ordering.IGrain;
 using Ordering.Infrastructure.Repositories;
 using Common.Util;
-using Ordering.WebApi.Dtos;
-using Namotion.Reflection;
+using Common.DistributedId;
+using Common.Redis.Extensions;
+using Orleans;
 
-namespace Ordering.WebApi.Services
+namespace Ordering.GrainService
 {
-    public class OrderService : IOrderService
+    public class OrderGrain : Grain, IOrderGrain
     {
         private readonly IWriteOrderRepository _writeRepo;
         private readonly IReadOrderRepository _readRepo;
         private readonly IDistributedId _distributedId;
         private readonly long _userId;
         private readonly IRedisCache _redisDb;
-        public OrderService(IWriteOrderRepository writeOrderRepository,
+        public OrderGrain(IWriteOrderRepository writeOrderRepository,
             IReadOrderRepository readOrderRepository,
             IDistributedId distributedId,
             IHttpContextAccessor contextAccessor,
@@ -59,19 +60,19 @@ namespace Ordering.WebApi.Services
             }
             var productsDic = await _redisDb.HGetAllAsync("products");
             List<CatalogCopy> catalogCopies = new();
-            foreach ( var product in productsDic.Values )
+            foreach (var product in productsDic.Values)
             {
                 catalogCopies.Add(System.Text.Json.JsonSerializer.Deserialize<CatalogCopy>(product));
             }
-            
-            var result = orderList.Select(x => new OrderDetailDto
+
+            var result = orderList.Select(x => new OrderDetailDto()
             {
-                Quantity = x.Quantity,
-                TotalAmount = x.TotalAmount,
-                ProductName = catalogCopies.Where(c=>c.Id.Equals(x.ProductId)).Select(c=>c.Name).FirstOrDefault(),
+                Quantity = x.Quantity.ToString(),
+                TotalAmount = x.TotalAmount.ToString(),
+                ProductName = catalogCopies.Where(c => c.Id.Equals(x.ProductId)).Select(c => c.Name).FirstOrDefault(),
                 CreateTime = DateTime.FromFileTimeUtc(x.CreateTime * 10000).ToString("yyyy-mm-dd HH:mm:ss"),
                 OrderStatus = x.OrderStatus.GetDescription(),
-        }).ToList();
+            }).ToList();
             return result;
         }
     }

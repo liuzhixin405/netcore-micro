@@ -5,8 +5,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Domain.Dtos;
 using Ordering.Domain.Orders;
+using Ordering.IGrain;
 using Ordering.WebApi.Filters;
-using Ordering.WebApi.Services;
+using Orleans;
 
 namespace Ordering.WebApi.Controllers;
 
@@ -17,12 +18,12 @@ namespace Ordering.WebApi.Controllers;
 public class OrderController : ControllerBase
 {
     private readonly ILogger<OrderController> _logger;
-    private readonly IOrderService _orderService;
+    private readonly IGrainFactory _clusterClient;
 
-    public OrderController(ILogger<OrderController> logger, IOrderService orderService)
+    public OrderController(ILogger<OrderController> logger, IGrainFactory clusterClient)
     {
         _logger = logger;
-        _orderService = orderService;
+        _clusterClient = clusterClient;
     }
 
     [HttpPost]
@@ -34,13 +35,16 @@ public class OrderController : ControllerBase
         {
             return false;
         }
-        return await _orderService.Create(orderDto);
+        var orderGrain = _clusterClient.GetGrain<IOrderGrain>(1);
+
+        return await orderGrain.Create(orderDto);
     }
 
     [HttpGet]
     [Route("GetOrders")]
     public async Task<List<OrderDetailDto>> GetOrdersByUser()
     {
-        return await _orderService.GetOrderDetails();
+        var orderGrain = _clusterClient.GetGrain<IOrderGrain>(1);
+        return await orderGrain.GetOrderDetails();
     }
 }

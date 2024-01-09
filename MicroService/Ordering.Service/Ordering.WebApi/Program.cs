@@ -1,17 +1,19 @@
 using NSwag;
-using Common.Util.Jwt;
-using DistributedId;
+using Common.DistributedId;
 using Ordering.WebApi.Filters;
 using MagicOnion;
-using Ordering.WebApi.Services;
 using Ordering.Infrastructure.Extensions;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Ordering.WebApi.OutBoxMessageServices;
 using Common.MessageMiddleware.Extensions;
 using Ordering.Infrastructure;
 using Common.Redis.Extensions.Configuration;
 using Common.Redis.Extensions.Serializer;
 using Common.Redis.Extensions;
+using Ordering.IGrain;
+using Orleans.Configuration;
+using Ordering.GrainService;
+using Orleans.Serialization;
+using YamlDotNet.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,7 +55,21 @@ builder.Services.AddSingleton<IRedisCache>(obj =>
     var connection = new PooledConnectionMultiplexer(config.ConfigurationOptions);
     return new RedisCache(obj.GetService<ILoggerFactory>().CreateLogger<RedisCache>(), connection, config, serializer);
 });
-builder.Services.AddTransient<IOrderService, OrderService>();
+builder.Services.AddSerializer(sb=>
+{
+    sb.AddJsonSerializer(
+       isSupported: type => type.Namespace.StartsWith("Ordering"));
+});
+builder.Host.UseOrleans(clientBuilder =>
+{
+    clientBuilder
+        .UseLocalhostClustering()
+        .Configure<ClusterOptions>(options =>
+        {
+            options.ClusterId = "order";
+            options.ServiceId = "ordering.webapi";
+        });
+});
 builder.Services.AddHostedService<CreateOrderBackgroundService>();
 
 var app = builder.Build();

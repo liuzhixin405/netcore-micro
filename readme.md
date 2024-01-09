@@ -7,7 +7,7 @@ ElasticSearch
 微服务之间调用grpc，http，orleans，示例代码JwtAuthApp.Server、Login.Client
 重点:
 调用外部第三方服务可以用http请求，restshar库，
-服务之间的调用用grpc,核心服务最好交给orleans。
+服务之间的调用用grpc,核心服务order通过orleans控制并发。
 orleans分布式高并发负载等特点，用作核心服务，比如订单处理，交易中心。
 推送websocket
 Common.Util组件是工具类，有es和其他的组件使用,后期可以把redishelper和其他的helper都移进来。

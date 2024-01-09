@@ -8,7 +8,7 @@ using LinqKit;
 using project.Utility.Helper;
 using RepositoryComponent.Page;
 using AutoMapper;
-using DistributedId;
+using Common.DistributedId;
 
 namespace project.Services
 {
