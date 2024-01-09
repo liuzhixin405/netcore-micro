@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Channels;
-using AdventureGrainInterfaces;
 using Grpc.Net.Client;
 using Login.Client.GrpcClient;
 using MagicOnion.Client;
@@ -66,11 +65,11 @@ namespace Login.Client.Controllers
             return res.Data ?? default;
         }
 
-        [HttpGet(Name = "OrleansResponse")]
-        public async Task<string> OrleansResponse()
-        {
-            Console.WriteLine(DateTime.Now.ToString());
-            return await _clusterClient.GetGrain<IFakeMessage>(Random.Shared.Next()).GetMessage();
-        }
+        //[HttpGet(Name = "OrleansResponse")]
+        //public async Task<string> OrleansResponse()
+        //{
+        //    Console.WriteLine(DateTime.Now.ToString());
+        //    return await _clusterClient.GetGrain<IFakeMessage>(Random.Shared.Next()).GetMessage();
+        //}
     }
 }

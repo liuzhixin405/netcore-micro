@@ -59,7 +59,7 @@ builder.Services.AddSerializer(sb=>
 {
     sb.AddJsonSerializer(
        isSupported: type => type.Namespace.StartsWith("Ordering"));
-});
+}); // 该配置和序列化对象需要特殊配置,跟grpc一样。
 builder.Host.UseOrleans(clientBuilder =>
 {
     clientBuilder
