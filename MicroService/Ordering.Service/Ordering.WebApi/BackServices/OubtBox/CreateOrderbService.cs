@@ -39,8 +39,12 @@ namespace Ordering.WebApi.OutBoxMessageServices
                                 Console.WriteLine($"发布时间失败:{message}");
                             });
                         retry.Execute(() => _publisher.Publish(new { Content = message.Content, Id = message.Id,Type= message.Type}, exchange: "RabbitMQ.EventBus.CreateOrder",queue: "RabbitMQ.EventBus.CreateOrder"));
+                        retry.Execute(() => _publisher.Publish(new {Id=message.Id },exchange: "RabbitMQ.EventBus.OrderCreated", queue: "RabbitMQ.EventBus.OrderCreated"));
                         message.ProceddedOnUtc = DateTime.UtcNow;
                     }
+                    //发送一条下单消息给支付系统
+                    //延时队列取消订单
+                    //收到付款队列更改发货状态
                     await writeRepo.UpdateRangeAsync(messages, stoppingToken);
                     var res = await writeRepo.SaveChangeAsync(stoppingToken);
                 }
