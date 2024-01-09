@@ -9,9 +9,9 @@ namespace Ordering.Domain.Enums
 {
     public enum OrderStatus
     {
-        [Description("待处理")]
+        [Description("待付款")]
         Pending,        // 
-        [Description("处理中")]
+        [Description("付款完成")]
         Processing,     // 
         [Description("已发货")]
         Shipped,        // 
