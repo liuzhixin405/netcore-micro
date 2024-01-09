@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>订单列表</title>
+</head>
+<body>
+    <div id="orderDetails"></div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const baseOrderUrl = `http://localhost:7105`;
+        function checkLoginStatus() {
+
+            // 从 localStorage 中获取用户信息或令牌
+            const userToken = localStorage.getItem('userToken');
+            globalToken = userToken;
+            return !!userToken; // 返回用户是否已登录的布尔值
+        }
+        function getDetail() {
+            const apiUrl = baseOrderUrl + `/Order/GetOrders`;
+            // 使用 fetch 发送 POST 请求下单
+            fetch(apiUrl, {
+                method: 'GET',
+                headers: {
+                    "Token": `${globalToken}`, // 注意这里使用 Bearer 认证方案，后面加上空格
+                    "Content-Type": "application/json", // 根据实际情况设置其他请求头
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // 在这里处理获取到的订单详细信息列表
+                        return response.json();
+                    } else {
+                        // 订单创建失败，可以进行相关处理
+                        throw new Error('获取订单列表失败');
+                    }
+                }).then(data => {
+                    displayOrderDetails(data);
+                })
+                .catch(error => {
+                    console.error('请求失败:', error);
+                });
+        }
+        // 在页面上显示订单详细信息
+        function displayOrderDetails(orderDetails) {
+            var orderDetailsDiv = document.getElementById('orderDetails');
+
+            // 创建一个简单的表格来显示订单详细信息
+            var table = document.createElement('table');
+            var headerRow = table.insertRow(0);
+
+            // 创建表头
+            for (var key in orderDetails[0]) {
+                var headerCell = document.createElement('th');
+                headerCell.textContent = key;
+                headerRow.appendChild(headerCell);
+            }
+
+            // 创建表格行
+            for (var i = 0; i < orderDetails.length; i++) {
+                var row = table.insertRow(i + 1);
+
+                // 填充数据
+                for (var key in orderDetails[i]) {
+                    var cell = row.insertCell();
+                    cell.textContent = orderDetails[i][key];
+                }
+            }
+
+            orderDetailsDiv.appendChild(table);
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            // 在下单页面检查登录状态
+            const isLoggedIn = checkLoginStatus();
+            if (isLoggedIn) {
+                getDetail();
+
+            } else {
+                // 用户未登录，可以跳转到登录页面或显示提示信息
+                redirectToLoginPage();
+                // 或者显示提示信息
+            }
+        });
+    </script>
+</body>
+</html>
