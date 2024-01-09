@@ -8,7 +8,7 @@ using Common.DistributedId;
 using Common.Redis.Extensions;
 using Orleans;
 
-namespace Ordering.GrainService
+namespace Ordering.WebApi.Services
 {
     public class OrderGrain : Grain, IOrderGrain
     {
@@ -70,7 +70,7 @@ namespace Ordering.GrainService
                 Quantity = x.Quantity.ToString(),
                 TotalAmount = x.TotalAmount.ToString(),
                 ProductName = catalogCopies.Where(c => c.Id.Equals(x.ProductId)).Select(c => c.Name).FirstOrDefault(),
-                CreateTime = DateTime.FromFileTimeUtc(x.CreateTime * 10000).ToString("yyyy-mm-dd HH:mm:ss"),
+                CreateTime = DateTimeOffset.FromUnixTimeMilliseconds(x.CreateTime).ToString("yyyy-MM-dd HH:mm:ss"),
                 OrderStatus = x.OrderStatus.GetDescription(),
             }).ToList();
             return result;

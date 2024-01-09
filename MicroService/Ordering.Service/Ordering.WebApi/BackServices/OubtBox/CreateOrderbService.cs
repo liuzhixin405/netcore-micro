@@ -4,12 +4,12 @@ using Ordering.Infrastructure.Repositories;
 using Polly;
 namespace Ordering.WebApi.OutBoxMessageServices
 {
-    public class CreateOrderBackgroundService : BackgroundService
+    public class CreateOrderbService : BackgroundService
     {
         private readonly IMQPublisher _publisher;
         private readonly IServiceScopeFactory _serviceScopeFactory;
 
-        public CreateOrderBackgroundService(IMQPublisher publisher, IServiceScopeFactory serviceScopeFactory)
+        public CreateOrderbService(IMQPublisher publisher, IServiceScopeFactory serviceScopeFactory)
         {
             _publisher = publisher;
             _serviceScopeFactory = serviceScopeFactory;
