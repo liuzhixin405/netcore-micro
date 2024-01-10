@@ -6,10 +6,11 @@ using RabbitMQ.Client.Events;
 
 namespace Paying.WebApi.BackServices
 {
-    public class ConsumerService : BackgroundService
+    public class ConsumerService : BackgroundService //给payconfirm 发送一条消息
     {
         private readonly IModel channel;
         private readonly IConnection connection;
+        
         public ConsumerService()
         {
             RabbitMqConfig rabbitMqConfig = new(); 

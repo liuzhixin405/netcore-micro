@@ -12,5 +12,6 @@ namespace Ordering.Infrastructure.Repositories
     public interface IReadOutBoxMessageRepository : IReadRepository<OutBoxMessage>
     {
         Task<List<OutBoxMessage>> GetTake(int count);
+        ValueTask<OutBoxMessage> GetById(long id);
     }
 }
