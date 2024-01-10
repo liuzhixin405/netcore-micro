@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Paying.WebApi.BackServices
 {
-    public class PayTimeoutService : BackgroundService
+    public class PayTimeoutService : BackgroundService //支付超时取消订单
     {
         private readonly IModel channel;
         private readonly IConnection connection;

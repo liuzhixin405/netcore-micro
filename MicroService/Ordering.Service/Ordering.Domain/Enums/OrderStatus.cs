@@ -9,6 +9,8 @@ namespace Ordering.Domain.Enums
 {
     public enum OrderStatus
     {
+        [Description("待确认")]
+        BeConfirm,
         [Description("待付款")]
         Pending,        // 
         [Description("付款完成")]

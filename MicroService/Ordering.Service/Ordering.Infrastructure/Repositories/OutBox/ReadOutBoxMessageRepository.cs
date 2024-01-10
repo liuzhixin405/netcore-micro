@@ -22,6 +22,12 @@ namespace Ordering.Infrastructure.Repositories
             _readContext = readContextFactory?.Context;
         }
 
+        public async ValueTask<OutBoxMessage> GetById(long id)
+        {
+            var result = await _readContext.Set<OutBoxMessage>().Where(x => x.Id == id).FirstOrDefaultAsync();
+            return result;
+        }
+
         public async Task<List<OutBoxMessage>> GetTake(int count)
         {
             var messages = await _readContext.Set<OutBoxMessage>().Where(m => m.ProceddedOnUtc == null)

@@ -55,5 +55,10 @@ namespace Ordering.Domain.Orders
         [Timestamp]
         public byte[] Version { get; set; }
 
+        public void SetOrderStaus(OrderStatus status)
+        {
+            OrderStatus = status;
+        }
+
     }
 }
