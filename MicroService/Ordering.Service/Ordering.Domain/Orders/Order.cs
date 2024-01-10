@@ -22,7 +22,7 @@ namespace Ordering.Domain.Orders
                 ProductId = pid,
                 Quantity = quantity,
                 TotalAmount = totalAmount,
-                OrderStatus =  OrderStatus.Pending,
+                OrderStatus =  OrderStatus.BeConfirm,
                 CreateTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
             };
             return catalog;

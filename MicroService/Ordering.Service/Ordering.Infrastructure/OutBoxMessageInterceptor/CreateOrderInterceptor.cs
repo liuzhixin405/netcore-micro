@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Ordering.Dimain.OutBoxMessages;
 using Ordering.Domain.Events;
+using Ordering.Infrastructure.Database;
 
 namespace Ordering.Infrastructure.OutBoxMessageInterceptor
 {
@@ -14,15 +15,22 @@ namespace Ordering.Infrastructure.OutBoxMessageInterceptor
             {
                 return base.SavingChangesAsync(eventData, result, cancellationToken);
             }
+            if(eventData.Context.GetType()!=typeof(WriteOrderDbContext))
+            {
+                return base.SavingChangesAsync(eventData, result, cancellationToken);
+            }
             var events = dbContxt.ChangeTracker.Entries<IEntity>().Select(x => x.Entity).SelectMany(x =>
             {
                 List<IDomainEvent> entities = new List<IDomainEvent>();
-                foreach (var item in x.DomainEvents)
+                if (x.DomainEvents != null)
                 {
-                    if (!(item is null))
-                        entities.Add(item);
+                    foreach (var item in x.DomainEvents)
+                    {
+                        if (!(item is null))
+                            entities.Add(item);
+                    }
+                    x.ClearDomainEvents();
                 }
-                x.ClearDomainEvents();
                 return entities;
             }).Select(x => new OutBoxMessage
             {

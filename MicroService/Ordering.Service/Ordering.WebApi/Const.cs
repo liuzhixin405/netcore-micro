@@ -1,4 +1,4 @@
-﻿namespace Paying.WebApi
+﻿namespace Ordering.WebApi
 {
 
     public static class Const

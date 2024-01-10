@@ -12,6 +12,7 @@ using Common.Redis.Extensions;
 using Ordering.IGrain;
 using Orleans.Configuration;
 using Orleans.Serialization;
+using Ordering.WebApi.Services.Orders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddGrpc();
+builder.Services.AddMagicOnion();
 #region Cors
 builder.Services.AddCors(options =>
 {
@@ -72,7 +75,7 @@ builder.Host.UseOrleans(clientBuilder =>
         });
 });
 builder.Services.AddHostedService<CreateOrderbService>();
-
+builder.Services.AddTransient<IOrderService,OrderService>();
 var app = builder.Build();
 ApplicationStartup.CreateTable(app.Services);
 // Configure the HTTP request pipeline.
@@ -88,4 +91,5 @@ app.UseRouting();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+app.MapMagicOnionService();
 app.Run();
