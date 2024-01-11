@@ -28,16 +28,21 @@ namespace Ordering.WebApi.OutBoxMessageServices
             factory.Password = rabbitMqConfig.Password;
             connection = factory.CreateConnection();
             channel = connection.CreateModel();
-            var queueName = Const.Normal_Queue; ;
-            channel.ExchangeDeclare(Const.Normal_Exchange, ExchangeType.Fanout, true);
-            channel.QueueDeclare(queueName, true, false, false, new Dictionary<string, object>
+            
+            channel.ExchangeDeclare(Const.Delay_Exchange, ExchangeType.Direct, true);
+            channel.QueueDeclare(Const.Delay_Queue, true, false, false, new Dictionary<string, object>
                         {
                             { "x-message-ttl" ,Const.DelayTime},
-                            {"x-dead-letter-exchange",Const.Delay_Exchange },
+                            {"x-dead-letter-exchange",Const.Normal_Exchange },
                             {"x-dead-letter-routing-key",Const.Delay_RoutingKey }
                         });
 
-            channel.QueueBind(queueName, Const.Normal_Exchange, "");    //用了延时队列但没有封装到组件去,偷下懒
+            channel.QueueBind(Const.Delay_Queue, Const.Delay_Exchange, "");    //用了延时队列但没有封装到组件去,偷下懒
+
+            channel.QueueDeclare(Const.Normal_Queue, true, false, false, null);
+            channel.ExchangeDeclare(Const.Normal_Exchange, ExchangeType.Fanout, true);
+            channel.QueueBind(Const.Normal_Queue, Const.Normal_Exchange, Const.Delay_RoutingKey);
+
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -74,7 +79,7 @@ namespace Ordering.WebApi.OutBoxMessageServices
                             byte[] buffer = Encoding.UTF8.GetBytes(message.Content);
                             IBasicProperties basicProperties = channel.CreateBasicProperties();
                             basicProperties.DeliveryMode = 2; //持久化  1=非持久化
-                            channel.BasicPublish(Const.Normal_Exchange, Const.Normal_RoutingKey, basicProperties, buffer);
+                            channel.BasicPublish(Const.Delay_Exchange, "", basicProperties, buffer);
                             // 在服务结束时关闭连接和通道
                             //channel.Close();
                             //connection.Close();

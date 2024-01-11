@@ -28,7 +28,7 @@ builder.Services.AddDistributedId(new DistributedIdOptions
 #endregion
 builder.Services.AddTransient<IPayingService ,PayingService>();
 builder.Services.AddHostedService<PayTimeoutService>();
-builder.Services.AddHostedService<ConsumerService>();
+
 var app = builder.Build();
 CreateTable(app.Services);
 // Configure the HTTP request pipeline.
