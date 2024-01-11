@@ -1,5 +1,9 @@
+using System.Text;
 using System.Threading.Channels;
 using Microsoft.AspNetCore.Mvc;
+using Paying.WebApi.Dtos;
+using Paying.WebApi.Services;
+using RabbitMQ.Client;
 
 namespace Paying.WebApi.Controllers;
 
@@ -7,20 +11,24 @@ namespace Paying.WebApi.Controllers;
 [Route("[controller]")]
 public class PayController : ControllerBase
 {
-    
-    private readonly ILogger<PayController> _logger;
 
-    public PayController(ILogger<PayController> logger)
+  
+    private readonly ILogger<PayController> _logger;
+    private readonly IPayingService _payingService;
+    public PayController(ILogger<PayController> logger,IPayingService payingService)
     {
         _logger = logger;
+        _payingService = payingService;
     }
+
 
     [HttpPost]
     [Route("Paying")]
-    public async Task<bool> Paying([FromServices]Channel<string> channel, decimal amount)
+    public async Task<bool> Paying(long orderId,decimal amount)
     {
-       await channel.Writer.WriteAsync("pay");
+       await _payingService.ChangeOrderStatus(orderId,6);
         //支付测试,无实际业务
         return true;
     }
+
 }

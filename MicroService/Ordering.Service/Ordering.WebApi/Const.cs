@@ -1,4 +1,4 @@
-﻿namespace Paying.WebApi
+﻿namespace Ordering.WebApi
 {
 
     public static class Const
@@ -9,7 +9,7 @@
         public const string Delay_Queue = "paying_exchange.dl_queue";
         public const string Delay_Exchange = "paying_exchange.dl";
         public const string Delay_RoutingKey = "paying_exchange.dl_key";
-        public const long DelayTime = 1000*60*5;
+        public const long DelayTime = 1000*60*2;
     }
     public record RabbitMqConfig
     {

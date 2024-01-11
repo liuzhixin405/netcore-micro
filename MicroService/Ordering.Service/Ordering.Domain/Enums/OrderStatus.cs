@@ -10,20 +10,20 @@ namespace Ordering.Domain.Enums
     public enum OrderStatus
     {
         [Description("待确认")]
-        BeConfirm,
+        BeConfirm=1,
         [Description("待付款")]
-        Pending,        // 
+        Pending=2,        // 
         [Description("付款完成")]
-        Processing,     // 
+        Processing=3,     // 
         [Description("已发货")]
-        Shipped,        // 
+        Shipped=4,        // 
         [Description("已送达")]
-        Delivered,      // 
+        Delivered=5,      // 
         [Description("已完成")]
-        Completed,      // 
+        Completed=6,      // 
         [Description("已取消")]
-        Canceled,       // 
+        Canceled=7,       // 
         [Description("失败")]
-        Failed          // 
+        Failed=8          // 
     }
 }

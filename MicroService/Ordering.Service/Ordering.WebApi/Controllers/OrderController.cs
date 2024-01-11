@@ -35,7 +35,7 @@ public class OrderController : ControllerBase
         {
             return false;
         }
-        var orderGrain = _clusterClient.GetGrain<IOrderGrain>(1);
+        var orderGrain = _clusterClient.GetGrain<IOrderGrain>(Random.Shared.Next());
 
         return await orderGrain.Create(orderDto);
     }
@@ -44,7 +44,7 @@ public class OrderController : ControllerBase
     [Route("GetOrders")]
     public async Task<List<OrderDetailDto>> GetOrdersByUser()
     {
-        var orderGrain = _clusterClient.GetGrain<IOrderGrain>(1);
+        var orderGrain = _clusterClient.GetGrain<IOrderGrain>(Random.Shared.Next());
         return await orderGrain.GetOrderDetails();
     }
 }

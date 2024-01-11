@@ -13,7 +13,8 @@ namespace GrpcService.OrderService
     {
         UnaryResult<ChangeOrderStatusResponse> ChangeOrderStatus(ChangeOrderStatusRequest request);
 
-        UnaryResult<CheckOrderOutBoxMessageResponse> CheckOrderOutBoxMessage(CheckOrderOutBoxMessageRequest request);
+        UnaryResult<GetOrderStatusResponse> GetOrderStatus(GetOrderStatusRequest request);
+        //待付款订单
     }
 
     [MessagePackObject(true)]
@@ -23,9 +24,9 @@ namespace GrpcService.OrderService
     public record ChangeOrderStatusRequest(long orderId,int status);
 
     [MessagePackObject(true)]
-    public record CheckOrderOutBoxMessageResponse(bool success);
+    public record GetOrderStatusResponse(int status);
 
     [MessagePackObject(true)]
-    public record CheckOrderOutBoxMessageRequest(long orderId);
+    public record GetOrderStatusRequest(long orderId);
 
 }

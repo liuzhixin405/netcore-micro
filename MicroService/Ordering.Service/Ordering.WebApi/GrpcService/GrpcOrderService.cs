@@ -13,13 +13,10 @@ namespace Ordering.WebApi.GrpcService
     {
         private readonly IWriteOrderRepository _writeRepository;
         private readonly IReadOrderRepository _readRepository;
-        private readonly IReadOutBoxMessageRepository _readOutBoxMessageRepository;
-        public GrpcOrderService(IWriteOrderRepository writeOrderRepository,IReadOrderRepository readOrderRepository, IReadOutBoxMessageRepository readOutBoxMessageRepository)
+        public GrpcOrderService(IWriteOrderRepository writeOrderRepository,IReadOrderRepository readOrderRepository)
         {
             _writeRepository = writeOrderRepository;
             _readRepository = readOrderRepository;
-            _readOutBoxMessageRepository = readOutBoxMessageRepository;
-
         }
         public async UnaryResult<ChangeOrderStatusResponse> ChangeOrderStatus(ChangeOrderStatusRequest request)
         {
@@ -32,11 +29,10 @@ namespace Ordering.WebApi.GrpcService
             var result = await _writeRepository.SaveChangeAsync();
             return new ChangeOrderStatusResponse(result==1, "");
         }
-
-        public async UnaryResult<CheckOrderOutBoxMessageResponse> CheckOrderOutBoxMessage(CheckOrderOutBoxMessageRequest request)
+        public async UnaryResult<GetOrderStatusResponse> GetOrderStatus(GetOrderStatusRequest request)
         {
-            var message =await _readOutBoxMessageRepository.GetById(request.orderId);
-            return new CheckOrderOutBoxMessageResponse(message==null?false:message.ProceddedOnUtc!=null);
-        }//orderstatus新增待确认到待付款状态，可以通过状态判断,也可以继续保持
+            var order = await _readRepository.GetById(request.orderId);
+            return new GetOrderStatusResponse((int)order.OrderStatus);
+        }
     }
 }
