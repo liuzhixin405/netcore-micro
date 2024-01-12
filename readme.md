@@ -38,11 +38,19 @@ https://www.cnblogs.com/morec/p/17054383.html
 ![Alt text](readmeimg/image-3.png)
 
 购买列表
+通过发件箱模式发送一条扣减库存的rabbitmq消息和一条延时队列，待确认改成待付款。
+付款服务付款,延时队列消费掉上面的消息，判断该订单有没付款，已付款跳过，对于待付款的就取消，同时库存还原。
 
-![Alt text](readmeimg/image-4.png)
+![Alt text](Snipaste_2024-01-12_13-22-07.png)
+
+![Alt text](Snipaste_2024-01-12_13-22-35.png)
 
 ![Alt text](readmeimg/image-5.png)
+
+rabbitmq的队列:
+![Alt text](Snipaste_2024-01-12_13-27-45.png)
+
 后续:
 
-付款，发货...
+发货...
 完善：es商品查询

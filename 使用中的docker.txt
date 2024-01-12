@@ -1,0 +1,10 @@
+sqlserver:
+docker run --name=sqlserver -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Xx123456Yy@!"  --memory 2000M -p 1401:1433  -d mcr.microsoft.com/mssql/server
+
+
+redis:
+docker run --name redis -p 6379:6379 -d --restart=always redis redis-server --appendonly yes --requirepass "123456"
+
+
+rabbitmq:
+docker run -d -p 15672:15672  -p  5672:5672  -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin --name rabbitmq   rabbitmq:management
