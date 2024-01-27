@@ -7,6 +7,7 @@ using Common.Util;
 using Common.DistributedId;
 using Common.Redis.Extensions;
 using Orleans;
+using Common.Util.Exceptions;
 
 namespace Ordering.WebApi.Services
 {
@@ -51,12 +52,12 @@ namespace Ordering.WebApi.Services
             long userId = _userId;
             if (userId == 0)
             {
-                throw new Exception("用户记录为空");
+                throw new ParamsErrorException("用户记录为空");
             }
             var orderList = await _readRepo.GetListAsync(x => x.UserId == userId);
             if (orderList == null)
             {
-                return null;
+                return new List<OrderDetailDto>();
             }
             var productsDic = await _redisDb.HGetAllAsync("products");
             List<CatalogCopy> catalogCopies = new();
