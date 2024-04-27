@@ -13,12 +13,16 @@ using Ordering.IGrain;
 using Orleans.Configuration;
 using Orleans.Serialization;
 using Ordering.WebApi.Services.Orders;
+using Common.Util.Exceptions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<CommonExceptionFilter>();
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -54,10 +58,10 @@ builder.Services.AddMq(builder.Configuration);
 //redis
 builder.Services.AddSingleton<IRedisCache>(obj =>
 {
-    var config = builder.Configuration.GetSection("Redis").Get<RedisConfiguration>();
+    var config = builder.Configuration.GetSection("Redis").Get<RedisConfiguration>()??throw new SystemErrorException("redis配置有误,请检查后重试");
     var serializer = new MsgPackSerializer();
     var connection = new PooledConnectionMultiplexer(config.ConfigurationOptions);
-    return new RedisCache(obj.GetService<ILoggerFactory>().CreateLogger<RedisCache>(), connection, config, serializer);
+    return new RedisCache(obj.GetService<ILoggerFactory>().CreateLogger<RedisCache>()?? throw new SystemErrorException("rediscache创建失败,请检查后重试"), connection, config, serializer);
 });
 builder.Services.AddSerializer(sb=>
 {
