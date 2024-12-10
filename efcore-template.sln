@@ -95,7 +95,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "Test\UnitTest\U
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Grpc", "Common.Grpc\Common.Grpc.csproj", "{92591774-3B81-46CE-917C-77F54FCCC5B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.SqlSugar", "Common.SqlSugar\Common.SqlSugar.csproj", "{D91B02AF-0187-46D4-8C3F-27DAD8E43767}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.SqlSugar", "Common.SqlSugar\Common.SqlSugar.csproj", "{D91B02AF-0187-46D4-8C3F-27DAD8E43767}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Es", "Common.Es\Common.Es.csproj", "{F937663A-B045-477C-ABAC-81CB98E05159}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -255,6 +257,10 @@ Global
 		{D91B02AF-0187-46D4-8C3F-27DAD8E43767}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D91B02AF-0187-46D4-8C3F-27DAD8E43767}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D91B02AF-0187-46D4-8C3F-27DAD8E43767}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F937663A-B045-477C-ABAC-81CB98E05159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F937663A-B045-477C-ABAC-81CB98E05159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F937663A-B045-477C-ABAC-81CB98E05159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F937663A-B045-477C-ABAC-81CB98E05159}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

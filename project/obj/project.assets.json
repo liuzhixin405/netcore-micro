@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net7.0": {
-      "AsyncKeyedLock/6.2.1": {
+      "AsyncKeyedLock/6.3.4": {
         "type": "package",
         "compile": {
           "lib/net5.0/AsyncKeyedLock.dll": {
@@ -6149,8 +6149,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "AsyncKeyedLock": "6.2.1",
-          "Common.DistributedLock.Abstractions": "1.0.0"
+          "AsyncKeyedLock": "6.3.4",
+          "Common.DistributedLock.Abstractions": "1.0.0",
+          "D:\\github\\netcore-micro\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Common.DistributedLock.InMemory.dll": {}
@@ -6164,6 +6165,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Common.DistributedLock.Abstractions": "1.0.0",
+          "D:\\github\\netcore-micro\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": "1.0.0",
           "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
           "Microsoft.Extensions.Options": "7.0.1",
           "RedLock.net": "2.3.2"
@@ -6231,18 +6233,20 @@
     }
   },
   "libraries": {
-    "AsyncKeyedLock/6.2.1": {
-      "sha512": "WUvN3Q7aL3wARMcVi/KYTHjOC+0Ld+/ikKU6UGr4aOl7TuK1I2MNKeUkmfr7y4S3UNjQbpzNQCV2OcJq1S/yXg==",
+    "AsyncKeyedLock/6.3.4": {
+      "sha512": "+0YPXvamnopzHSgBpv0vg+9/NJH+6jm1ZODuMMs7p43yH7hA/NxNi+/U7T7eazZqW+V+0ZsbreYruhu6i7N4PA==",
       "type": "package",
-      "path": "asynckeyedlock/6.2.1",
+      "path": "asynckeyedlock/6.3.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "README.md",
-        "asynckeyedlock.6.2.1.nupkg.sha512",
+        "asynckeyedlock.6.3.4.nupkg.sha512",
         "asynckeyedlock.nuspec",
         "lib/net5.0/AsyncKeyedLock.dll",
         "lib/net5.0/AsyncKeyedLock.xml",
+        "lib/net8.0/AsyncKeyedLock.dll",
+        "lib/net8.0/AsyncKeyedLock.xml",
         "lib/netstandard2.0/AsyncKeyedLock.dll",
         "lib/netstandard2.0/AsyncKeyedLock.xml",
         "lib/netstandard2.1/AsyncKeyedLock.dll",
@@ -16381,26 +16385,29 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lzx\\.nuget\\packages\\": {}
+    "C:\\Users\\victor\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\github\\efcore-template\\project\\project.csproj",
+      "projectUniqueName": "D:\\github\\netcore-micro\\project\\project.csproj",
       "projectName": "project",
-      "projectPath": "D:\\github\\efcore-template\\project\\project.csproj",
-      "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
-      "outputPath": "D:\\github\\efcore-template\\project\\obj\\",
+      "projectPath": "D:\\github\\netcore-micro\\project\\project.csproj",
+      "packagesPath": "C:\\Users\\victor\\.nuget\\packages\\",
+      "outputPath": "D:\\github\\netcore-micro\\project\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -16408,32 +16415,32 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\github\\efcore-template\\Common.Cache\\Common.Cache.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\Common.Cache\\Common.Cache.csproj"
+            "D:\\github\\netcore-micro\\Common.Cache\\Common.Cache.csproj": {
+              "projectPath": "D:\\github\\netcore-micro\\Common.Cache\\Common.Cache.csproj"
             },
-            "D:\\github\\efcore-template\\Common.DapperDal\\Common.DapperDal.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\Common.DapperDal\\Common.DapperDal.csproj"
+            "D:\\github\\netcore-micro\\Common.DapperDal\\Common.DapperDal.csproj": {
+              "projectPath": "D:\\github\\netcore-micro\\Common.DapperDal\\Common.DapperDal.csproj"
             },
-            "D:\\github\\efcore-template\\Common.DistributedId\\Common.DistributedId.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\Common.DistributedId\\Common.DistributedId.csproj"
+            "D:\\github\\netcore-micro\\Common.DistributedId\\Common.DistributedId.csproj": {
+              "projectPath": "D:\\github\\netcore-micro\\Common.DistributedId\\Common.DistributedId.csproj"
             },
-            "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
+            "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
+              "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
             },
-            "D:\\github\\efcore-template\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj"
+            "D:\\github\\netcore-micro\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj": {
+              "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj"
             },
-            "D:\\github\\efcore-template\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj"
+            "D:\\github\\netcore-micro\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj": {
+              "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj"
             },
-            "D:\\github\\efcore-template\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj"
+            "D:\\github\\netcore-micro\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj": {
+              "projectPath": "D:\\github\\netcore-micro\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj"
             },
-            "D:\\github\\efcore-template\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj"
+            "D:\\github\\netcore-micro\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj": {
+              "projectPath": "D:\\github\\netcore-micro\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj"
             },
-            "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj": {
-              "projectPath": "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj"
+            "D:\\github\\netcore-micro\\Common.Util\\Common.Util.csproj": {
+              "projectPath": "D:\\github\\netcore-micro\\Common.Util\\Common.Util.csproj"
             }
           }
         }
@@ -16520,19 +16527,19 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[7.0.16, 7.0.16]"
+            "version": "[7.0.20, 7.0.20]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[7.0.16, 7.0.16]"
+            "version": "[7.0.20, 7.0.20]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[7.0.16, 7.0.16]"
+            "version": "[7.0.20, 7.0.20]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[7.0.16, 7.0.16]"
+            "version": "[7.0.20, 7.0.20]"
           }
         ],
         "frameworkReferences": {
@@ -16543,8 +16550,29 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "找不到项目“D:\\github\\netcore-micro\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj”。请检查项目引用是否有效以及项目文件是否存在。",
+      "libraryId": "D:\\github\\netcore-micro\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "包 \"MessagePack\" 2.2.60 具有已知的 中 严重性漏洞，https://github.com/advisories/GHSA-4qm4-8hg2-g2xm",
+      "libraryId": "MessagePack",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

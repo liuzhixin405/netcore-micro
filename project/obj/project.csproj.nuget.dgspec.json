@@ -1,27 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "D:\\github\\efcore-template\\project\\project.csproj": {}
+    "D:\\github\\netcore-micro\\project\\project.csproj": {}
   },
   "projects": {
-    "D:\\github\\efcore-template\\Common.Cache\\Common.Cache.csproj": {
+    "D:\\github\\netcore-micro\\Common.Cache\\Common.Cache.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\Common.Cache\\Common.Cache.csproj",
+        "projectUniqueName": "D:\\github\\netcore-micro\\Common.Cache\\Common.Cache.csproj",
         "projectName": "Common.Cache",
-        "projectPath": "D:\\github\\efcore-template\\Common.Cache\\Common.Cache.csproj",
-        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
-        "outputPath": "D:\\github\\efcore-template\\Common.Cache\\obj\\",
+        "projectPath": "D:\\github\\netcore-micro\\Common.Cache\\Common.Cache.csproj",
+        "packagesPath": "C:\\Users\\victor\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\netcore-micro\\Common.Cache\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -29,8 +31,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj"
+              "D:\\github\\netcore-micro\\Common.Util\\Common.Util.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\Common.Util\\Common.Util.csproj"
               }
             }
           }
@@ -87,28 +89,30 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\github\\efcore-template\\Common.DapperDal\\Common.DapperDal.csproj": {
+    "D:\\github\\netcore-micro\\Common.DapperDal\\Common.DapperDal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\Common.DapperDal\\Common.DapperDal.csproj",
+        "projectUniqueName": "D:\\github\\netcore-micro\\Common.DapperDal\\Common.DapperDal.csproj",
         "projectName": "Common.DapperDal",
-        "projectPath": "D:\\github\\efcore-template\\Common.DapperDal\\Common.DapperDal.csproj",
-        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
-        "outputPath": "D:\\github\\efcore-template\\Common.DapperDal\\obj\\",
+        "projectPath": "D:\\github\\netcore-micro\\Common.DapperDal\\Common.DapperDal.csproj",
+        "packagesPath": "C:\\Users\\victor\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\netcore-micro\\Common.DapperDal\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -160,15 +164,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.16, 7.0.16]"
+              "version": "[7.0.20, 7.0.20]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.16, 7.0.16]"
+              "version": "[7.0.20, 7.0.20]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.16, 7.0.16]"
+              "version": "[7.0.20, 7.0.20]"
             }
           ],
           "frameworkReferences": {
@@ -176,28 +180,30 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\github\\efcore-template\\Common.DistributedId\\Common.DistributedId.csproj": {
+    "D:\\github\\netcore-micro\\Common.DistributedId\\Common.DistributedId.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\Common.DistributedId\\Common.DistributedId.csproj",
+        "projectUniqueName": "D:\\github\\netcore-micro\\Common.DistributedId\\Common.DistributedId.csproj",
         "projectName": "Common.DistributedId",
-        "projectPath": "D:\\github\\efcore-template\\Common.DistributedId\\Common.DistributedId.csproj",
-        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
-        "outputPath": "D:\\github\\efcore-template\\Common.DistributedId\\obj\\",
+        "projectPath": "D:\\github\\netcore-micro\\Common.DistributedId\\Common.DistributedId.csproj",
+        "packagesPath": "C:\\Users\\victor\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\netcore-micro\\Common.DistributedId\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -205,8 +211,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
+              "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
               }
             }
           }
@@ -263,28 +269,30 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
+    "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj",
+        "projectUniqueName": "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj",
         "projectName": "Common.DistributedLock.Abstractions",
-        "projectPath": "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj",
-        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
-        "outputPath": "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\obj\\",
+        "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj",
+        "packagesPath": "C:\\Users\\victor\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -324,28 +332,30 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\github\\efcore-template\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj": {
+    "D:\\github\\netcore-micro\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj",
+        "projectUniqueName": "D:\\github\\netcore-micro\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj",
         "projectName": "Common.DistributedLock.InMemory",
-        "projectPath": "D:\\github\\efcore-template\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj",
-        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
-        "outputPath": "D:\\github\\efcore-template\\Common.DistributedLock.InMemory\\obj\\",
+        "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj",
+        "packagesPath": "C:\\Users\\victor\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\netcore-micro\\Common.DistributedLock.InMemory\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -353,11 +363,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
+              "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
               },
-              "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
+              "D:\\github\\netcore-micro\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
               }
             }
           }
@@ -379,7 +389,7 @@
           "dependencies": {
             "AsyncKeyedLock": {
               "target": "Package",
-              "version": "[6.2.1, )"
+              "version": "[6.3.4, )"
             }
           },
           "imports": [
@@ -398,28 +408,30 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\github\\efcore-template\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj": {
+    "D:\\github\\netcore-micro\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj",
+        "projectUniqueName": "D:\\github\\netcore-micro\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj",
         "projectName": "Common.DistributedLock.Redis",
-        "projectPath": "D:\\github\\efcore-template\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj",
-        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
-        "outputPath": "D:\\github\\efcore-template\\Common.DistributedLock.Redis\\obj\\",
+        "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj",
+        "packagesPath": "C:\\Users\\victor\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\netcore-micro\\Common.DistributedLock.Redis\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -427,11 +439,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
+              "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
               },
-              "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
+              "D:\\github\\netcore-micro\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
               }
             }
           }
@@ -480,28 +492,30 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\github\\efcore-template\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj": {
+    "D:\\github\\netcore-micro\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj",
+        "projectUniqueName": "D:\\github\\netcore-micro\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj",
         "projectName": "Common.MessageMiddleware",
-        "projectPath": "D:\\github\\efcore-template\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj",
-        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
-        "outputPath": "D:\\github\\efcore-template\\Common.MessageMiddleware\\obj\\",
+        "projectPath": "D:\\github\\netcore-micro\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj",
+        "packagesPath": "C:\\Users\\victor\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\netcore-micro\\Common.MessageMiddleware\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -585,15 +599,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.16, 7.0.16]"
+              "version": "[7.0.20, 7.0.20]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.16, 7.0.16]"
+              "version": "[7.0.20, 7.0.20]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.16, 7.0.16]"
+              "version": "[7.0.20, 7.0.20]"
             }
           ],
           "frameworkReferences": {
@@ -601,28 +615,30 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\github\\efcore-template\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj": {
+    "D:\\github\\netcore-micro\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj",
+        "projectUniqueName": "D:\\github\\netcore-micro\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj",
         "projectName": "Common.RepositoryComponent",
-        "projectPath": "D:\\github\\efcore-template\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj",
-        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
-        "outputPath": "D:\\github\\efcore-template\\Common.RepositoryComponent\\obj\\",
+        "projectPath": "D:\\github\\netcore-micro\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj",
+        "packagesPath": "C:\\Users\\victor\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\netcore-micro\\Common.RepositoryComponent\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -666,15 +682,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.16, 7.0.16]"
+              "version": "[7.0.20, 7.0.20]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.16, 7.0.16]"
+              "version": "[7.0.20, 7.0.20]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.16, 7.0.16]"
+              "version": "[7.0.20, 7.0.20]"
             }
           ],
           "frameworkReferences": {
@@ -682,28 +698,30 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj": {
+    "D:\\github\\netcore-micro\\Common.Util\\Common.Util.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj",
+        "projectUniqueName": "D:\\github\\netcore-micro\\Common.Util\\Common.Util.csproj",
         "projectName": "Common.Util",
-        "projectPath": "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj",
-        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
-        "outputPath": "D:\\github\\efcore-template\\Common.Util\\obj\\",
+        "projectPath": "D:\\github\\netcore-micro\\Common.Util\\Common.Util.csproj",
+        "packagesPath": "C:\\Users\\victor\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\netcore-micro\\Common.Util\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -765,83 +783,30 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
+    "D:\\github\\netcore-micro\\project\\project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj",
-        "projectName": "Common.DistributedLock.Abstractions",
-        "projectPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj",
-        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
-        "outputPath": "D:\\github\\efcore-template\\DistributedLock.Abstractions\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "D:\\github\\efcore-template\\project\\project.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\github\\efcore-template\\project\\project.csproj",
+        "projectUniqueName": "D:\\github\\netcore-micro\\project\\project.csproj",
         "projectName": "project",
-        "projectPath": "D:\\github\\efcore-template\\project\\project.csproj",
-        "packagesPath": "C:\\Users\\lzx\\.nuget\\packages\\",
-        "outputPath": "D:\\github\\efcore-template\\project\\obj\\",
+        "projectPath": "D:\\github\\netcore-micro\\project\\project.csproj",
+        "packagesPath": "C:\\Users\\victor\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\netcore-micro\\project\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\lzx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\victor\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -849,32 +814,32 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\github\\efcore-template\\Common.Cache\\Common.Cache.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Common.Cache\\Common.Cache.csproj"
+              "D:\\github\\netcore-micro\\Common.Cache\\Common.Cache.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\Common.Cache\\Common.Cache.csproj"
               },
-              "D:\\github\\efcore-template\\Common.DapperDal\\Common.DapperDal.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Common.DapperDal\\Common.DapperDal.csproj"
+              "D:\\github\\netcore-micro\\Common.DapperDal\\Common.DapperDal.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\Common.DapperDal\\Common.DapperDal.csproj"
               },
-              "D:\\github\\efcore-template\\Common.DistributedId\\Common.DistributedId.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Common.DistributedId\\Common.DistributedId.csproj"
+              "D:\\github\\netcore-micro\\Common.DistributedId\\Common.DistributedId.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\Common.DistributedId\\Common.DistributedId.csproj"
               },
-              "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
+              "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
               },
-              "D:\\github\\efcore-template\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj"
+              "D:\\github\\netcore-micro\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.InMemory\\Common.DistributedLock.InMemory.csproj"
               },
-              "D:\\github\\efcore-template\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj"
+              "D:\\github\\netcore-micro\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.Redis\\Common.DistributedLock.Redis.csproj"
               },
-              "D:\\github\\efcore-template\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj"
+              "D:\\github\\netcore-micro\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\Common.MessageMiddleware\\Common.MessageMiddleware.csproj"
               },
-              "D:\\github\\efcore-template\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj"
+              "D:\\github\\netcore-micro\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\Common.RepositoryComponent\\Common.RepositoryComponent.csproj"
               },
-              "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj": {
-                "projectPath": "D:\\github\\efcore-template\\Common.Util\\Common.Util.csproj"
+              "D:\\github\\netcore-micro\\Common.Util\\Common.Util.csproj": {
+                "projectPath": "D:\\github\\netcore-micro\\Common.Util\\Common.Util.csproj"
               }
             }
           }
@@ -961,19 +926,19 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.16, 7.0.16]"
+              "version": "[7.0.20, 7.0.20]"
             },
             {
               "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[7.0.16, 7.0.16]"
+              "version": "[7.0.20, 7.0.20]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.16, 7.0.16]"
+              "version": "[7.0.20, 7.0.20]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[7.0.16, 7.0.16]"
+              "version": "[7.0.20, 7.0.20]"
             }
           ],
           "frameworkReferences": {
@@ -984,7 +949,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300-preview.24203.14\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
