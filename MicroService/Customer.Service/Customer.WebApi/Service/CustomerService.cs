@@ -121,5 +121,83 @@ namespace Customers.Center.Service
             var userId = long.Parse(principal.FindFirst("userid")?.Value);
             return Task.FromResult(userId);
         }
+
+        // 生成刷新令牌
+        private string GenerateRefreshToken()
+        {
+            return Guid.NewGuid().ToString(); // 简单使用GUID生成刷新令牌
+        }
+
+        // 刷新 AccessToken
+        public async Task<TokenDto> RefreshToken(string refreshToken)
+        {
+            var result = new TokenDto(false, "", "无效的刷新令牌");
+
+            // 验证 RefreshToken 是否存在
+            var userId = await GetUserIdFromRefreshToken(refreshToken);
+            if (userId == 0)
+            {
+                result.Message = "刷新令牌无效或已过期";
+                return result;
+            }
+
+            var user = await _customerRepository.GetById(userId);
+            if (user == null)
+            {
+                result.Message = "用户不存在";
+                return result;
+            }
+
+            // 生成新的 AccessToken
+            var claims = new[]
+            {
+            new Claim("username", user.UserName),
+            new Claim("userid", user.Id.ToString())
+        };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.Secret));
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var jwtToken = new JwtSecurityToken(
+                string.Empty,
+                string.Empty,
+                claims,
+                expires: DateTime.Now.AddHours(_jwtOptions.AccessExpireHours),
+                signingCredentials: credentials
+            );
+
+            var token = new JwtSecurityTokenHandler().WriteToken(jwtToken);
+
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                result.Message = "获取token失败";
+                return result;
+            }
+
+            // 生成新的 RefreshToken
+            var newRefreshToken = GenerateRefreshToken();
+
+            result.Token = CryptionHelper.Encrypt(token, CryptionKey, CryptionNonce);
+            result.RefreshToken = newRefreshToken;
+            result.Message = "";
+            result.IsSuccess = true;
+
+            // 更新缓存中的刷新令牌
+            await _cache.SetStringAsync($"RefreshToken_{user.Id}", newRefreshToken, new DistributedCacheEntryOptions { SlidingExpiration = TimeSpan.FromDays(30) });
+
+            return result;
+        }
+
+        // 获取用户ID，通过 RefreshToken
+        private async Task<long> GetUserIdFromRefreshToken(string refreshToken)
+        {
+            var userIdStr = await _cache.GetStringAsync($"RefreshToken_{refreshToken}");
+            if (string.IsNullOrWhiteSpace(userIdStr))
+            {
+                return 0;
+            }
+
+            return long.Parse(userIdStr);
+        }
     }
 }

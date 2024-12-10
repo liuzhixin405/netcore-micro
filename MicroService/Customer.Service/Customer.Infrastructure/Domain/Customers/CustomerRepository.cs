@@ -29,5 +29,9 @@ namespace Customers.Infrastructure.Domain.Customers
             password = CryptionHelper.CalculateSHA3Hash(password);
             return await _.Customers.FirstOrDefaultAsync(x=>x.UserName==name&&x.PassWord == password);
         }
+        public async Task<Customer> GetById(long id)
+        {
+            return await _.Customers.FirstOrDefaultAsync(x=>x.Id==id);
+        }
     }
 }

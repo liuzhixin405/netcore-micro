@@ -59,5 +59,12 @@ namespace Customers.Center.Controllers
         {
             await _customerService.AddCustomer(new Service.Dtos.AddCustomerDto(username, password));
         }
+
+        [HttpPost("refresh")]
+        public async Task<IActionResult> RefreshToken([FromBody] string refreshToken)
+        {
+            var result = await _customerService.RefreshToken(refreshToken);
+            return Ok(result);
+        }
     }
 }

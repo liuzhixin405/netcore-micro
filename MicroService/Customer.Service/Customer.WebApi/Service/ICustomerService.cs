@@ -10,5 +10,6 @@ namespace Customers.Center.Service
         Task AddCustomer(AddCustomerDto customerDto);
         Task<TokenDto> GetToken(LoginDto loginDto);
         Task<long> GetUseIdFromToken(string token);
+        Task<TokenDto> RefreshToken(string refreshToken);
     }
 }

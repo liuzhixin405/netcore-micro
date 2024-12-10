@@ -11,6 +11,6 @@ namespace Customers.Domain.Customers
     {
         Task<Customer> Get(string name,string password);
         Task Add(Customer customer);
-        
+        Task<Customer> GetById(long id);
     }
 }
