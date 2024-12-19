@@ -139,15 +139,19 @@
           "dependencies": {
             "Dapper": {
               "target": "Package",
-              "version": "[2.0.123, )"
+              "version": "[2.1.28, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.3.0, )"
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[8.0.0, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
-              "version": "[4.8.5, )"
+              "version": "[4.8.6, )"
             }
           },
           "imports": [
@@ -365,9 +369,6 @@
             "projectReferences": {
               "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
                 "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
-              },
-              "D:\\github\\netcore-micro\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
-                "projectPath": "D:\\github\\netcore-micro\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
               }
             }
           }
@@ -441,9 +442,6 @@
             "projectReferences": {
               "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
                 "projectPath": "D:\\github\\netcore-micro\\Common.DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
-              },
-              "D:\\github\\netcore-micro\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj": {
-                "projectPath": "D:\\github\\netcore-micro\\DistributedLock.Abstractions\\Common.DistributedLock.Abstractions.csproj"
               }
             }
           }

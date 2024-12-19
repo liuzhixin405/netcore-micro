@@ -11,7 +11,7 @@ namespace DapperDal
         /// 获取所有实体列表
         /// </summary>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList()
+        public virtual Task<IEnumerable<TEntity>> GetList()
         {
             using (var connection = OpenConnection())
             {
@@ -31,7 +31,7 @@ namespace DapperDal
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(object predicate)
+        public virtual Task<IEnumerable<TEntity>> GetList(object predicate)
         {
             using (var connection = OpenConnection())
             {
@@ -52,7 +52,7 @@ namespace DapperDal
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(SortDirection ascending,
+        public virtual Task<IEnumerable<TEntity>> GetList(SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
         {
             using (var connection = OpenConnection())
@@ -75,7 +75,7 @@ namespace DapperDal
         /// <param name="predicate">查询条件</param>
         /// <param name="sort">排序条件</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(object predicate, object sort)
+        public virtual Task<IEnumerable<TEntity>> GetList(object predicate, object sort)
         {
             using (var connection = OpenConnection())
             {
@@ -98,7 +98,7 @@ namespace DapperDal
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(object predicate,
+        public virtual Task<IEnumerable<TEntity>> GetList(object predicate,
             SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
         {
@@ -121,7 +121,7 @@ namespace DapperDal
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate)
+        public virtual Task<IEnumerable<TEntity>> GetList(Expression<Func<TEntity, bool>> predicate)
         {
             using (var connection = OpenConnection())
             {
@@ -143,7 +143,7 @@ namespace DapperDal
         /// <param name="predicate">查询条件</param>
         /// <param name="sort">排序条件</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate, object sort)
+        public virtual Task<IEnumerable<TEntity>> GetList(Expression<Func<TEntity, bool>> predicate, object sort)
         {
             using (var connection = OpenConnection())
             {
@@ -167,7 +167,7 @@ namespace DapperDal
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体列表</returns>
-        public virtual IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate,
+        public virtual Task<IEnumerable<TEntity>> GetList(Expression<Func<TEntity, bool>> predicate,
             SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
         {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using DapperDal.Expressions;
 using DapperDal.Predicate;
 
@@ -14,7 +15,7 @@ namespace DapperDal
         /// </summary>
         /// <param name="entity">实体</param>
         /// <returns>更新结果</returns>
-        public virtual bool Update(TEntity entity)
+        public virtual Task<bool> Update(TEntity entity)
         {
             using (var connection = OpenConnection())
             {
@@ -32,7 +33,7 @@ namespace DapperDal
         /// <param name="entity">实体</param>
         /// <param name="props">要更新的属性名列表</param>
         /// <returns>更新结果</returns>
-        public virtual bool Update(TEntity entity, IEnumerable<string> props)
+        public virtual Task<bool> Update(TEntity entity, IEnumerable<string> props)
         {
             using (var connection = OpenConnection())
             {
@@ -51,7 +52,7 @@ namespace DapperDal
         /// <param name="entity">实体</param>
         /// <param name="props">要更新的属性名列表，以匿名对象提供</param>
         /// <returns>更新结果</returns>
-        public virtual bool Update(TEntity entity, object props)
+        public virtual Task<bool> Update(TEntity entity, object props)
         {
             using (var connection = OpenConnection())
             {
@@ -70,7 +71,7 @@ namespace DapperDal
         /// <param name="id">实体主键ID</param>
         /// <param name="props">更新属性名</param>
         /// <returns>更新结果</returns>
-        public virtual bool Update(TPrimaryKey id, object props)
+        public virtual Task<bool> Update(TPrimaryKey id, object props)
         {
             using (var connection = OpenConnection())
             {
@@ -91,7 +92,7 @@ namespace DapperDal
         /// </summary>
         /// <param name="keyAndProps">更新实体，包含主键ID、更新属性及值</param>
         /// <returns>更新结果</returns>
-        public virtual bool Update(object keyAndProps)
+        public virtual Task<bool> Update(object keyAndProps)
         {
             using (var connection = OpenConnection())
             {
@@ -110,7 +111,7 @@ namespace DapperDal
         /// <param name="props">更新属性及值</param>
         /// <param name="predicate">更新条件，使用谓词或匿名对象</param>
         /// <returns>更新结果</returns>
-        public virtual bool Update(object props, object predicate)
+        public virtual Task<bool> Update(object props, object predicate)
         {
             using (var connection = OpenConnection())
             {
@@ -130,7 +131,7 @@ namespace DapperDal
         /// <param name="props">更新属性及值</param>
         /// <param name="predicate">更新条件，使用表达式</param>
         /// <returns>更新结果</returns>
-        public virtual bool Update(object props, Expression<Func<TEntity, bool>> predicate)
+        public virtual Task<bool> Update(object props, Expression<Func<TEntity, bool>> predicate)
         {
             using (var connection = OpenConnection())
             {

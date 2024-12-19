@@ -10,7 +10,7 @@ namespace DapperDal
         /// 获取实体条数
         /// </summary>
         /// <returns>实体条数</returns>
-        public virtual int Count()
+        public virtual Task<int> Count()
         {
             using (var connection = OpenConnection())
             {
@@ -28,7 +28,7 @@ namespace DapperDal
         /// </summary>
         /// <param name="predicate">条件，使用谓词或匿名对象</param>
         /// <returns>实体条数</returns>
-        public virtual int Count(object predicate)
+        public virtual Task<int> Count(object predicate)
         {
             using (var connection = OpenConnection())
             {
@@ -46,7 +46,7 @@ namespace DapperDal
         /// </summary>
         /// <param name="predicate">条件，使用表达式</param>
         /// <returns>实体条数</returns>
-        public virtual int Count(Expression<Func<TEntity, bool>> predicate)
+        public virtual Task<int> Count(Expression<Func<TEntity, bool>> predicate)
         {
             using (var connection = OpenConnection())
             {

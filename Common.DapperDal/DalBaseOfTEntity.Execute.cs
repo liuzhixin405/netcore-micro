@@ -14,11 +14,11 @@ namespace DapperDal
         /// </summary>
         /// <param name="sql">SQL语句</param>
         /// <returns>影响行数</returns>
-        public virtual int Execute(string sql)
+        public virtual Task<int> Execute(string sql)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Execute(sql);
+                return connection.ExecuteAsync(sql);
             }
         }
 
@@ -28,11 +28,11 @@ namespace DapperDal
         /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>影响行数</returns>
-        public virtual int Execute(string sql, object parameters)
+        public virtual Task<int> Execute(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Execute(sql, parameters);
+                return connection.ExecuteAsync(sql, parameters);
             }
         }
 
@@ -43,11 +43,11 @@ namespace DapperDal
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>影响行数</returns>
-        public virtual int Execute(string sql, object parameters, CommandType commandType)
+        public virtual Task<int> Execute(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Execute(sql, parameters, commandType: commandType);
+                return connection.ExecuteAsync(sql, parameters, commandType: commandType);
             }
         }
     }

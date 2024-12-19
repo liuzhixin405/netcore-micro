@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using DapperDal.Mapper;
+using MySql.Data.MySqlClient;
 
 namespace DapperDal
 {

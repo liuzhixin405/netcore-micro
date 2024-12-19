@@ -16,17 +16,16 @@ namespace project.Services
             _connectionString = configuration["ConnectionStrings:SqlServer:WriteConnection"];
             _mapper = mapper;
         }
-        public Task Add(CreateCustomerDto cdto)
+        public async Task Add(CreateCustomerDto cdto)
         {
-            new CustomerDal(_connectionString).Insert(
+           await new CustomerDal(_connectionString).Insert(
                 _mapper.Map<Customer>(cdto));
-            return Task.CompletedTask;
         }
 
-        public Task<IEnumerable<Customer>> GetCustomers()
+        public async Task<IEnumerable<Customer>> GetCustomers()
         {
-            var result = new CustomerDal(_connectionString).GetList();
-            return Task.FromResult(result);
+            var result =await new CustomerDal(_connectionString).GetList();
+            return result;
         }
     }
 }

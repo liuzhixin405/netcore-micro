@@ -13,11 +13,11 @@ namespace DapperDal
         /// </summary>
         /// <param name="entity">实体</param>
         /// <returns>实体主键</returns>
-        public virtual TPrimaryKey Insert(TEntity entity)
+        public virtual async Task<TPrimaryKey> Insert(TEntity entity)
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DalImplementor.Insert(
+                return await Configuration.DalImplementor.Insert(
                     connection: connection,
                     entity: entity,
                     transaction: null,
@@ -29,11 +29,11 @@ namespace DapperDal
         /// 批量插入指定实体集合
         /// </summary>
         /// <param name="entities">实体集合</param>
-        public virtual void Insert(IEnumerable<TEntity> entities)
+        public virtual Task Insert(IEnumerable<TEntity> entities)
         {
             using (var connection = OpenConnection())
             {
-                Configuration.DalImplementor.Insert(
+              return  Configuration.DalImplementor.Insert(
                     connection: connection,
                     entities: entities,
                     transaction: null,

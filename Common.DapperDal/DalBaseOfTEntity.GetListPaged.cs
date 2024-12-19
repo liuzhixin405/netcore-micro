@@ -16,7 +16,7 @@ namespace DapperDal
         /// <param name="pageNumber">页号，从1起始</param>
         /// <param name="itemsPerPage">每页条数</param>
         /// <returns>实体分页列表</returns>
-        public virtual IEnumerable<TEntity> GetListPaged(object predicate, object sort,
+        public virtual Task<IEnumerable<TEntity>> GetListPaged(object predicate, object sort,
             int pageNumber, int itemsPerPage)
         {
             using (var connection = OpenConnection())
@@ -44,7 +44,7 @@ namespace DapperDal
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体分页列表</returns>
-        public virtual IEnumerable<TEntity> GetListPaged(object predicate,
+        public virtual Task<IEnumerable<TEntity>> GetListPaged(object predicate,
             int pageNumber, int itemsPerPage,
             SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
@@ -73,7 +73,7 @@ namespace DapperDal
         /// <param name="pageNumber">页号，从1起始</param>
         /// <param name="itemsPerPage">每页条数</param>
         /// <returns>实体分页列表</returns>
-        public virtual IEnumerable<TEntity> GetListPaged(Expression<Func<TEntity, bool>> predicate, object sort,
+        public virtual Task<IEnumerable<TEntity>> GetListPaged(Expression<Func<TEntity, bool>> predicate, object sort,
             int pageNumber, int itemsPerPage)
         {
             using (var connection = OpenConnection())
@@ -102,7 +102,7 @@ namespace DapperDal
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体分页列表</returns>
-        public virtual IEnumerable<TEntity> GetListPaged(Expression<Func<TEntity, bool>> predicate,
+        public virtual Task<IEnumerable<TEntity>> GetListPaged(Expression<Func<TEntity, bool>> predicate,
             int pageNumber, int itemsPerPage,
             SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)

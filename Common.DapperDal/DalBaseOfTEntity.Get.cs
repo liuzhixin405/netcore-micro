@@ -13,7 +13,7 @@ namespace DapperDal
         /// </summary>
         /// <param name="id">实体ID</param>
         /// <returns>实体</returns>
-        public virtual TEntity Get(TPrimaryKey id)
+        public virtual Task<TEntity> Get(TPrimaryKey id)
         {
             using (var connection = OpenConnection())
             {

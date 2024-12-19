@@ -15,7 +15,7 @@ namespace DapperDal
         /// <param name="softDeleteProps">逻辑删除属性名及更新值，默认:IsActive=0</param>
         /// <param name="softActiveProps">激活属性名及更新值，默认:IsActive=1</param>
         /// <returns>更新结果</returns>
-        public virtual bool SwitchActive(TEntity entity, bool isActive,
+        public virtual Task<bool> SwitchActive(TEntity entity, bool isActive,
             object softDeleteProps = null, object softActiveProps = null)
         {
             if (isActive)
@@ -46,7 +46,7 @@ namespace DapperDal
         /// <param name="softDeleteProps">逻辑删除属性名及更新值，默认:IsActive=0</param>
         /// <param name="softActiveProps">激活属性名及更新值，默认:IsActive=1</param>
         /// <returns>更新结果</returns>
-        public virtual bool SwitchActive(TPrimaryKey id, bool isActive,
+        public virtual Task<bool> SwitchActive(TPrimaryKey id, bool isActive,
             object softDeleteProps = null, object softActiveProps = null)
         {
             IPredicate predicate = Configuration.DalImplementor.GetIdPredicate<TEntity>(id);
@@ -79,7 +79,7 @@ namespace DapperDal
         /// <param name="softDeleteProps">逻辑删除属性名及更新值，默认:IsActive=0</param>
         /// <param name="softActiveProps">激活属性名及更新值，默认:IsActive=1</param>
         /// <returns>更新结果</returns>
-        public virtual bool SwitchActive(object predicate, bool isActive,
+        public virtual Task<bool> SwitchActive(object predicate, bool isActive,
             object softDeleteProps = null, object softActiveProps = null)
         {
             if (isActive)
@@ -110,7 +110,7 @@ namespace DapperDal
         /// <param name="softDeleteProps">逻辑删除属性名及更新值，默认:IsActive=0</param>
         /// <param name="softActiveProps">激活属性名及更新值，默认:IsActive=1</param>
         /// <returns>更新结果</returns>
-        public virtual bool SwitchActive(Expression<Func<TEntity, bool>> predicate, bool isActive,
+        public virtual Task<bool> SwitchActive(Expression<Func<TEntity, bool>> predicate, bool isActive,
             object softDeleteProps = null, object softActiveProps = null)
         {
             if (isActive)

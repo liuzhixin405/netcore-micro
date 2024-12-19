@@ -12,7 +12,7 @@ namespace DapperDal
         /// </summary>
         /// <param name="entity">实体</param>
         /// <returns>删除结果</returns>
-        public virtual bool Delete(TEntity entity)
+        public virtual Task<bool> Delete(TEntity entity)
         {
             using (var connection = OpenConnection())
             {
@@ -29,7 +29,7 @@ namespace DapperDal
         /// </summary>
         /// <param name="id">实体主键ID</param>
         /// <returns>删除结果</returns>
-        public virtual bool Delete(TPrimaryKey id)
+        public virtual Task<bool> Delete(TPrimaryKey id)
         {
             using (var connection = OpenConnection())
             {
@@ -48,7 +48,7 @@ namespace DapperDal
         /// </summary>
         /// <param name="predicate">删除条件</param>
         /// <returns>删除结果</returns>
-        public virtual bool Delete(object predicate)
+        public virtual Task<bool> Delete(object predicate)
         {
             using (var connection = OpenConnection())
             {
@@ -65,7 +65,7 @@ namespace DapperDal
         /// </summary>
         /// <param name="predicate">删除条件</param>
         /// <returns>删除结果</returns>
-        public virtual bool Delete(Expression<Func<TEntity, bool>> predicate)
+        public virtual Task<bool> Delete(Expression<Func<TEntity, bool>> predicate)
         {
             using (var connection = OpenConnection())
             {

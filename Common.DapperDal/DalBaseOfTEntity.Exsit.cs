@@ -11,15 +11,15 @@ namespace DapperDal
         /// 判断实体是否存在
         /// </summary>
         /// <returns>是否存在</returns>
-        public virtual bool Exsit()
+        public virtual async Task<bool> Exsit()
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DalImplementor.Count<TEntity>(
+                return (await Configuration.DalImplementor.Count<TEntity>(
                     connection: connection,
                     predicate: null,
                     transaction: null,
-                    commandTimeout: null) > 0;
+                    commandTimeout: null)) > 0;
             }
         }
 
@@ -28,16 +28,16 @@ namespace DapperDal
         /// </summary>
         /// <param name="id">实体主键ID</param>
         /// <returns>是否存在</returns>
-        public virtual bool Exsit(TPrimaryKey id)
+        public async virtual Task<bool> Exsit(TPrimaryKey id)
         {
             using (var connection = OpenConnection())
             {
                 IPredicate predicate = Configuration.DalImplementor.GetIdPredicate<TEntity>(id);
-                return Configuration.DalImplementor.Count<TEntity>(
+                return (await Configuration.DalImplementor.Count<TEntity>(
                            connection: connection,
                            predicate: predicate,
                            transaction: null,
-                           commandTimeout: null) > 0;
+                           commandTimeout: null)) > 0;
             }
         }
 
@@ -47,15 +47,15 @@ namespace DapperDal
         /// </summary>
         /// <param name="predicate">条件，使用谓词或匿名对象</param>
         /// <returns>是否存在</returns>
-        public virtual bool Exsit(object predicate)
+        public async virtual Task<bool> Exsit(object predicate)
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DalImplementor.Count<TEntity>(
+                return ( await Configuration.DalImplementor.Count<TEntity>(
                            connection: connection,
                            predicate: predicate,
                            transaction: null,
-                           commandTimeout: null) > 0;
+                           commandTimeout: null)) > 0;
             }
         }
 
@@ -65,16 +65,16 @@ namespace DapperDal
         /// </summary>
         /// <param name="predicate">条件，使用表达式</param>
         /// <returns>是否存在</returns>
-        public virtual bool Exsit(Expression<Func<TEntity, bool>> predicate)
+        public async virtual Task<bool> Exsit(Expression<Func<TEntity, bool>> predicate)
         {
             using (var connection = OpenConnection())
             {
                 var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
-                return Configuration.DalImplementor.Count<TEntity>(
+                return (await Configuration.DalImplementor.Count<TEntity>(
                     connection: connection,
                     predicate: predicateGp,
                     transaction: null,
-                    commandTimeout: null) > 0;
+                    commandTimeout: null)) > 0;
             }
         }
     }

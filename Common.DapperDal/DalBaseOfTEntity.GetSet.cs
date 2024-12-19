@@ -16,7 +16,7 @@ namespace DapperDal
         /// <param name="firstResult">起始行数</param>
         /// <param name="maxResults">最大条数</param>
         /// <returns>实体区间列表</returns>
-        public virtual IEnumerable<TEntity> GetSet(object predicate, object sort,
+        public virtual Task<IEnumerable<TEntity>> GetSet(object predicate, object sort,
             int firstResult, int maxResults)
         {
             using (var connection = OpenConnection())
@@ -44,7 +44,7 @@ namespace DapperDal
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体区间列表</returns>
-        public virtual IEnumerable<TEntity> GetSet(object predicate,
+        public virtual Task<IEnumerable<TEntity>> GetSet(object predicate,
             int firstResult, int maxResults,
             SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
@@ -73,7 +73,7 @@ namespace DapperDal
         /// <param name="firstResult">起始行数</param>
         /// <param name="maxResults">最大条数</param>
         /// <returns>实体区间列表</returns>
-        public virtual IEnumerable<TEntity> GetSet(Expression<Func<TEntity, bool>> predicate, object sort,
+        public virtual Task<IEnumerable<TEntity>> GetSet(Expression<Func<TEntity, bool>> predicate, object sort,
             int firstResult, int maxResults)
         {
             using (var connection = OpenConnection())
@@ -102,7 +102,7 @@ namespace DapperDal
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体区间列表</returns>
-        public virtual IEnumerable<TEntity> GetSet(Expression<Func<TEntity, bool>> predicate,
+        public virtual Task<IEnumerable<TEntity>> GetSet(Expression<Func<TEntity, bool>> predicate,
             int firstResult, int maxResults,
             SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)

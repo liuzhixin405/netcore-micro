@@ -11,11 +11,11 @@ namespace DapperDal
         /// 获取所有实体列表的第一条
         /// </summary>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst()
+        public async virtual Task<TEntity> GetFirst()
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DalImplementor.GetTop<TEntity>(
+                return (await Configuration.DalImplementor.GetTop<TEntity>(
                         connection: connection,
                         limit: 1,
                         predicate: null,
@@ -23,7 +23,7 @@ namespace DapperDal
                         transaction: null,
                         commandTimeout: null,
                         buffered: Configuration.Buffered
-                    )
+                    ))?
                     .FirstOrDefault();
             }
         }
@@ -34,11 +34,11 @@ namespace DapperDal
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(object predicate)
+        public async virtual Task<TEntity> GetFirst(object predicate)
         {
             using (var connection = OpenConnection())
             {
-                return Configuration.DalImplementor.GetTop<TEntity>(
+                return (await Configuration.DalImplementor.GetTop<TEntity>(
                         connection: connection,
                         limit: 1,
                         predicate: predicate,
@@ -46,7 +46,7 @@ namespace DapperDal
                         transaction: null,
                         commandTimeout: null,
                         buffered: Configuration.Buffered
-                    )
+                    ))?
                     .FirstOrDefault();
             }
         }
@@ -58,13 +58,13 @@ namespace DapperDal
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(SortDirection ascending,
+        public async virtual Task<TEntity> GetFirst(SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
         {
             using (var connection = OpenConnection())
             {
                 var sort = sortingExpression.ToSortable(ascending);
-                return Configuration.DalImplementor.GetTop<TEntity>(
+                var res = (await Configuration.DalImplementor.GetTop<TEntity>(
                         connection: connection,
                         limit: 1,
                         predicate: null,
@@ -72,8 +72,8 @@ namespace DapperDal
                         transaction: null,
                         commandTimeout: null,
                         buffered: Configuration.Buffered
-                    )
-                    .FirstOrDefault();
+                    ));
+                    return res?.FirstOrDefault();
             }
         }
 
@@ -84,12 +84,12 @@ namespace DapperDal
         /// <param name="predicate">查询条件</param>
         /// <param name="sort">排序条件</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(object predicate, object sort)
+        public async virtual Task<TEntity> GetFirst(object predicate, object sort)
         {
             using (var connection = OpenConnection())
             {
                 var sorts = sort.ToSortable();
-                return Configuration.DalImplementor.GetTop<TEntity>(
+                return (await Configuration.DalImplementor.GetTop<TEntity>(
                         connection: connection,
                         limit: 1,
                         predicate: predicate,
@@ -97,8 +97,7 @@ namespace DapperDal
                         transaction: null,
                         commandTimeout: null,
                         buffered: Configuration.Buffered
-                    )
-                    .FirstOrDefault();
+                    ))?.FirstOrDefault();
             }
         }
 
@@ -110,14 +109,14 @@ namespace DapperDal
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(object predicate,
+        public async virtual Task<TEntity> GetFirst(object predicate,
             SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
         {
             using (var connection = OpenConnection())
             {
                 var sort = sortingExpression.ToSortable(ascending);
-                return Configuration.DalImplementor.GetTop<TEntity>(
+                return (await Configuration.DalImplementor.GetTop<TEntity>(
                         connection: connection,
                         limit: 1,
                         predicate: predicate,
@@ -125,7 +124,7 @@ namespace DapperDal
                         transaction: null,
                         commandTimeout: null,
                         buffered: Configuration.Buffered
-                    )
+                    ))?
                     .FirstOrDefault();
             }
         }
@@ -136,12 +135,12 @@ namespace DapperDal
         /// </summary>
         /// <param name="predicate">查询条件</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(Expression<Func<TEntity, bool>> predicate)
+        public async virtual Task<TEntity> GetFirst(Expression<Func<TEntity, bool>> predicate)
         {
             using (var connection = OpenConnection())
             {
                 var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
-                return Configuration.DalImplementor.GetTop<TEntity>(
+                return (await Configuration.DalImplementor.GetTop<TEntity>(
                         connection: connection,
                         limit: 1,
                         predicate: predicateGp,
@@ -149,8 +148,7 @@ namespace DapperDal
                         transaction: null,
                         commandTimeout: null,
                         buffered: Configuration.Buffered
-                    )
-                    .FirstOrDefault();
+                    ))?.FirstOrDefault();
             }
         }
 
@@ -161,13 +159,13 @@ namespace DapperDal
         /// <param name="predicate">查询条件</param>
         /// <param name="sort">排序条件</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(Expression<Func<TEntity, bool>> predicate, object sort)
+        public async virtual Task<TEntity> GetFirst(Expression<Func<TEntity, bool>> predicate, object sort)
         {
             using (var connection = OpenConnection())
             {
                 var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
                 var sorts = sort.ToSortable();
-                return Configuration.DalImplementor.GetTop<TEntity>(
+                return (await Configuration.DalImplementor.GetTop<TEntity>(
                         connection: connection,
                         limit: 1,
                         predicate: predicateGp,
@@ -175,7 +173,7 @@ namespace DapperDal
                         transaction: null,
                         commandTimeout: null,
                         buffered: Configuration.Buffered
-                    )
+                    ))?
                     .FirstOrDefault();
             }
         }
@@ -188,7 +186,7 @@ namespace DapperDal
         /// <param name="ascending">排序方向</param>
         /// <param name="sortingExpression">排序字段</param>
         /// <returns>实体列表</returns>
-        public virtual TEntity GetFirst(Expression<Func<TEntity, bool>> predicate,
+        public async virtual Task<TEntity> GetFirst(Expression<Func<TEntity, bool>> predicate,
             SortDirection ascending,
             params Expression<Func<TEntity, object>>[] sortingExpression)
         {
@@ -196,7 +194,7 @@ namespace DapperDal
             {
                 var predicateGp = predicate.ToPredicateGroup<TEntity, TPrimaryKey>();
                 var sorts = sortingExpression.ToSortable(ascending);
-                return Configuration.DalImplementor.GetTop<TEntity>(
+                return (await Configuration.DalImplementor.GetTop<TEntity>(
                         connection: connection,
                         limit: 1,
                         predicate: predicateGp,
@@ -204,8 +202,7 @@ namespace DapperDal
                         transaction: null,
                         commandTimeout: null,
                         buffered: Configuration.Buffered
-                    )
-                    .FirstOrDefault();
+                    ))?.FirstOrDefault();
             }
         }
     }

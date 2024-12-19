@@ -14,11 +14,11 @@ namespace DapperDal
         /// </summary>
         /// <param name="sql">SQL语句</param>
         /// <returns>实体集合</returns>
-        public virtual IEnumerable<TEntity> Query(string sql)
+        public virtual Task<IEnumerable<TEntity>> Query(string sql)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Query<TEntity>(sql);
+                return connection.QueryAsync<TEntity>(sql);
             }
         }
 
@@ -28,11 +28,11 @@ namespace DapperDal
         /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>实体集合</returns>
-        public virtual IEnumerable<TEntity> Query(string sql, object parameters)
+        public virtual Task<IEnumerable<TEntity>> Query(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Query<TEntity>(sql, parameters);
+                return connection.QueryAsync<TEntity>(sql, parameters);
             }
         }
 
@@ -43,11 +43,11 @@ namespace DapperDal
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>实体集合</returns>
-        public virtual IEnumerable<TEntity> Query(string sql, object parameters, CommandType commandType)
+        public virtual Task<IEnumerable<TEntity>> Query(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Query<TEntity>(sql, parameters, commandType: commandType);
+                return connection.QueryAsync<TEntity>(sql, parameters, commandType: commandType);
             }
         }
 
@@ -57,11 +57,11 @@ namespace DapperDal
         /// <typeparam name="TAny">返回实体类型</typeparam>
         /// <param name="sql">SQL语句</param>
         /// <returns>实体集合</returns>
-        public virtual IEnumerable<TAny> Query<TAny>(string sql)
+        public virtual Task<IEnumerable<TAny>> Query<TAny>(string sql)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Query<TAny>(sql);
+                return connection.QueryAsync<TAny>(sql);
             }
         }
 
@@ -72,11 +72,11 @@ namespace DapperDal
         /// <param name="sql">SQL语句</param>
         /// <param name="parameters">SQL参数</param>
         /// <returns>实体集合</returns>
-        public virtual IEnumerable<TAny> Query<TAny>(string sql, object parameters)
+        public virtual Task<IEnumerable<TAny>> Query<TAny>(string sql, object parameters)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Query<TAny>(sql, parameters);
+                return connection.QueryAsync<TAny>(sql, parameters);
             }
         }
 
@@ -88,11 +88,11 @@ namespace DapperDal
         /// <param name="parameters">SQL参数</param>
         /// <param name="commandType">SQL语句命令类型</param>
         /// <returns>实体集合</returns>
-        public virtual IEnumerable<TAny> Query<TAny>(string sql, object parameters, CommandType commandType)
+        public virtual Task<IEnumerable<TAny>> Query<TAny>(string sql, object parameters, CommandType commandType)
         {
             using (var connection = OpenConnection())
             {
-                return connection.Query<TAny>(sql, parameters, commandType: commandType);
+                return connection.QueryAsync<TAny>(sql, parameters, commandType: commandType);
             }
         }
     }
